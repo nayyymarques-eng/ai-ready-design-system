@@ -28,8 +28,8 @@ const api = async (method, p, body) => {
 };
 
 const DECISIONS = [
-  'Replaced by an existing component',
-  'Updates the component it refines',
+  'Replaced by one that exists',
+  'Updates the component',
   'Becomes a component',
   'Waits until it appears again',
 ];
@@ -83,10 +83,12 @@ for (const it of items) {
   const issue = open.find(i => i.title === title && !i.pull_request);
   const prev = issue && issue.body.includes(MARK) ? JSON.parse(issue.body.split(MARK)[1].split(' -->')[0]) : null;
   const data = prev || { first: today, occ: [] };
+  // One occurrence per screen: the same screen in a later pull request is not a new occurrence.
+  data.occ = data.occ.filter((o, i, all) => all.findIndex(x => x.file === o.file) === i);
   const ticked = new Set(issue ? DECISIONS.filter(d => issue.body.includes(`- [x] ${d}`)) : []);
   let added = 0;
   for (const o of it.occurrences) {
-    if (!data.occ.some(x => x.screen === o.screen && x.pr === pr)) { data.occ.push({ ...o, pr, prUrl, who: author, date: today }); added++; }
+    if (!data.occ.some(x => x.file === o.file)) { data.occ.push({ ...o, pr, prUrl, who: author, date: today }); added++; }
   }
   // Upload the picture (first time, or a newer look of the part)
   const pic = fs.readFileSync(path.join(dir, `${it.name}.png`)).toString('base64');
