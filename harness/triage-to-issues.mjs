@@ -101,7 +101,8 @@ for (const it of items) {
   } else {
     num = issue.number;
     await api('PATCH', `/issues/${num}`, { body, ...(issue.state === 'closed' && added ? { state: 'open' } : {}) });
-    summary.push(`- #${num} \`${it.name}\`: seen again, ${data.occ.length} times in all`);
+    const times = `${data.occ.length} time${data.occ.length === 1 ? '' : 's'} in all`;
+    summary.push(`- #${num} \`${it.name}\`: ${added ? `seen again, ${times}` : `already in triage, ${times}`}`);
   }
 }
 
