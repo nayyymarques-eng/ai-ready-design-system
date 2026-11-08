@@ -7,6 +7,12 @@ A yes or no choice inside a form, applied when the form is saved.
 <label class="checkbox"><input type="checkbox"> Label</label>
 ```
 
+## In React
+`import { Checkbox } from '../src'`, from `src/components/Checkbox.tsx`. It renders the markup above.
+```tsx
+<Checkbox label="Email me a copy" />
+```
+
 ## Variants and states
 None.
 

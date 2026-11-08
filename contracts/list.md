@@ -9,6 +9,14 @@ Rows of items, each with content on the left and a value or action on the right.
 </div>
 ```
 
+## In React
+`import { List, ListItem } from '../src'`, from `src/components/List.tsx`. It renders the markup above.
+```tsx
+<List>
+  <ListItem label="Tax ID" value="PT 234 567 890" />
+</List>
+```
+
 ## Variants and states
 None.
 

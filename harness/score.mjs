@@ -18,8 +18,9 @@ const jsonAt = args.indexOf('--json');
 const jsonOut = jsonAt >= 0 ? args.splice(jsonAt, 2)[1] : null;
 const dirs = args;
 
-function inPage(CATALOGUE) {
+function inPage([CATALOGUE, COMPONENTS]) {
   const cat = new Set(CATALOGUE);
+  const components = new Set(COMPONENTS);
   const res = {};
   const set = (id, applies, pass, detail) => { if (applies) res[id] = { pass, detail: pass ? '' : detail }; };
   const all = [...document.querySelectorAll('body *')];
@@ -33,8 +34,12 @@ function inPage(CATALOGUE) {
   set('CMP-01', true, unknown.length === 0, [...new Set(unknown)].join(' '));
 
   // CMP-03 new parts are labelled with their job and why
+  // and a refinement names the component it starts from (data-base)
   const unlabelled = newRoots.filter(r => !labelled(r)).map(r => r.dataset.new);
-  set('CMP-03', newRoots.length > 0, unlabelled.length === 0, unlabelled.join(' '));
+  const badBase = newRoots.filter(r => r.dataset.base !== undefined && !components.has(r.dataset.base)).map(r => `${r.dataset.new} (data-base="${r.dataset.base}" is not a component)`);
+  const noBase = newRoots.filter(r => r.dataset.base === undefined && [r, ...r.querySelectorAll('*')].some(el => el.closest('[data-new]') === r && [...el.classList].some(c => c.startsWith('x-')) && [...el.classList].some(c => cat.has(c)))).map(r => `${r.dataset.new} (refines a component with no data-base)`);
+  const cmp03 = [...unlabelled, ...badBase, ...noBase];
+  set('CMP-03', newRoots.length > 0, cmp03.length === 0, cmp03.join(' '));
 
   // CMP-04 no restyling of catalogue components
   const styles = [...document.querySelectorAll('style')].map(s => s.textContent).join('\n');
@@ -122,7 +127,7 @@ function inPage(CATALOGUE) {
   // Inventory
   const catEls = all.filter(el => [...el.classList].some(c => cat.has(c))).length;
   const handBuilt = new Set(unknown).size;
-  const newParts = newRoots.map(r => ({ name: r.dataset.new, job: r.dataset.job || '', why: r.dataset.why || '' }));
+  const newParts = newRoots.map(r => ({ name: r.dataset.new, job: r.dataset.job || '', why: r.dataset.why || '', base: r.dataset.base || '' }));
   return { res, catEls, handBuilt, newParts };
 }
 
@@ -133,7 +138,8 @@ if (fs.existsSync(cdir)) for (const f of fs.readdirSync(cdir)) {
   const t = fs.readFileSync(path.join(cdir, f), 'utf8');
   for (const id of (t.split('## Checked by\n')[1] || '').match(/[A-Z]+-\d+/g) || []) (SOURCE[id] ||= []).push('contracts/' + f);
 }
-const from = id => (SOURCE[id] && !/^(TTL|LAY|SPC|CMP|TYP|COL)-/.test(id) ? SOURCE[id].join(', ') : 'rules.md');
+const COMPONENTS = fs.existsSync(cdir) ? fs.readdirSync(cdir).map(f => f.replace(/\.md$/, '')) : [];
+const from = id => (SOURCE[id] && !/^(TTL|LAY|SPC|CMP|TYP|COL|TSC)-/.test(id) ? SOURCE[id].join(', ') : 'rules.md');
 const browser = await chromium.launch();
 const report = [];
 for (const dir of dirs) {
@@ -142,7 +148,13 @@ for (const dir of dirs) {
     const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
     const file = url.pathToFileURL(path.resolve(dir, f)).href;
     await page.goto(file);
-    const r = await page.evaluate(inPage, CATALOGUE);
+    const r = await page.evaluate(inPage, [CATALOGUE, COMPONENTS]);
+    // TSC-01 the screen compiles (scripts/typecheck.mjs writes typecheck.json next to the screens)
+    const tscFile = path.join(dir, 'typecheck.json');
+    if (fs.existsSync(tscFile)) {
+      const tsc = JSON.parse(fs.readFileSync(tscFile, 'utf8'))[f.replace(/\.html$/, '.tsx')];
+      if (tsc) r.res['TSC-01'] = { pass: tsc.errors.length === 0, detail: tsc.errors.slice(0, 2).join(' | ') };
+    }
     await page.setViewportSize({ width: 375, height: 800 });
     await page.waitForTimeout(50);
     const wide = await page.evaluate(() => document.scrollingElement.scrollWidth);
@@ -150,7 +162,7 @@ for (const dir of dirs) {
     await page.close();
     const ids = Object.keys(r.res);
     const passed = ids.filter(i => r.res[i].pass).length;
-    report.push({ group: path.basename(dir), screen: f, score: Math.round(1000 * passed / ids.length) / 10, passed, applied: ids.length, ...r });
+    report.push({ group: path.relative(path.join(here, '..'), path.resolve(dir)), screen: f, score: Math.round(1000 * passed / ids.length) / 10, passed, applied: ids.length, ...r });
   }
 }
 await browser.close();

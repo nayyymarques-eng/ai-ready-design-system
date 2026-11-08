@@ -10,6 +10,12 @@ One "⋯" button that opens a list of actions.
 </div>
 ```
 
+## In React
+`import { MenuButton } from '../src'`, from `src/components/MenuButton.tsx`. It renders the markup above.
+```tsx
+<MenuButton label="More actions" items={[{ label: 'Edit' }, { label: 'Send reminder' }, { label: 'Deactivate' }]} />
+```
+
 ## Variants and states
 None. States: is-open shows the menu.
 

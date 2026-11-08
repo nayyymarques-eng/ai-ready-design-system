@@ -11,6 +11,12 @@ What a list or table shows when it has nothing yet, and the action that fills it
 </div>
 ```
 
+## In React
+`import { EmptyState } from '../src'`, from `src/components/EmptyState.tsx`. It renders the markup above.
+```tsx
+<EmptyState title="No drivers yet" action={<Button variant="primary">Invite driver</Button>}><p>…</p></EmptyState>
+```
+
 ## Variants and states
 None.
 

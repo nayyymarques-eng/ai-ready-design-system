@@ -7,6 +7,12 @@ A white surface that groups one piece of content.
 <div class="card">…</div>
 ```
 
+## In React
+`import { Card } from '../src'`, from `src/components/Card.tsx`. It renders the markup above.
+```tsx
+<Card>…</Card>
+```
+
 ## Variants and states
 None.
 

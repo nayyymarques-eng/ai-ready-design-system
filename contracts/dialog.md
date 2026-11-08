@@ -13,6 +13,14 @@ Asks for a decision or a confirmation over the page.
 </div>
 ```
 
+## In React
+`import { Dialog } from '../src'`, from `src/components/Dialog.tsx`. It renders the markup above.
+```tsx
+<Dialog id="reject" title="Reject this invoice?" actions={<><Button variant="secondary">Cancel</Button><Button variant="danger">Reject</Button></>}>
+  <Field id="reason" label="Reason" />
+</Dialog>
+```
+
 ## Variants and states
 None.
 

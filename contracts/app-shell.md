@@ -10,6 +10,15 @@ The frame of every screen: the nav rail on the left, the page on the right. On p
 </div>
 ```
 
+## In React
+`import { AppShell } from '../src'`, from `src/components/AppShell.tsx`. It renders the markup above.
+```tsx
+<AppShell nav={<NavRail brand="Tolvane" items={[{ label: 'Drivers', href: '#', count: 24, current: true }]} />}>
+  <PageHeader title="Drivers" />
+  …
+</AppShell>
+```
+
 ## Variants and states
 None.
 

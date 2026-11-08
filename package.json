@@ -3,10 +3,23 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "typecheck": "tsc --noEmit",
+    "typecheck:screens": "node scripts/typecheck.mjs",
+    "render": "node scripts/render.mjs",
+    "preview": "node scripts/preview.mjs",
     "score": "node harness/score.mjs test/components-only test/framework",
+    "eval:setup": "node scripts/make-eval.mjs",
     "map": "python3 build-map.py"
   },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
   "devDependencies": {
-    "playwright": "1.63.0"
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "esbuild": "0.28.2",
+    "playwright": "1.63.0",
+    "typescript": "7.0.2"
   }
 }

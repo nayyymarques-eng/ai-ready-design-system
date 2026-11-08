@@ -7,6 +7,12 @@ A count next to a label.
 <span class="numeral">24</span>
 ```
 
+## In React
+`import { Numeral } from '../src'`, from `src/components/Numeral.tsx`. It renders the markup above.
+```tsx
+<Numeral>24</Numeral>
+```
+
 ## Variants and states
 None.
 

@@ -7,6 +7,12 @@ A message about the whole page.
 <div class="banner banner--warning" role="status"><p>…</p></div>
 ```
 
+## In React
+`import { Banner } from '../src'`, from `src/components/Banner.tsx`. It renders the markup above.
+```tsx
+<Banner tone="warning"><p>Dispatch cut-off in two hours.</p></Banner>   // tone: warning | critical, or none for info
+```
+
 ## Variants and states
 none (info), warning, critical.
 

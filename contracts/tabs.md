@@ -10,6 +10,12 @@ Switches between views of one object.
 </div>
 ```
 
+## In React
+`import { Tabs } from '../src'`, from `src/components/Tabs.tsx`. It renders the markup above.
+```tsx
+<Tabs label="Invoice" items={[{ label: 'Overview', current: true }, { label: 'History' }]} />
+```
+
 ## Variants and states
 None. States: is-current on one tab.
 

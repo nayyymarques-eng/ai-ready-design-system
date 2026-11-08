@@ -10,6 +10,12 @@ The title of the screen and its main actions.
 </header>
 ```
 
+## In React
+`import { PageHeader } from '../src'`, from `src/components/PageHeader.tsx`. It renders the markup above.
+```tsx
+<PageHeader title="Invoice 2291" status={<Badge tone="warning">Awaiting approval</Badge>} actions={<Button variant="primary">Approve</Button>} />
+```
+
 ## Variants and states
 None.
 

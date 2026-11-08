@@ -10,6 +10,14 @@ Rows of items with the same attributes. Wide tables scroll inside their box.
 </table></div>
 ```
 
+## In React
+`import { Table, Tr, Td } from '../src'`, from `src/components/Table.tsx`. It renders the markup above.
+```tsx
+<Table columns={[{ label: 'Driver' }, { label: 'Stops', numeric: true }]}>
+  <Tr><Td>Ana Moreira</Td><Td numeric>18</Td></Tr>
+</Table>
+```
+
 ## Variants and states
 is-number on a th or td right-aligns amounts and counts.
 

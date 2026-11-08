@@ -10,6 +10,12 @@ The product name and the list of places in the product. The current place is mar
 </nav>
 ```
 
+## In React
+`import { NavRail } from '../src'`, from `src/components/NavRail.tsx`. It renders the markup above.
+```tsx
+<NavRail brand="Tolvane" items={[{ label: 'Drivers', href: '#', count: 24, current: true }]} />
+```
+
 ## Variants and states
 None. States: is-current on one item.
 

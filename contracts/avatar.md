@@ -7,6 +7,12 @@ A person's initials in a circle.
 <span class="avatar">AM</span>
 ```
 
+## In React
+`import { Avatar } from '../src'`, from `src/components/Avatar.tsx`. It renders the markup above.
+```tsx
+<Avatar initials="AM" />
+```
+
 ## Variants and states
 None.
 

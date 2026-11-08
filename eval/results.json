@@ -1,0 +1,2615 @@
+[
+  {
+    "group": "eval/components-only/run-1",
+    "screen": "pod-detail.html",
+    "score": 76.5,
+    "passed": 13,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-meta pod-layout pod-col pod-photo pod-photo__stamp pod-caption pod-signature pod-signature__line pod-step__name pod-distance pod-scale pod-scale__limit pod-scale__mark pod-scale__labels pod-steps pod-step pod-step__dot pod-step__note pod-step__time pod-step--final pod-textarea-wrap pod-textarea pod-hint pod-actions"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "span.pod-scale__limit | span.pod-scale__mark | <style> .pod-actions .btn"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": false,
+        "detail": "margin-top: 3px"
+      },
+      "COL-01": {
+        "pass": false,
+        "detail": "#d9d3c7 #b7ad9c #2f5d4a #36695a"
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 67,
+    "handBuilt": 24,
+    "newParts": []
+  },
+  {
+    "group": "eval/components-only/run-1",
+    "screen": "pod-queue.html",
+    "score": 85.7,
+    "passed": 12,
+    "applied": 14,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-intro pod-filters pod-table pod-strong pod-sub pod-flag pod-person pod-photo pod-svg-line pod-svg-ink pod-svg-box pod-muted pod-photo--none pod-badges pod-svg-stroke pod-cards pod-card pod-card__top pod-card__head pod-card__foot"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "<style> .pod-filters .toggle-group"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 93,
+    "handBuilt": 20,
+    "newParts": []
+  },
+  {
+    "group": "eval/components-only/run-1",
+    "screen": "pod-rules.html",
+    "score": 88.2,
+    "passed": 15,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-layout pod-toolbar pod-note pod-sender pod-sender__meta pod-nowrap pod-none pod-fieldset pod-legend pod-option pod-option__hint pod-divider pod-upload pod-photo pod-photo__door pod-photo__number pod-photo__handle pod-photo__step pod-photo__box pod-photo__tape pod-photo__label pod-upload__info pod-upload__name pod-drop pod-actions"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "<style> .pod-layout .table .badge | <style> .pod-layout .table th | <style> .pod-layout .table td | <style> .pod-actions .btn"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 131,
+    "handBuilt": 25,
+    "newParts": []
+  },
+  {
+    "group": "eval/components-only/run-2",
+    "screen": "pod-detail.html",
+    "score": 94.1,
+    "passed": 16,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-layout pod-card-title pod-figure pod-photo wall door frame label num step box tape stamp stamp-text pod-signature baseline ink pod-note pod-driver pod-step pod-label pod-textarea"
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 76,
+    "handBuilt": 22,
+    "newParts": []
+  },
+  {
+    "group": "eval/components-only/run-2",
+    "screen": "pod-queue.html",
+    "score": 85.7,
+    "passed": 12,
+    "applied": 14,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-intro pod-toolbar pod-muted pod-table pod-cell pod-strong pod-person pod-nowrap pod-photo pod-photo__frame pod-photo__detail pod-photo__box pod-badges pod-photo--missing pod-photo__line pod-cards pod-card pod-card__top pod-card__head pod-card__facts"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "<style> .pod-toolbar .toggle-group | <style> .pod-table .badge | <style> .nav-rail__item | <style> .pod-card .btn"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 93,
+    "handBuilt": 20,
+    "newParts": []
+  },
+  {
+    "group": "eval/components-only/run-2",
+    "screen": "pod-rules.html",
+    "score": 88.2,
+    "passed": 15,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-layout pod-count pod-filter pod-table pod-sender pod-sender__name pod-sender__meta pod-req pod-row-selected pod-nowrap pod-phone-list pod-phone-item pod-phone-item__top pod-upload pod-panel-head pod-group pod-note pod-divider pod-upload__label pod-upload__hint pod-photo pod-photo__thumb pod-photo__info pod-photo__name pod-photo__meta pod-drop pod-checklist pod-actions"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "form.pod-upload | <style> .pod-req .badge | <style> .pod-sender .badge | <style> .pod-filter .toggle-group__item | <style> .pod-actions .btn"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 190,
+    "handBuilt": 28,
+    "newParts": []
+  },
+  {
+    "group": "eval/components-only/run-3",
+    "screen": "pod-detail.html",
+    "score": 82.4,
+    "passed": 14,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-layout pod-figure pod-distance pod-meta pod-message"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "<style> .pod-layout .table .badge | <style> .pod-layout .table td:nth-child(2)"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": false,
+        "detail": "#d9d3c7 #a39b8d #3f6b55 #4d7d65"
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 65,
+    "handBuilt": 5,
+    "newParts": []
+  },
+  {
+    "group": "eval/components-only/run-3",
+    "screen": "pod-queue.html",
+    "score": 78.6,
+    "passed": 11,
+    "applied": 14,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-intro pod-filters pod-desktop pod-strong pod-sub pod-driver pod-nowrap pod-thumb pod-thumb__parcel pod-issues pod-thumb--none pod-mobile pod-card pod-card__body pod-card__top"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "<style> .nav-rail__item | <style> .pod-filters .toggle-group__item | <style> .pod-issues .badge | <style> .pod-card__body .btn"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": false,
+        "detail": "margin-left: -11px | margin-left: -1.5px"
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 89,
+    "handBuilt": 15,
+    "newParts": []
+  },
+  {
+    "group": "eval/components-only/run-3",
+    "screen": "pod-rules.html",
+    "score": 88.2,
+    "passed": 15,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-layout pod-filter pod-sender pod-sender__meta pod-proofs pod-note pod-heading pod-fieldset pod-indent pod-upload pod-upload__label pod-upload__file pod-upload__thumb pod-upload__info pod-upload__name pod-upload__drop pod-actions"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "<style> .pod-actions .btn"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 130,
+    "handBuilt": 17,
+    "newParts": []
+  },
+  {
+    "group": "eval/framework/run-1",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 16,
+    "applied": 16,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 75,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the signature collected on the driver's phone",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "message-field",
+        "job": "Let the reviewer write a multi-line message to the driver",
+        "why": "The field contract has only one-line inputs and selects; textarea is listed as not built",
+        "base": "field"
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-1",
+    "screen": "pod-queue.html",
+    "score": 93.3,
+    "passed": 14,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "x-cell-stack x-cell-stack__sub x-cell-person x-cell-badges is-empty"
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 56,
+    "handBuilt": 5,
+    "newParts": [
+      {
+        "name": "filter-scroll",
+        "job": "Lets the filter row scroll on its own on a phone",
+        "why": "The toggle group is inline and does not wrap; with four filters and counts it is wider than a 375px screen",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component; screens may not load image files, so the photo is drawn schematically",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component; screens may not load image files, so the photo is drawn schematically",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component; screens may not load image files, so the photo is drawn schematically",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component; screens may not load image files, so the photo is drawn schematically",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component; screens may not load image files, so the photo is drawn schematically",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component; screens may not load image files, so the photo is drawn schematically",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component; screens may not load image files, so the photo is drawn schematically",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component; screens may not load image files, so the photo is drawn schematically",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-1",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 99,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "fieldset",
+        "job": "Groups the proof checkboxes under one legend",
+        "why": "No contract groups several checkboxes with a shared label",
+        "base": ""
+      },
+      {
+        "name": "file-upload",
+        "job": "Upload the example photo drivers see before they take a proof photo",
+        "why": "File upload is not built (rules section 13)",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-2",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 16,
+    "applied": 16,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 67,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door, with when and where it was taken",
+        "why": "The system has no image or media component; drawn as a schematic because the screen allows no image files",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the signature the recipient drew on the driver's phone",
+        "why": "The system has no image or signature component; the signature is redrawn as a vector stroke",
+        "base": ""
+      },
+      {
+        "name": "pod-message",
+        "job": "Write a message to the driver saying what is missing from the proof",
+        "why": "Textarea is listed as not built; a field holds one line only",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-2",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 15,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 75,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "filter-scroll",
+        "job": "Keeps the filter row inside the page width on phones",
+        "why": "The toggle group does not wrap, and four filters with counts are wider than a 375px phone",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's avatar beside their name and route in a table cell",
+        "why": "A row wraps inside a narrow table cell, which pushed the name under the avatar",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-two-lines",
+        "job": "A table cell with a main value and a quieter detail line under it",
+        "why": "The table contract has no secondary text style inside a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the proof-of-delivery photo, or its empty slot",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "problem-cell",
+        "job": "What needs review on one delivery: dispute and missing proof as badges, with the note under them",
+        "why": "The table contract has no cell that groups several badges with a note",
+        "base": ""
+      },
+      {
+        "name": "badge-group",
+        "job": "Badges side by side on one line in a table cell",
+        "why": "A row wraps and adds no line of its own inside a cell",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-2",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 96,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "photo-upload",
+        "job": "Upload one example photo that drivers see as a good proof photo",
+        "why": "File upload is listed as not built in rules.md",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-3",
+    "screen": "pod-detail.html",
+    "score": 93.8,
+    "passed": 15,
+    "applied": 16,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "x-step x-step__name x-step__where"
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 69,
+    "handBuilt": 3,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Shows the photo the driver took at the door",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Shows the recipient's signature captured on the driver's phone",
+        "why": "The system has no image or signature component",
+        "base": ""
+      },
+      {
+        "name": "message-field",
+        "job": "A multi-line message to the driver",
+        "why": "The system has no textarea; Field only renders an input or a select",
+        "base": "field"
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-3",
+    "screen": "pod-queue.html",
+    "score": 93.3,
+    "passed": 14,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": false,
+        "detail": "person-cell (data-base=\"row\" is not a component) person-cell (data-base=\"row\" is not a component) person-cell (data-base=\"row\" is not a component) person-cell (data-base=\"row\" is not a component) person-cell (data-base=\"row\" is not a component) person-cell (data-base=\"row\" is not a component) person-cell (data-base=\"row\" is not a component) person-cell (data-base=\"row\" is not a component) person-cell (data-base=\"row\" is not a component)"
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 63,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "filter-scroll",
+        "job": "Lets the filter scroll inside its own box on a phone",
+        "why": "The toggle group does not wrap, and four filters with counts are wider than a 375px screen",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "A row wraps the name under the avatar in a narrow cell",
+        "base": "row"
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small thumbnail of the delivery photo, or a marked gap when there is none",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-list",
+        "job": "Lists the missing proofs of one delivery, one under the other",
+        "why": "Badges side by side make the column too wide; a row wraps them unevenly",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "A row wraps the name under the avatar in a narrow cell",
+        "base": "row"
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small thumbnail of the delivery photo, or a marked gap when there is none",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-list",
+        "job": "Lists the missing proofs of one delivery, one under the other",
+        "why": "Badges side by side make the column too wide; a row wraps them unevenly",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "A row wraps the name under the avatar in a narrow cell",
+        "base": "row"
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small thumbnail of the delivery photo, or a marked gap when there is none",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "A row wraps the name under the avatar in a narrow cell",
+        "base": "row"
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small thumbnail of the delivery photo, or a marked gap when there is none",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-list",
+        "job": "Lists the missing proofs of one delivery, one under the other",
+        "why": "Badges side by side make the column too wide; a row wraps them unevenly",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "A row wraps the name under the avatar in a narrow cell",
+        "base": "row"
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small thumbnail of the delivery photo, or a marked gap when there is none",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-list",
+        "job": "Lists the missing proofs of one delivery, one under the other",
+        "why": "Badges side by side make the column too wide; a row wraps them unevenly",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "A row wraps the name under the avatar in a narrow cell",
+        "base": "row"
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small thumbnail of the delivery photo, or a marked gap when there is none",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "A row wraps the name under the avatar in a narrow cell",
+        "base": "row"
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small thumbnail of the delivery photo, or a marked gap when there is none",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-list",
+        "job": "Lists the missing proofs of one delivery, one under the other",
+        "why": "Badges side by side make the column too wide; a row wraps them unevenly",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "A row wraps the name under the avatar in a narrow cell",
+        "base": "row"
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small thumbnail of the delivery photo, or a marked gap when there is none",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-list",
+        "job": "Lists the missing proofs of one delivery, one under the other",
+        "why": "Badges side by side make the column too wide; a row wraps them unevenly",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      },
+      {
+        "name": "person-cell",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "A row wraps the name under the avatar in a narrow cell",
+        "base": "row"
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A main value in a table cell with a quieter detail under it",
+        "why": "Table cells have no secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small thumbnail of the delivery photo, or a marked gap when there is none",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-list",
+        "job": "Lists the missing proofs of one delivery, one under the other",
+        "why": "Badges side by side make the column too wide; a row wraps them unevenly",
+        "base": ""
+      },
+      {
+        "name": "cell-line",
+        "job": "Keeps a short value in a table cell on one line",
+        "why": "Table cells wrap names, times and badges, and a badge has a fixed height",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-3",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 96,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "checkbox-group",
+        "job": "Group the proof checkboxes under one legend",
+        "why": "Checkbox has no group or legend; a form with several related checkboxes needs one label for the set",
+        "base": ""
+      },
+      {
+        "name": "file-upload",
+        "job": "Show the uploaded example proof photo and let the user replace or remove it",
+        "why": "File upload is listed under Not built in rules.md; no contract covers a file and its preview",
+        "base": ""
+      }
+    ]
+  }
+]

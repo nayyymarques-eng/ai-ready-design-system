@@ -7,6 +7,12 @@ Starts one action. The variant says how important the action is.
 <button class="btn btn--primary">Save</button>
 ```
 
+## In React
+`import { Button } from '../src'`, from `src/components/Button.tsx`. It renders the markup above.
+```tsx
+<Button variant="primary">Save</Button>   // variant: primary | secondary | ghost | danger
+```
+
 ## Variants and states
 primary (the main action), secondary (other actions), ghost (quiet actions, menu triggers), danger (destroys something, always after a confirmation). Nothing else.
 

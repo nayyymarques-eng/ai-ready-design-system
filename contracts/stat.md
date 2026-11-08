@@ -10,6 +10,12 @@ One headline number with its label.
 </div>
 ```
 
+## In React
+`import { Stat } from '../src'`, from `src/components/Stat.tsx`. It renders the markup above.
+```tsx
+<Stat label="Deliveries this month" value="12,480" />
+```
+
 ## Variants and states
 None.
 

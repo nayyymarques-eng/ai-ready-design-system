@@ -10,6 +10,12 @@ How far a task is towards done.
 </div>
 ```
 
+## In React
+`import { Progress } from '../src'`, from `src/components/Progress.tsx`. It renders the markup above.
+```tsx
+<Progress value={3} max={5} label="3 of 5 steps done" />
+```
+
 ## Variants and states
 None. --value is 0 to 100, set with style="--value:60" (the only allowed style attribute).
 

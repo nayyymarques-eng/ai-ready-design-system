@@ -11,6 +11,13 @@ A labelled input or select, with an optional hint or error.
 </div>
 ```
 
+## In React
+`import { Field } from '../src'`, from `src/components/Field.tsx`. It renders the markup above.
+```tsx
+<Field id="name" label="Company name" hint="As on your invoices" />
+<Field id="currency" label="Currency" options={['EUR', 'GBP']} />
+```
+
 ## Variants and states
 Input or select. A field__error replaces the hint when the value is wrong.
 

@@ -10,6 +10,12 @@ Filters one list. One item is selected.
 </div>
 ```
 
+## In React
+`import { ToggleGroup } from '../src'`, from `src/components/ToggleGroup.tsx`. It renders the markup above.
+```tsx
+<ToggleGroup label="Filter drivers" items={[{ label: 'All', count: 24, selected: true }, { label: 'On duty', count: 18 }]} />
+```
+
 ## Variants and states
 None. States: is-selected on one item.
 

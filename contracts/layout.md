@@ -12,6 +12,13 @@ Four layout helpers. A section is a titled part of a page; a stack puts things i
 <div class="grid">…</div>
 ```
 
+## In React
+`import { Section, Stack, Row, Grid } from '../src'`, from `src/components/Layout.tsx`. It renders the markup above.
+```tsx
+<Section title="Recent" titleId="recent"><Stack>…</Stack></Section>
+<Row>…</Row>  <Grid>…</Grid>
+```
+
 ## Variants and states
 None.
 

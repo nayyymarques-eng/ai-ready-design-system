@@ -14,6 +14,12 @@ A few values over time, as bars.
 </div>
 ```
 
+## In React
+`import { BarChart } from '../src'`, from `src/components/BarChart.tsx`. It renders the markup above.
+```tsx
+<BarChart label="Deliveries, last six months" bars={[{ label: 'Jun', display: '10.2k', value: 10200, current: true }]} />
+```
+
 ## Variants and states
 is-current on the bar that matters most. --value is 0 to 100 against the tallest bar, set with style="--value:85".
 
