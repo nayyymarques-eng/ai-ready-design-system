@@ -18,6 +18,8 @@ h1, h2, h3, p { margin: 0; }
 .stack { display: flex; flex-direction: column; gap: var(--s4); }
 .row { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--s4); }
+/* Cards side by side share one height. */
+.grid > .section > .card:last-child { flex: 1; }
 
 /* Card */
 .card { background: var(--surface); border: var(--border); border-radius: var(--radius); padding: var(--s5); display: flex; flex-direction: column; gap: var(--s4); box-shadow: var(--raise-1); }
@@ -86,6 +88,8 @@ h1, h2, h3, p { margin: 0; }
 .list { display: flex; flex-direction: column; background: var(--surface); border: var(--border); border-radius: var(--radius); }
 .list__item { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding: var(--s3) var(--s4); border-bottom: var(--border); }
 .list__item:last-child { border-bottom: 0; }
+/* A value stays on the right, also when it wraps. */
+.list__item > strong { margin-left: auto; text-align: right; }
 
 /* Avatar */
 .avatar { width: 32px; height: 32px; border-radius: var(--radius-pill); background: var(--surface-sunken); display: inline-flex; align-items: center; justify-content: center; font: var(--type-small); color: var(--ink); flex: none; }
