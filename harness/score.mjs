@@ -24,17 +24,17 @@ function inPage(CATALOGUE) {
   const set = (id, applies, pass, detail) => { if (applies) res[id] = { pass, detail: pass ? '' : detail }; };
   const all = [...document.querySelectorAll('body *')];
   const newRoots = [...document.querySelectorAll('[data-new]')];
-  const logged = r => (r.dataset.job || '').trim() && (r.dataset.why || '').trim();
-  const inNew = el => { const r = el.closest('[data-new]'); return r && logged(r); };
+  const labelled = r => (r.dataset.job || '').trim() && (r.dataset.why || '').trim();
+  const inNew = el => { const r = el.closest('[data-new]'); return r && labelled(r); };
 
-  // CMP-01 catalogue only (a logged new component may use its own x- classes)
+  // CMP-01 catalogue only (a labelled new part may use its own x- classes)
   const unknown = [];
   for (const el of all) for (const c of el.classList) if (!cat.has(c) && !(c.startsWith('x-') && inNew(el))) unknown.push(c);
   set('CMP-01', true, unknown.length === 0, [...new Set(unknown)].join(' '));
 
-  // CMP-03 new parts are logged with their job and why
-  const unlogged = newRoots.filter(r => !logged(r)).map(r => r.dataset.new);
-  set('CMP-03', newRoots.length > 0, unlogged.length === 0, unlogged.join(' '));
+  // CMP-03 new parts are labelled with their job and why
+  const unlabelled = newRoots.filter(r => !labelled(r)).map(r => r.dataset.new);
+  set('CMP-03', newRoots.length > 0, unlabelled.length === 0, unlabelled.join(' '));
 
   // CMP-04 no restyling of catalogue components
   const styles = [...document.querySelectorAll('style')].map(s => s.textContent).join('\n');
@@ -160,7 +160,7 @@ for (const g of [...new Set(report.map(r => r.group))]) {
   console.log(`\n${g}`);
   for (const r of rows) {
     const fails = Object.entries(r.res).filter(([, v]) => !v.pass).map(([k, v]) => `${k} (${v.detail})  ← ${from(k)}`);
-    console.log(`  ${r.screen.padEnd(28)} ${String(r.score).padStart(5)}  ${r.passed}/${r.applied}  unlogged parts ${r.handBuilt}  new ${r.newParts.length}${fails.length ? '\n      ' + fails.join('\n      ') : ''}`);
+    console.log(`  ${r.screen.padEnd(28)} ${String(r.score).padStart(5)}  ${r.passed}/${r.applied}  unlabelled parts ${r.handBuilt}  labelled new parts ${new Set(r.newParts.map(n => n.name)).size}${fails.length ? '\n      ' + fails.join('\n      ') : ''}`);
   }
   const avg = rows.reduce((a, r) => a + r.score, 0) / rows.length;
   const p = rows.reduce((a, r) => a + r.passed, 0), n = rows.reduce((a, r) => a + r.applied, 0);
