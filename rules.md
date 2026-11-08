@@ -7,7 +7,7 @@ On any conflict between this file and an existing screen, this file wins.
 ## 1. Components (CMP): few, and one way in
 - **CMP-01** Build only with components that have a contract. Every class on the screen belongs to one. *(checked)*
 - **CMP-02** No new variants. A contract lists every variant there is.
-- **CMP-03** If no component fits the job, you may build one, and the build continues. Mark its root `data-new="name"` with `data-job="what it is for"` and `data-why="why no contract fit"`. If it starts from a component and changes it on purpose (a refinement), add `data-base="that component"`. All its classes start with `x-`. *(checked)*
+- **CMP-03** If no component fits the job, you may build one, and the build continues. Label its root `data-new="name"` with `data-job="what it is for"` and `data-why="why no contract fit"`. If it starts from a component and changes it on purpose (a refinement), add `data-base="that component"`. All its classes start with `x-`. *(checked)*
 - **CMP-04** Never restyle a component with a `style` attribute or a `<style>` block. The only allowed style attribute is `--value` on progress and bar chart. If a component needs to look different, build the new look under CMP-03, with `data-base`. *(checked)*
 
 ## 2. Surfaces (SRF)
