@@ -9,6 +9,9 @@ Built from the contracts by `build-map.py`. Find the job, use the component, avo
 | A list or table with nothing to show yet | [Empty state](contracts/empty-state.md) | An empty table | BTN-01 |
 | A message about the whole page | [Banner](contracts/banner.md) | A card with a coloured border; A message about one field (use field__error) | BADGE-01 |
 | A person in a row or list | [Avatar](contracts/avatar.md) | A product logo | Review only. |
+| A screen about one item: what it is, its facts, its history and what to do with it | [Detail page](contracts/detail-page.md) | The item's main actions anywhere but the page header; A third column; History or facts in the main column when the side column is free | Review only. |
+| A screen that lists many items of one kind, to find one and open it | [List page](contracts/list-page.md) | Two tables or two filter rows on one list page; A filter row that makes the page scroll sideways on a phone (the template scrolls it on its own); Cards instead of table rows for items people compare | Review only. |
+| A screen where people change settings or fill in details, saved together | [Form page](contracts/form-page.md) | A Save button inside each card; Fields directly on the page, outside a card; The danger zone anywhere but last | Review only. |
 | A setting that applies at once | [Switch](contracts/switch.md) | A choice that waits for a Save button (use a checkbox) | FIELD-01 |
 | A short decision that blocks the page | [Dialog](contracts/dialog.md) | A browser confirm(); A long form | BTN-01 |
 | A short list of items or events | [List](contracts/list.md) | A list of items compared on many attributes (use a table) | Review only. |

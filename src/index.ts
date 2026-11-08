@@ -22,3 +22,6 @@ export { Switch } from './components/Switch';
 export { Table, Tr, Td } from './components/Table';
 export { Tabs } from './components/Tabs';
 export { ToggleGroup } from './components/ToggleGroup';
+export { ListPage } from './templates/ListPage';
+export { DetailPage } from './templates/DetailPage';
+export { FormPage } from './templates/FormPage';

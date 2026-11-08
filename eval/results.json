@@ -684,7 +684,7 @@
     "newParts": []
   },
   {
-    "group": "eval/framework/run-1",
+    "group": "eval/framework-v1/run-1",
     "screen": "pod-detail.html",
     "score": 100,
     "passed": 16,
@@ -779,7 +779,7 @@
     ]
   },
   {
-    "group": "eval/framework/run-1",
+    "group": "eval/framework-v1/run-1",
     "screen": "pod-queue.html",
     "score": 93.3,
     "passed": 14,
@@ -906,7 +906,7 @@
     ]
   },
   {
-    "group": "eval/framework/run-1",
+    "group": "eval/framework-v1/run-1",
     "screen": "pod-rules.html",
     "score": 100,
     "passed": 18,
@@ -1003,7 +1003,7 @@
     ]
   },
   {
-    "group": "eval/framework/run-2",
+    "group": "eval/framework-v1/run-2",
     "screen": "pod-detail.html",
     "score": 100,
     "passed": 16,
@@ -1098,7 +1098,7 @@
     ]
   },
   {
-    "group": "eval/framework/run-2",
+    "group": "eval/framework-v1/run-2",
     "screen": "pod-queue.html",
     "score": 100,
     "passed": 15,
@@ -1849,7 +1849,7 @@
     ]
   },
   {
-    "group": "eval/framework/run-2",
+    "group": "eval/framework-v1/run-2",
     "screen": "pod-rules.html",
     "score": 100,
     "passed": 18,
@@ -1940,7 +1940,7 @@
     ]
   },
   {
-    "group": "eval/framework/run-3",
+    "group": "eval/framework-v1/run-3",
     "screen": "pod-detail.html",
     "score": 93.8,
     "passed": 15,
@@ -2035,7 +2035,7 @@
     ]
   },
   {
-    "group": "eval/framework/run-3",
+    "group": "eval/framework-v1/run-3",
     "screen": "pod-queue.html",
     "score": 93.3,
     "passed": 14,
@@ -2516,7 +2516,7 @@
     ]
   },
   {
-    "group": "eval/framework/run-3",
+    "group": "eval/framework-v1/run-3",
     "screen": "pod-rules.html",
     "score": 100,
     "passed": 18,
@@ -2608,6 +2608,1119 @@
         "name": "file-upload",
         "job": "Show the uploaded example proof photo and let the user replace or remove it",
         "why": "File upload is listed under Not built in rules.md; no contract covers a file and its preview",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-1",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 16,
+    "applied": 16,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 88,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Shows the photo the driver took at the door when handing over the parcel",
+        "why": "No contract shows an image; the system has no media or image component",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Shows the signature the recipient drew on the driver's phone",
+        "why": "No contract shows a drawn signature or any image",
+        "base": ""
+      },
+      {
+        "name": "message-input",
+        "job": "A multi-line message to the driver saying what is missing",
+        "why": "The system has no textarea (rules.md, Not built)",
+        "base": "field"
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-1",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 15,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 56,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or its placeholder",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or its placeholder",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or its placeholder",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or its placeholder",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or its placeholder",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or its placeholder",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or its placeholder",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or its placeholder",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-1",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 59,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Upload one example image and show the one already uploaded",
+        "why": "File upload is not built in this system (rules.md, section 13)",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-2",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 16,
+    "applied": 16,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 81,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the recipient's signature as captured on the driver's phone",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "message-field",
+        "job": "A message of a few sentences to the driver",
+        "why": "Textarea is listed as not built in rules.md",
+        "base": "field"
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-2",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 15,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 64,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or a preview of one",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or a preview of one",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or a preview of one",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or a preview of one",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or a preview of one",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or a preview of one",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or a preview of one",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "No component shows an image or a preview of one",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-2",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 128,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Upload one example photo and show the one that is there now",
+        "why": "File upload is not built (rules.md, Not built)",
+        "base": ""
+      },
+      {
+        "name": "photo-preview",
+        "job": "Show the current example photo without loading an image file",
+        "why": "No image component, and the screen can't load image files",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-3",
+    "screen": "pod-detail.html",
+    "score": 93.8,
+    "passed": 15,
+    "applied": 16,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "x-pod-caption"
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 82,
+    "handBuilt": 1,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door",
+        "why": "The system has no image or media component, and the screen may not load image files",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the signature the recipient drew on the driver's phone",
+        "why": "The system has no image or media component, and the screen may not load image files",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-3",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 15,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 54,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "No contract shows an image or photo preview; avatar is for people only",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "No contract shows an image or photo preview; avatar is for people only",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "No contract shows an image or photo preview; avatar is for people only",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "No contract shows an image or photo preview; avatar is for people only",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "No contract shows an image or photo preview; avatar is for people only",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "No contract shows an image or photo preview; avatar is for people only",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "No contract shows an image or photo preview; avatar is for people only",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table contract has no secondary text in a cell",
+        "base": ""
+      },
+      {
+        "name": "proof-thumbnail",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "No contract shows an image or photo preview; avatar is for people only",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework/run-3",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 75,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Upload one example photo and show what is uploaded",
+        "why": "File upload is listed as not built in the rules (§13)",
         "base": ""
       }
     ]

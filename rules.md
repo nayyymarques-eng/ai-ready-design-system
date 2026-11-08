@@ -10,6 +10,11 @@ On any conflict between this file and an existing screen, this file wins.
 - **CMP-03** If no component fits the job, you may build one, and the build continues. Label its root `data-new="name"` with `data-job="what it is for"` and `data-why="why no contract fit"`. If it starts from a component and changes it on purpose (a refinement), add `data-base="that component"`. All its classes start with `x-`. In React, the root is `<NewPart>` (`src/components/NewPart.tsx`): `job` and `why` are required, so an unlabelled new part doesn't compile. *(checked)*
 - **CMP-04** Never restyle a component with a `style` attribute or a `<style>` block. The only allowed style attribute is `--value` on progress and bar chart. If a component needs to look different, build the new look under CMP-03, with `data-base`. In React, components take no `className` or `style`, so a restyle doesn't compile. A screen's own styles, for its `x-` classes only, go in its `css` export. *(checked)*
 
+## 1a. Templates (TPL): start from a whole screen
+- **TPL-01** Start every screen from the template that fits its job: list page, detail page or form page (`contracts/`, and the decision map lists them by job). Fill its slots with components.
+- **TPL-02** If no template fits, build the screen from the app shell and the layout components (section, stack, row, grid), and say in a comment at the top of the screen which template came closest and why it didn't fit. That screen goes to triage like a new part: it may become a template.
+- **TPL-03** Never restyle a template or change its columns. If the layout needs to change, it is TPL-02.
+
 ## 2. Code (TSC)
 - **TSC-01** A screen in React compiles with no TypeScript errors (`npm run typecheck:screens`). *(checked)*
 

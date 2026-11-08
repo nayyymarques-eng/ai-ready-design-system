@@ -32,9 +32,9 @@ For this task:
 When you finish, reply with the file path and nothing else.
 ```
 
-| | Components only | Framework |
+| | Components only | Framework (and framework-v1) |
 |---|---|---|
-| The folder holds | `tokens.css`, `components.css`, `catalogue.md`, `src/` (no `NewPart`) | `tokens.css`, `components.css`, `AGENTS.md`, `rules.md`, `decision-map.md`, `contracts/`, `src/` |
+| The folder holds | `tokens.css`, `components.css`, `catalogue.md`, `src/` (no `NewPart`) | `tokens.css`, `components.css`, `AGENTS.md`, `rules.md`, `decision-map.md`, `contracts/`, `src/` (framework also has `src/templates/`) |
 | Start line | Start with `catalogue.md`. | Start with `AGENTS.md`, and follow it. |
 
 `node scripts/make-eval.mjs` writes both folders from the system at the root of this repository.

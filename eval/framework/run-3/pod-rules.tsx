@@ -1,161 +1,128 @@
+// Template: form page (TPL-01). The job is editing one sender's proof rules and saving them together,
+// so Save sits in the page header and every group of fields sits in its own card. The senders table
+// comes first so the team sees every sender's rules and which one is being edited.
+// Not built in the system: file upload (rules §13), so the example photo is a new part (CMP-03).
 import {
-  AppShell, NavRail, PageHeader, Banner, Section, Stack, Row, Grid, Card,
-  Table, Tr, Td, Badge, Button, MenuButton, Field, Checkbox, NewPart,
+  FormPage, NavRail, Button, Section, Stack, Row, Card, Field, Checkbox,
+  Table, Tr, Td, Badge, Banner, NewPart, List, ListItem,
 } from '../src';
 
-export const title = 'Proof rules — Tolvane';
+export const title = 'Proof rules · Tolvane';
 
 export const css = `
-.x-proof-set { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--s2); min-width: 0; }
-.x-proof-set__legend { font: var(--type-body-strong); color: var(--ink); padding: 0; margin-bottom: var(--s2); }
-.x-proof-set__hint { font: var(--type-small); color: var(--muted); }
-
-.x-upload { display: flex; flex-direction: column; gap: var(--s1); }
-.x-upload__label { font: var(--type-body-strong); color: var(--ink); }
-.x-upload__body { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s4); padding: var(--s3); border: var(--border); border-radius: var(--radius); }
-.x-upload__preview { width: 160px; height: 120px; flex: none; border-radius: var(--radius); background: var(--surface-sunken); overflow: hidden; }
-.x-upload__preview svg { display: block; width: 100%; height: 100%; }
-.x-upload__wall { fill: var(--surface-sunken); }
-.x-upload__door { fill: var(--line); }
-.x-upload__number { fill: var(--muted); font: var(--type-small); }
-.x-upload__mat { fill: var(--muted); opacity: .35; }
-.x-upload__parcel { fill: var(--surface); stroke: var(--muted); stroke-width: 1.5; }
-.x-upload__tape { fill: var(--line); }
-.x-upload__details { flex: 1; min-width: 180px; display: flex; flex-direction: column; gap: var(--s2); }
-.x-upload__name { font: var(--type-body-strong); color: var(--ink); overflow-wrap: anywhere; }
-.x-upload__meta { font: var(--type-small); color: var(--muted); }
-.x-upload__hint { font: var(--type-small); color: var(--muted); }
+.x-upload { display: flex; gap: var(--s4); align-items: flex-start; flex-wrap: wrap; }
+.x-upload__preview { flex: none; width: 160px; height: 120px; border-radius: var(--radius); background: var(--surface-sunken); border: var(--border); position: relative; overflow: hidden; }
+.x-upload__door { position: absolute; left: var(--s6); top: var(--s3); bottom: 0; width: 64px; background: var(--line); border-radius: var(--radius) var(--radius) 0 0; }
+.x-upload__parcel { position: absolute; left: var(--s7); bottom: var(--s2); width: 48px; height: 32px; background: var(--muted); border-radius: var(--radius); }
+.x-upload__number { position: absolute; right: var(--s3); top: var(--s3); font: var(--type-small); color: var(--ink); background: var(--surface); border-radius: var(--radius); padding: 0 var(--s1); }
+.x-upload__body { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: var(--s2); }
+.x-upload__name { font: var(--type-body-strong); color: var(--ink); margin: 0; overflow-wrap: anywhere; }
+.x-upload__meta { font: var(--type-small); color: var(--muted); margin: 0; }
+.x-upload__drop { border: 1px dashed var(--line); border-radius: var(--radius); padding: var(--s4); font: var(--type-small); color: var(--muted); margin: 0; }
 `;
 
 const senders = [
-  { name: 'Halden Wine Co.', parcels: 1240, photo: true, signature: true, id: true, since: '3 Mar 2026', status: <Badge tone="warning">Change scheduled</Badge> },
-  { name: 'Northgate Pharmacy', parcels: 860, photo: true, signature: true, id: false, since: '12 Jan 2026', status: <Badge tone="positive">Active</Badge> },
-  { name: 'Brightloom Home', parcels: 2315, photo: true, signature: false, id: false, since: '28 Jul 2026', status: <Badge tone="positive">Active</Badge> },
-  { name: 'Okafor Electronics', parcels: 1078, photo: true, signature: true, id: false, since: '9 Sep 2026', status: <Badge tone="positive">Active</Badge> },
-  { name: 'Pellbray Vape Supply', parcels: 412, photo: true, signature: true, id: true, since: '17 Feb 2026', status: <Badge tone="positive">Active</Badge> },
-  { name: 'Little Fern Books', parcels: 594, photo: false, signature: false, id: false, since: 'Not set', status: <Badge>No rules</Badge> },
+  { name: 'Velloway Wines', photo: true, signature: true, id: '18+', since: '2 Sep 2026', disputes: 7, editing: true },
+  { name: 'Tarnwick Pharmacy', photo: true, signature: true, id: '18+', since: '14 Jul 2026', disputes: 3 },
+  { name: 'Zarvik Electronics', photo: true, signature: true, id: null, since: '1 Oct 2026', disputes: 11 },
+  { name: 'Pellbray Vape Supply', photo: true, signature: true, id: '18+', since: '20 Aug 2026', disputes: 2 },
+  { name: 'Quorrin Books', photo: true, signature: false, id: null, since: '5 Jun 2026', disputes: 1 },
+  { name: 'Lindqvale Home', photo: true, signature: false, id: null, since: '5 Jun 2026', disputes: 4 },
 ];
 
-const yes = (v: boolean) => (v ? 'Required' : 'No');
-
-function ExamplePhoto() {
-  return (
-    <NewPart
-      name="file-upload"
-      className="x-upload"
-      job="Show the uploaded example proof photo and let the user replace or remove it"
-      why="File upload is listed under Not built in rules.md; no contract covers a file and its preview"
-    >
-      <span className="x-upload__label" id="example-photo-label">Example photo</span>
-      <div className="x-upload__body" role="group" aria-labelledby="example-photo-label">
-        <div className="x-upload__preview">
-          <svg viewBox="0 0 160 120" role="img" aria-label="Preview: a parcel on a doormat in front of door number 14, door and parcel both in frame">
-            <rect className="x-upload__wall" x="0" y="0" width="160" height="120" />
-            <rect className="x-upload__door" x="52" y="8" width="56" height="88" rx="2" />
-            <text className="x-upload__number" x="80" y="30" textAnchor="middle">14</text>
-            <rect className="x-upload__mat" x="36" y="96" width="88" height="16" rx="2" />
-            <rect className="x-upload__parcel" x="60" y="76" width="40" height="28" rx="2" />
-            <rect className="x-upload__tape" x="77" y="76" width="6" height="28" />
-          </svg>
-        </div>
-        <div className="x-upload__details">
-          <span className="x-upload__name">halden-good-proof-doorstep.jpg</span>
-          <span className="x-upload__meta">1.8 MB · uploaded by Priya Shah on 6 Nov 2026</span>
-          <Row>
-            <Button variant="secondary">Replace photo</Button>
-            <Button variant="ghost">Remove</Button>
-          </Row>
-        </div>
-      </div>
-      <p className="x-upload__hint">JPG or PNG, up to 5 MB. Drivers see this photo in the app before they take a proof photo for this sender: parcel, label and door number in one frame.</p>
-    </NewPart>
-  );
-}
+const req = (on: boolean) => (on ? 'Required' : 'Not required');
 
 export default function PodRules() {
   return (
-    <AppShell
-      nav={
-        <NavRail
-          brand="Tolvane"
-          items={[
-            { label: 'Deliveries', href: '#', count: 3482 },
-            { label: 'Disputes', href: '#', count: 7 },
-            { label: 'Proof rules', href: '#', current: true },
-            { label: 'Drivers', href: '#', count: 64 },
-            { label: 'Senders', href: '#', count: 6 },
-          ]}
-        />
-      }
+    <FormPage
+      nav={<NavRail brand="Tolvane" items={[
+        { label: 'Today', href: '#' },
+        { label: 'Routes', href: '#', count: 38 },
+        { label: 'Drivers', href: '#', count: 64 },
+        { label: 'Disputes', href: '#', count: 12 },
+        { label: 'Proof rules', href: '#', current: true },
+        { label: 'Senders', href: '#' },
+      ]} />}
+      title="Proof rules"
+      actions={<><Button variant="secondary">Discard changes</Button><Button variant="primary">Save rules</Button></>}
     >
-      <PageHeader title="Proof rules" actions={<Button variant="secondary">Add sender</Button>} />
-
-      <Banner>
-        <p>New rules apply to deliveries dispatched on or after their start date. Parcels already on a van keep the rules they left the depot with.</p>
+      <Banner tone="warning">
+        <p>You are editing Velloway Wines. 214 deliveries are booked before the start date and keep the current rules.</p>
       </Banner>
 
       <Section title="Senders" titleId="senders">
-        <Table
-          columns={[
-            { label: 'Sender' },
-            { label: 'Parcels last 30 days', numeric: true },
-            { label: 'Photo' },
-            { label: 'Signature' },
-            { label: 'ID check' },
-            { label: 'Rules since' },
-            { label: 'Status' },
-            { label: 'Actions' },
-          ]}
-        >
+        <Table columns={[
+          { label: 'Sender' }, { label: 'Photo' }, { label: 'Signature' }, { label: 'ID check' },
+          { label: 'Rules since' }, { label: 'Disputes, 30 days', numeric: true }, { label: 'Rules' },
+        ]}>
           {senders.map(s => (
             <Tr key={s.name}>
               <Td>{s.name}</Td>
-              <Td numeric>{s.parcels.toLocaleString('en-GB')}</Td>
-              <Td>{yes(s.photo)}</Td>
-              <Td>{yes(s.signature)}</Td>
-              <Td>{yes(s.id)}</Td>
+              <Td>{req(s.photo)}</Td>
+              <Td>{req(s.signature)}</Td>
+              <Td>{s.id ? `Age ${s.id}` : 'None'}</Td>
               <Td>{s.since}</Td>
-              <Td>{s.status}</Td>
-              <Td>
-                <MenuButton label={`Actions for ${s.name}`} items={[{ label: 'Edit rules' }, { label: 'View disputes' }, { label: 'Copy rules to another sender' }]} />
-              </Td>
+              <Td numeric>{s.disputes}</Td>
+              <Td>{s.editing ? <Badge tone="warning">Editing</Badge> : <Button variant="ghost">Edit</Button>}</Td>
             </Tr>
           ))}
         </Table>
       </Section>
 
-      <Section title="Edit rules for Halden Wine Co." titleId="edit-rules">
+      <Section title="Rules for Velloway Wines" titleId="rules">
         <Card>
           <Stack>
-            <NewPart
-              name="checkbox-group"
-              as="fieldset"
-              className="x-proof-set"
-              job="Group the proof checkboxes under one legend"
-              why="Checkbox has no group or legend; a form with several related checkboxes needs one label for the set"
-            >
-              <legend className="x-proof-set__legend">Proof the driver must collect</legend>
-              <Checkbox label="Photo of the parcel at the delivery point" defaultChecked />
-              <Checkbox label="Signature from the recipient" defaultChecked />
-              <Checkbox label="ID check for age-restricted items (wine, spirits)" defaultChecked />
-              <p className="x-proof-set__hint">With an ID check, the driver scans a photo ID and records the date of birth. No ID, no handover: the parcel goes back to the depot.</p>
-            </NewPart>
-
-            <Grid>
-              <Field id="min-age" label="Minimum age for ID check" options={['18', '21', '25']} defaultValue="18" />
-              <Field id="not-home" label="If the recipient is not home" options={['Return to depot', 'Try a neighbour, with signature', 'Leave in safe place, with photo']} defaultValue="Return to depot" hint="Leave in safe place is not allowed with an ID check" />
-              <Field id="start-date" label="New rules start on" type="date" defaultValue="2026-11-16" hint="Current rules stay in place until then" />
-            </Grid>
-
-            <ExamplePhoto />
-
-            <Row>
-              <Button variant="primary">Save rules</Button>
-              <Button variant="secondary">Cancel</Button>
-            </Row>
+            <Checkbox label="Photo of the parcel where it was left" defaultChecked />
+            <Checkbox label="Signature from the person who takes the parcel" defaultChecked />
+            <Checkbox label="ID check for age-restricted items" defaultChecked />
           </Stack>
+          <Field id="min-age" label="Minimum age" options={['18', '21']} defaultValue="18" hint="Drivers scan or read the date of birth on a photo ID. The ID number is never stored." />
+          <Field id="no-id" label="If no one can show ID" options={['Return parcel to depot', 'Try again next working day', 'Leave with a neighbour who shows ID']} defaultValue="Return parcel to depot" />
+          <Field id="safe-place" label="Leave in a safe place" options={['Never', 'Only items without an ID check', 'Always']} defaultValue="Never" hint="With an ID check required, a safe place is never allowed." />
         </Card>
       </Section>
-    </AppShell>
+
+      <Section title="Start date" titleId="start">
+        <Card>
+          <Field id="start-date" label="New rules start on" type="date" defaultValue="2026-11-16" hint="From the first route that day. Deliveries already out for delivery keep the current rules." />
+          <List>
+            <ListItem label="Current rules" value="Photo, signature, ID 18+" />
+            <ListItem label="In use since" value="2 Sep 2026" />
+            <ListItem label="Deliveries booked before 16 Nov" value="214" />
+          </List>
+        </Card>
+      </Section>
+
+      <Section title="Example photo" titleId="photo">
+        <Card>
+          <NewPart
+            name="file-upload"
+            className="x-upload"
+            job="Upload one example photo and show what is uploaded"
+            why="File upload is listed as not built in the rules (§13)"
+          >
+            <div className="x-upload__preview" role="img" aria-label="Example photo: parcel on the doorstep, front door and house number in view">
+              <div className="x-upload__door" />
+              <div className="x-upload__parcel" />
+              <span className="x-upload__number">14</span>
+            </div>
+            <div className="x-upload__body">
+              <p className="x-upload__name">northgate-doorstep-example.jpg</p>
+              <p className="x-upload__meta">1.8 MB · uploaded by Ines Carvalho on 4 Nov 2026</p>
+              <p className="x-upload__meta">Drivers see this photo before their first Velloway Wines stop of the day.</p>
+              <Row>
+                <Button variant="secondary">Replace photo</Button>
+                <Button variant="ghost">Remove</Button>
+              </Row>
+              <p className="x-upload__drop">Or drop a JPG or PNG here, up to 10 MB.</p>
+            </div>
+          </NewPart>
+          <List>
+            <ListItem label="A good proof photo shows" value="The parcel, the door and the house number" />
+            <ListItem label="It never shows" value="A person's face or the inside of the home" />
+          </List>
+        </Card>
+      </Section>
+    </FormPage>
   );
 }

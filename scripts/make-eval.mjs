@@ -2,7 +2,8 @@
 //   eval/components-only/  tokens, components and the catalogue. No rules, no contracts, no NewPart.
 //   eval/framework/        tokens, components, AGENTS.md, rules, decision map and contracts.
 // Both hold the same React components in src/. Builders write to <folder>/run-<n>/.
-// Usage: node scripts/make-eval.mjs
+// Usage: node scripts/make-eval.mjs [components-only|framework]
+// eval/framework-v1/ keeps the framework as it was before templates, with its three runs.
 import { cpSync, mkdirSync, readFileSync, writeFileSync, rmSync, readdirSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,8 +19,9 @@ function system(name, files, { stripContracts }) {
   cpSync(at('src'), join(dir, 'src'), { recursive: true });
   if (stripContracts) {
     rmSync(join(dir, 'src/components/NewPart.tsx'));
+    rmSync(join(dir, 'src/templates'), { recursive: true, force: true });
     const idx = join(dir, 'src/index.ts');
-    writeFileSync(idx, readFileSync(idx, 'utf8').split('\n').filter(l => !l.includes('NewPart')).join('\n'));
+    writeFileSync(idx, readFileSync(idx, 'utf8').split('\n').filter(l => !l.includes('NewPart') && !l.includes('/templates/')).join('\n'));
     for (const f of readdirSync(join(dir, 'src/components'))) {
       const p = join(dir, 'src/components', f);
       writeFileSync(p, readFileSync(p, 'utf8').replace(/ Contract: contracts\/[a-z-]+\.md/g, ''));
@@ -28,5 +30,7 @@ function system(name, files, { stripContracts }) {
   console.log(`  eval/${name}/`);
 }
 
-system('components-only', ['tokens.css', 'components.css', 'eval/catalogue.md'], { stripContracts: true });
-system('framework', ['tokens.css', 'components.css', 'AGENTS.md', 'rules.md', 'decision-map.md', 'contracts'], { stripContracts: false });
+// Pass a condition name to write only that folder: node scripts/make-eval.mjs framework
+const only = process.argv[2];
+if (!only || only === 'components-only') system('components-only', ['tokens.css', 'components.css', 'eval/catalogue.md'], { stripContracts: true });
+if (!only || only === 'framework') system('framework', ['tokens.css', 'components.css', 'AGENTS.md', 'rules.md', 'decision-map.md', 'contracts'], { stripContracts: false });
