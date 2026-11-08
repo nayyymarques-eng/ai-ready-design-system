@@ -1,5 +1,8 @@
 {
   "example.tsx": {
     "errors": []
+  },
+  "return-detail.tsx": {
+    "errors": []
   }
 }
