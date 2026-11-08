@@ -19,7 +19,7 @@ if (pr && !/^\d+$/.test(pr)) fail('PR_NUMBER is not a number');
 if (author && !/^[\w-]+(\[bot\])?$/.test(author)) fail('PR_AUTHOR is not a GitHub login');
 const items = JSON.parse(fs.readFileSync(path.join(dir, 'items.json'), 'utf8'));
 for (const it of items) if (!/^[a-z0-9-]+$/.test(it.name)) fail(`part name "${it.name}" must be lowercase letters, digits and hyphens`);
-const SAFE_PATH = /^\/[\w\-./?=&%]*$/;
+const SAFE_PATH = /^(\/[\w\-./?=&%]*)?$/; // empty = the repository itself
 const api = async (method, p, body) => {
   if (!SAFE_PATH.test(p) || p.includes('..')) fail(`unsafe API path ${p}`);
   const r = await fetch(new URL(`/repos/${repo}${p}`, 'https://api.github.com'), { method, headers: { authorization: `Bearer ${token}`, accept: 'application/vnd.github+json', 'content-type': 'application/json' }, body: body && JSON.stringify(body) });
