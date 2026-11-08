@@ -1,0 +1,1480 @@
+[
+  {
+    "group": "components-only",
+    "screen": "dashboard.html",
+    "score": 100,
+    "passed": 13,
+    "applied": 13,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 120,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "components-only",
+    "screen": "dispatch-run.html",
+    "score": 100,
+    "passed": 16,
+    "applied": 16,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 79,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "components-only",
+    "screen": "drivers.html",
+    "score": 93.3,
+    "passed": 14,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "<style> /* One line per driver. On phones the table scrolls sideways inside .table-scroll | <style> #drivers .row | <style> #filter .toggle-group__item"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 275,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "components-only",
+    "screen": "invoice.html",
+    "score": 100,
+    "passed": 15,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 76,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "components-only",
+    "screen": "onboarding.html",
+    "score": 100,
+    "passed": 13,
+    "applied": 13,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 47,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "components-only",
+    "screen": "pod-detail.html",
+    "score": 84.6,
+    "passed": 11,
+    "applied": 13,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-heading pod-crumbs pod-columns pod-column pod-column--evidence pod-figure pod-svg pod-picture f-line f-sunken f-muted f-surface s-line f-text s-ink f-tint-warning s-warning f-warning f-box-top f-box-front f-box-side f-ink f-on-accent pod-meta pod-details pod-pad pod-lines pod-ink pod-column--location pod-map s-sunken s-muted halo f-positive s-surface pod-dot pod-dot--address pod-dot--photo pod-dot--delivered pod-steps pod-details-grid pod-fieldset pod-textarea"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "<style> .dialog-backdrop[hidden] | <style> .banner[hidden] | <style> .page-header__actions[hidden] | <style> .field__error[hidden] | <style> .pod-details .list__item > strong | <style> .pod-steps .list__item"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 104,
+    "handBuilt": 43,
+    "newParts": []
+  },
+  {
+    "group": "components-only",
+    "screen": "pod-queue.html",
+    "score": 85.7,
+    "passed": 12,
+    "applied": 14,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-sprite ph-2 ph-0 ph-4 ph-3 ph-1 ph-5 pod-sig-line pod-filter pod-table pod-c-photo pod-photo pod-c-parcel pod-nowrap pod-meta pod-c-recipient pod-c-driver pod-c-when pod-c-issue pod-c-open pod-open pod-photo--none pod-dialog pod-dialog__head pod-photo--large pod-sig"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "<style> .pod-filter .toggle-group__item | <style> .pod-dialog .dialog__actions | <style> .nav-rail__brand | <style> .nav-rail__item | <style> .pod-c-open .btn | <style> .pod-dialog .dialog__actions .btn"
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 94,
+    "handBuilt": 26,
+    "newParts": []
+  },
+  {
+    "group": "components-only",
+    "screen": "pod-rules.html",
+    "score": 81.3,
+    "passed": 13,
+    "applied": 16,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "pod-panes pod-panes__list pod-panes__editor pod-photo"
+      },
+      "CMP-04": {
+        "pass": false,
+        "detail": "rect. | circle. | text. | path."
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": false,
+        "detail": "1 of 5 inputs"
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 98,
+    "handBuilt": 4,
+    "newParts": []
+  },
+  {
+    "group": "components-only",
+    "screen": "settings.html",
+    "score": 100,
+    "passed": 14,
+    "applied": 14,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 81,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "framework",
+    "screen": "dashboard.html",
+    "score": 100,
+    "passed": 14,
+    "applied": 14,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 116,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "framework",
+    "screen": "dispatch-run.html",
+    "score": 100,
+    "passed": 16,
+    "applied": 16,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 83,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "framework",
+    "screen": "drivers.html",
+    "score": 100,
+    "passed": 15,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 217,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      },
+      {
+        "name": "person",
+        "job": "A person in a table row: avatar and name side by side, on one line",
+        "why": "A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line."
+      }
+    ]
+  },
+  {
+    "group": "framework",
+    "screen": "invoice.html",
+    "score": 100,
+    "passed": 15,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 94,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "framework",
+    "screen": "onboarding.html",
+    "score": 100,
+    "passed": 13,
+    "applied": 13,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 40,
+    "handBuilt": 0,
+    "newParts": []
+  },
+  {
+    "group": "framework",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 14,
+    "applied": 14,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 61,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "photo",
+        "job": "Shows the photo the driver took at the door, with the time the app stamped on it",
+        "why": "No contract shows an image: the system has no image or photo component"
+      },
+      {
+        "name": "signature",
+        "job": "Shows the signature the recipient drew on the driver's phone",
+        "why": "No contract shows a drawn signature: the system has no image component"
+      }
+    ]
+  },
+  {
+    "group": "framework",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 15,
+    "applied": 15,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 66,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "proof-scenes",
+        "job": "Holds the drawings that stand in for the photos and signatures drivers collect",
+        "why": "Screens may not load image files, and no contract draws a photo or a signature"
+      },
+      {
+        "name": "filter-bar",
+        "job": "Keeps the filter on one line and lets it scroll sideways on a phone",
+        "why": "The toggle group does not wrap, and four filters with counts are wider than a 375px phone"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows a small copy of the driver’s delivery photo in a table row",
+        "why": "No contract shows an image"
+      }
+    ]
+  },
+  {
+    "group": "framework",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 17,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 77,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "date-picker",
+        "job": "Pick the day a sender's new proof rules start",
+        "why": "Date picker is listed as not built in rules.md, and the field contract has only input and select"
+      },
+      {
+        "name": "file-upload",
+        "job": "Add the example photo that drivers see for a sender",
+        "why": "File upload is listed as not built in rules.md, and the field contract has only input and select"
+      }
+    ]
+  },
+  {
+    "group": "framework",
+    "screen": "settings.html",
+    "score": 100,
+    "passed": 14,
+    "applied": 14,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 61,
+    "handBuilt": 0,
+    "newParts": []
+  }
+]

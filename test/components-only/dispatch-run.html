@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dispatch run · Tolvane</title>
+  <link rel="stylesheet" href="../../tokens.css">
+  <link rel="stylesheet" href="../../components.css">
+</head>
+<body>
+  <div class="app">
+    <nav class="nav-rail" aria-label="Main">
+      <span class="nav-rail__brand">Tolvane</span>
+      <a class="nav-rail__item is-current" href="#" aria-current="page">Dispatch</a>
+      <a class="nav-rail__item" href="#">Tracking</a>
+      <a class="nav-rail__item" href="#">Orders <span class="numeral">233</span></a>
+      <a class="nav-rail__item" href="#">Drivers <span class="numeral">24</span></a>
+      <a class="nav-rail__item" href="#">Vehicles <span class="numeral">19</span></a>
+      <a class="nav-rail__item" href="#">Reports</a>
+      <a class="nav-rail__item" href="#">Settings</a>
+    </nav>
+
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <h1 class="page-header__title">Dispatch run</h1>
+          <p>Sunday 8 November 2026 · Maia depot, Porto</p>
+        </div>
+      </header>
+
+      <div class="banner banner--warning" role="status">
+        <p><strong>R-06 Póvoa de Varzim is 28 min over the 9 h shift limit.</strong> Sending it as planned means overtime for Bruno Pacheco.</p>
+      </div>
+
+      <section class="section">
+        <h2 class="section__title" id="routes-title">Routes <span class="numeral">8</span></h2>
+        <div class="table-scroll" role="region" aria-labelledby="routes-title" tabindex="0">
+          <table class="table" aria-labelledby="routes-title">
+            <thead>
+              <tr>
+                <th scope="col">Route</th>
+                <th scope="col">Driver</th>
+                <th scope="col" class="is-number">Stops</th>
+                <th scope="col" class="is-number">Distance</th>
+                <th scope="col" class="is-number">Estimated&nbsp;time</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>R&#8209;01&nbsp;Matosinhos</td>
+                <td>Ana&nbsp;Martins</td>
+                <td class="is-number">34</td>
+                <td class="is-number">58&nbsp;km</td>
+                <td class="is-number">7&nbsp;h&nbsp;47&nbsp;min</td>
+                <td><span class="badge badge--positive">Ready</span></td>
+              </tr>
+              <tr>
+                <td>R&#8209;02&nbsp;Boavista</td>
+                <td>Rui&nbsp;Teixeira</td>
+                <td class="is-number">31</td>
+                <td class="is-number">46&nbsp;km</td>
+                <td class="is-number">7&nbsp;h&nbsp;03&nbsp;min</td>
+                <td><span class="badge badge--positive">Ready</span></td>
+              </tr>
+              <tr>
+                <td>R&#8209;03&nbsp;Gaia&nbsp;Sul</td>
+                <td>Inês&nbsp;Duarte</td>
+                <td class="is-number">27</td>
+                <td class="is-number">84&nbsp;km</td>
+                <td class="is-number">6&nbsp;h&nbsp;48&nbsp;min</td>
+                <td><span class="badge badge--positive">Ready</span></td>
+              </tr>
+              <tr>
+                <td>R&#8209;04&nbsp;Gondomar</td>
+                <td>Tiago&nbsp;Moreira</td>
+                <td class="is-number">25</td>
+                <td class="is-number">78&nbsp;km</td>
+                <td class="is-number">6&nbsp;h&nbsp;27&nbsp;min</td>
+                <td><span class="badge badge--info">Loading</span></td>
+              </tr>
+              <tr>
+                <td>R&#8209;05&nbsp;Valongo</td>
+                <td>Marta&nbsp;Sousa</td>
+                <td class="is-number">22</td>
+                <td class="is-number">64&nbsp;km</td>
+                <td class="is-number">5&nbsp;h&nbsp;39&nbsp;min</td>
+                <td><span class="badge badge--positive">Ready</span></td>
+              </tr>
+              <tr>
+                <td>R&#8209;06&nbsp;Póvoa&nbsp;de&nbsp;Varzim</td>
+                <td>Bruno&nbsp;Pacheco</td>
+                <td class="is-number">38</td>
+                <td class="is-number">136&nbsp;km</td>
+                <td class="is-number">9&nbsp;h&nbsp;28&nbsp;min</td>
+                <td><span class="badge badge--warning">Over&nbsp;shift&nbsp;limit</span></td>
+              </tr>
+              <tr>
+                <td>R&#8209;07&nbsp;Vila&nbsp;do&nbsp;Conde</td>
+                <td>Joana&nbsp;Lopes</td>
+                <td class="is-number">26</td>
+                <td class="is-number">109&nbsp;km</td>
+                <td class="is-number">7&nbsp;h&nbsp;04&nbsp;min</td>
+                <td><span class="badge badge--positive">Ready</span></td>
+              </tr>
+              <tr>
+                <td>R&#8209;08&nbsp;Maia&nbsp;Centro</td>
+                <td>Filipe&nbsp;Rocha</td>
+                <td class="is-number">30</td>
+                <td class="is-number">39&nbsp;km</td>
+                <td class="is-number">6&nbsp;h&nbsp;33&nbsp;min</td>
+                <td><span class="badge badge--positive">Ready</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="section">
+          <h2 class="section__title">Totals</h2>
+          <div class="list">
+            <div class="list__item"><span>Routes</span><strong>8</strong></div>
+            <div class="list__item"><span>Stops</span><strong>233</strong></div>
+            <div class="list__item"><span>Distance</span><strong>614 km</strong></div>
+            <div class="list__item"><span>Estimated time</span><strong>56 h 49 min</strong></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section__title">Schedule</h2>
+          <div class="card">
+            <div id="schedule-form">
+              <div class="stack">
+                <div class="field">
+                  <label class="field__label" for="send-at">Send at</label>
+                  <select class="field__select" id="send-at" aria-describedby="send-at-hint">
+                    <option>05:45</option>
+                    <option>06:00</option>
+                    <option>06:15</option>
+                    <option selected>06:30</option>
+                    <option>06:45</option>
+                  </select>
+                  <p class="field__hint" id="send-at-hint">Drivers get their routes at this time. The first van leaves at&nbsp;07:00.</p>
+                </div>
+                <div class="row">
+                  <button class="btn btn--primary" type="button" id="send-dispatch">Send dispatch</button>
+                </div>
+              </div>
+            </div>
+            <div id="schedule-done" hidden>
+              <div class="stack">
+                <div class="banner" role="status" id="schedule-done-message" tabindex="-1">
+                  <p>Dispatch scheduled for <strong data-time>06:30</strong>. Drivers get their routes then, and customers get a text with their delivery window.</p>
+                </div>
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" id="unschedule">Unschedule</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <template id="confirm-dialog">
+    <div class="dialog-backdrop">
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-text">
+        <h2 class="dialog__title" id="confirm-title">Send dispatch at <span data-time>06:30</span>?</h2>
+        <p id="confirm-text">At <span data-time>06:30</span>, 8 drivers get their routes in the Tolvane app and 233 customers get a text with their delivery window.</p>
+        <p>R-06 Póvoa de Varzim is still 28 min over the shift limit. You can unschedule the dispatch until <span data-time>06:30</span>.</p>
+        <div class="dialog__actions">
+          <button class="btn btn--secondary" type="button" data-action="cancel">Cancel</button>
+          <button class="btn btn--primary" type="button" data-action="confirm">Send dispatch</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    (function () {
+      var app = document.querySelector('.app');
+      var sendAt = document.getElementById('send-at');
+      var sendButton = document.getElementById('send-dispatch');
+      var scheduleForm = document.getElementById('schedule-form');
+      var scheduleDone = document.getElementById('schedule-done');
+      var doneMessage = document.getElementById('schedule-done-message');
+      var unscheduleButton = document.getElementById('unschedule');
+      var dialogTemplate = document.getElementById('confirm-dialog');
+      var backdrop = null;
+
+      function fillTime(root, time) {
+        Array.prototype.forEach.call(root.querySelectorAll('[data-time]'), function (node) {
+          node.textContent = time;
+        });
+      }
+
+      function openDialog() {
+        backdrop = dialogTemplate.content.firstElementChild.cloneNode(true);
+        fillTime(backdrop, sendAt.value);
+        document.body.appendChild(backdrop);
+        app.inert = true;
+        backdrop.addEventListener('click', onDialogClick);
+        document.addEventListener('keydown', onDialogKeydown);
+        backdrop.querySelector('[data-action="cancel"]').focus();
+      }
+
+      function closeDialog() {
+        if (!backdrop) return;
+        document.removeEventListener('keydown', onDialogKeydown);
+        backdrop.remove();
+        backdrop = null;
+        app.inert = false;
+      }
+
+      function onDialogClick(event) {
+        var action = event.target.closest('[data-action]');
+        if (action && action.getAttribute('data-action') === 'confirm') {
+          closeDialog();
+          schedule();
+        } else if (action || event.target === backdrop) {
+          closeDialog();
+          sendButton.focus();
+        }
+      }
+
+      function onDialogKeydown(event) {
+        if (event.key === 'Escape') {
+          closeDialog();
+          sendButton.focus();
+          return;
+        }
+        if (event.key === 'Tab') {
+          var buttons = backdrop.querySelectorAll('button');
+          var first = buttons[0];
+          var last = buttons[buttons.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      }
+
+      function schedule() {
+        fillTime(scheduleDone, sendAt.value);
+        scheduleForm.hidden = true;
+        scheduleDone.hidden = false;
+        doneMessage.focus();
+      }
+
+      sendButton.addEventListener('click', openDialog);
+      unscheduleButton.addEventListener('click', function () {
+        scheduleDone.hidden = true;
+        scheduleForm.hidden = false;
+        sendButton.focus();
+      });
+    })();
+  </script>
+</body>
+</html>

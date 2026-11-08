@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoice FT 2026/1184 · Tolvane</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../components.css">
+</head>
+<body>
+<div class="app">
+  <nav class="nav-rail" aria-label="Main">
+    <span class="nav-rail__brand">Tolvane</span>
+    <a class="nav-rail__item" href="#">Overview</a>
+    <a class="nav-rail__item" href="#">Routes</a>
+    <a class="nav-rail__item" href="#">Deliveries</a>
+    <a class="nav-rail__item" href="#">Drivers</a>
+    <a class="nav-rail__item" href="#">Carriers</a>
+    <a class="nav-rail__item is-current" href="#" aria-current="page">Invoices <span class="numeral" id="nav-count">12</span></a>
+    <a class="nav-rail__item" href="#">Reports</a>
+    <a class="nav-rail__item" href="#">Settings</a>
+  </nav>
+
+  <main class="page">
+    <header class="page-header">
+      <div class="row">
+        <h1 class="page-header__title">Invoice FT 2026/1184</h1>
+        <span class="badge badge--warning" id="status">Awaiting&nbsp;approval</span>
+      </div>
+      <div class="page-header__actions">
+        <button class="btn btn--secondary" type="button" id="reject" aria-haspopup="dialog">Reject</button>
+        <button class="btn btn--primary" type="button" id="approve">Approve</button>
+        <div class="menu-button">
+          <button class="btn btn--ghost" type="button" id="more" aria-label="More actions" aria-haspopup="menu" aria-expanded="false" aria-controls="more-menu">⋯</button>
+          <div class="menu" id="more-menu" role="menu" aria-labelledby="more">
+            <button class="menu__item" type="button" role="menuitem" tabindex="-1">Download PDF</button>
+            <button class="menu__item" type="button" role="menuitem" tabindex="-1">Assign&nbsp;to&nbsp;someone&nbsp;else</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="banner banner--warning" role="status" id="banner">
+      <p><strong>Check 1 charge before you approve.</strong> Waiting time at Alverca hub (€55.00) is not on the rate card, and the hub has not confirmed it.</p>
+    </div>
+
+    <div class="card">
+      <div class="stat">
+        <span class="stat__label">Total, VAT included</span>
+        <span class="stat__value">€4,062.63</span>
+      </div>
+      <div class="list">
+        <div class="list__item"><span>Carrier</span><strong>Vidal &amp; Seixo Transportes</strong></div>
+        <div class="list__item"><span>Invoice&nbsp;date</span><strong>2&nbsp;Nov&nbsp;2026</strong></div>
+        <div class="list__item"><span>Due&nbsp;date</span><strong>2&nbsp;Dec&nbsp;2026</strong></div>
+        <div class="list__item"><span>Service&nbsp;period</span><strong>26&nbsp;to&nbsp;31&nbsp;Oct&nbsp;2026</strong></div>
+        <div class="list__item"><span>Routes</span><strong>Loures and Odivelas</strong></div>
+        <div class="list__item"><span>Approver</span><strong>Marta Sousa</strong></div>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2 class="section__title" id="items-title">Line items <span class="numeral">7</span></h2>
+      <div class="table-scroll" role="region" aria-labelledby="items-title" tabindex="0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Route</th>
+              <th scope="col">Dates</th>
+              <th scope="col" class="is-number">Qty</th>
+              <th scope="col" class="is-number">Unit&nbsp;price</th>
+              <th scope="col" class="is-number">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Weekday route, 3.5&nbsp;t&nbsp;van</td>
+              <td>Loures</td>
+              <td>26&nbsp;to&nbsp;30&nbsp;Oct</td>
+              <td class="is-number">5&nbsp;days</td>
+              <td class="is-number">€265.00</td>
+              <td class="is-number">€1,325.00</td>
+            </tr>
+            <tr>
+              <td>Weekday route, 3.5&nbsp;t&nbsp;van</td>
+              <td>Odivelas</td>
+              <td>26&nbsp;to&nbsp;30&nbsp;Oct</td>
+              <td class="is-number">5&nbsp;days</td>
+              <td class="is-number">€265.00</td>
+              <td class="is-number">€1,325.00</td>
+            </tr>
+            <tr>
+              <td>Saturday route, 3.5&nbsp;t&nbsp;van</td>
+              <td>Loures</td>
+              <td>31&nbsp;Oct</td>
+              <td class="is-number">1&nbsp;day</td>
+              <td class="is-number">€310.00</td>
+              <td class="is-number">€310.00</td>
+            </tr>
+            <tr>
+              <td>Stops above 120 a day</td>
+              <td>Loures, Odivelas</td>
+              <td>26&nbsp;to&nbsp;31&nbsp;Oct</td>
+              <td class="is-number">38&nbsp;stops</td>
+              <td class="is-number">€1.80</td>
+              <td class="is-number">€68.40</td>
+            </tr>
+            <tr>
+              <td>Waiting time at Alverca hub <span class="badge badge--warning">Not&nbsp;on&nbsp;rate&nbsp;card</span></td>
+              <td>Odivelas</td>
+              <td>29&nbsp;Oct</td>
+              <td class="is-number">2.5&nbsp;h</td>
+              <td class="is-number">€22.00</td>
+              <td class="is-number">€55.00</td>
+            </tr>
+            <tr>
+              <td>Tolls on A1 and A9</td>
+              <td>Loures, Odivelas</td>
+              <td>26&nbsp;to&nbsp;31&nbsp;Oct</td>
+              <td class="is-number"></td>
+              <td class="is-number"></td>
+              <td class="is-number">€86.35</td>
+            </tr>
+            <tr>
+              <td>Fuel surcharge, 4.5% of route charges</td>
+              <td>Loures, Odivelas</td>
+              <td>26&nbsp;to&nbsp;31&nbsp;Oct</td>
+              <td class="is-number"></td>
+              <td class="is-number"></td>
+              <td class="is-number">€133.20</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="list">
+        <div class="list__item"><span>Subtotal</span><span>€3,302.95</span></div>
+        <div class="list__item"><span>VAT 23%</span><span>€759.68</span></div>
+        <div class="list__item"><strong>Total</strong><strong>€4,062.63</strong></div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="section">
+        <h2 class="section__title">Carrier</h2>
+        <div class="list">
+          <div class="list__item"><span>Name</span><strong>Vidal &amp; Seixo Transportes, Lda.</strong></div>
+          <div class="list__item"><span>Tax&nbsp;ID</span><strong>PT&nbsp;509&nbsp;381&nbsp;278</strong></div>
+          <div class="list__item"><span>Address</span><strong>Rua da Indústria 14<br>2615-178 Alverca do Ribatejo</strong></div>
+          <div class="list__item"><span>Contact</span><strong>Sofia Lobo, accounts</strong></div>
+          <div class="list__item"><span>Phone</span><strong>+351&nbsp;219&nbsp;584&nbsp;302</strong></div>
+          <div class="list__item"><span>Email</span><strong>faturacao@vidalseixo.pt</strong></div>
+          <div class="list__item"><span>Payment&nbsp;terms</span><strong>30&nbsp;days</strong></div>
+          <div class="list__item"><span>Bank&nbsp;account</span><strong>IBAN ending 4417</strong></div>
+          <div class="list__item"><span>Rate&nbsp;card</span><strong>Last-mile 2026, signed 12&nbsp;Jan</strong></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section__title">History <span class="numeral" id="history-count">6</span></h2>
+        <div class="list" id="history">
+          <div class="list__item"><span><strong>Inês Rocha</strong> sent it to Marta Sousa for approval</span><time datetime="2026-11-05T10:22">5&nbsp;Nov,&nbsp;10:22</time></div>
+          <div class="list__item"><span><strong>Inês Rocha</strong> asked Alverca hub to confirm 2.5&nbsp;h of waiting time on 29&nbsp;Oct</span><time datetime="2026-11-04T16:05">4&nbsp;Nov,&nbsp;16:05</time></div>
+          <div class="list__item"><span><strong>Inês Rocha</strong> checked 11 route days and 38 extra stops against the route logs</span><time datetime="2026-11-03T11:40">3&nbsp;Nov,&nbsp;11:40</time></div>
+          <div class="list__item"><span><strong>Tolvane</strong> flagged 1 charge that is not on the rate card</span><time datetime="2026-11-02T09:15">2&nbsp;Nov,&nbsp;09:15</time></div>
+          <div class="list__item"><span><strong>Tolvane</strong> matched it to the Loures and Odivelas routes</span><time datetime="2026-11-02T09:15">2&nbsp;Nov,&nbsp;09:15</time></div>
+          <div class="list__item"><span><strong>Tolvane</strong> received it by email from faturacao@vidalseixo.pt</span><time datetime="2026-11-02T09:14">2&nbsp;Nov,&nbsp;09:14</time></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<template id="reject-dialog">
+  <div class="dialog-backdrop">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="reject-title" aria-describedby="reject-text">
+      <h2 class="dialog__title" id="reject-title">Reject this invoice?</h2>
+      <p id="reject-text">Vidal &amp; Seixo Transportes gets an email with your reason and has to send a new invoice. You can't undo this.</p>
+      <form class="stack" id="reject-form" novalidate>
+        <div class="field">
+          <label class="field__label" for="reject-reason">Reason</label>
+          <select class="field__select" id="reject-reason" required aria-describedby="reject-reason-msg">
+            <option value="">Choose a reason</option>
+            <option>Charge not on the rate card</option>
+            <option>Routes or stops don't match our logs</option>
+            <option>Duplicate of another invoice</option>
+            <option>Wrong tax ID or bank details</option>
+            <option>Other</option>
+          </select>
+          <p class="field__hint" id="reject-reason-msg">The carrier sees this reason.</p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="reject-note">Note to the carrier</label>
+          <input class="field__input" id="reject-note" type="text" maxlength="200" autocomplete="off" aria-describedby="reject-note-msg">
+          <p class="field__hint" id="reject-note-msg">Optional, unless the reason is Other. For example: send the hub's signed sheet for the waiting time.</p>
+        </div>
+        <div class="dialog__actions">
+          <button class="btn btn--secondary" type="button" id="reject-cancel">Cancel</button>
+          <button class="btn btn--danger" type="submit">Reject invoice</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<script>
+(function () {
+  'use strict';
+
+  var app = document.querySelector('.app');
+  var status = document.getElementById('status');
+  var banner = document.getElementById('banner');
+  var approve = document.getElementById('approve');
+  var reject = document.getElementById('reject');
+  var history = document.getElementById('history');
+  var historyCount = document.getElementById('history-count');
+  var navCount = document.getElementById('nav-count');
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var NBSP = '\u00a0';
+
+  function two(n) { return (n < 10 ? '0' : '') + n; }
+
+  /* History: the newest event goes on top. */
+  function logEvent(text) {
+    var now = new Date();
+    var item = document.createElement('div');
+    var what = document.createElement('span');
+    var who = document.createElement('strong');
+    var when = document.createElement('time');
+    item.className = 'list__item';
+    who.textContent = 'Marta Sousa';
+    what.append(who, ' ' + text);
+    when.dateTime = now.toISOString();
+    when.textContent = now.getDate() + NBSP + MONTHS[now.getMonth()] + ',' + NBSP + two(now.getHours()) + ':' + two(now.getMinutes());
+    item.append(what, when);
+    history.prepend(item);
+    historyCount.textContent = String(history.children.length);
+  }
+
+  /* After a decision: new status, the banner says what happens next, the decision buttons go. */
+  function settle(label, variant, message, event) {
+    status.className = 'badge ' + variant;
+    status.textContent = label;
+    approve.remove();
+    reject.remove();
+    banner.className = 'banner';
+    banner.firstElementChild.textContent = message;
+    navCount.textContent = String(Number(navCount.textContent) - 1);
+    logEvent(event);
+    banner.tabIndex = -1;
+    banner.focus();
+  }
+
+  approve.addEventListener('click', function () {
+    settle('Approved', 'badge--positive',
+      'You approved this invoice. It goes into the payment run on 2 Dec 2026, its due date.',
+      'approved it');
+  });
+
+  /* More actions menu */
+  var menuButton = document.querySelector('.menu-button');
+  var more = document.getElementById('more');
+  var menu = document.getElementById('more-menu');
+  var items = Array.prototype.slice.call(menu.querySelectorAll('.menu__item'));
+
+  function isOpen() { return menuButton.classList.contains('is-open'); }
+
+  function openMenu(index) {
+    menuButton.classList.add('is-open');
+    more.setAttribute('aria-expanded', 'true');
+    items[index].focus();
+  }
+
+  function closeMenu(returnFocus) {
+    if (!isOpen()) return;
+    menuButton.classList.remove('is-open');
+    more.setAttribute('aria-expanded', 'false');
+    if (returnFocus) more.focus();
+  }
+
+  more.addEventListener('click', function () {
+    if (isOpen()) closeMenu(true); else openMenu(0);
+  });
+
+  more.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); openMenu(0); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); openMenu(items.length - 1); }
+  });
+
+  menu.addEventListener('keydown', function (e) {
+    var i = items.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+    else if (e.key === 'Home') { e.preventDefault(); items[0].focus(); }
+    else if (e.key === 'End') { e.preventDefault(); items[items.length - 1].focus(); }
+    else if (e.key === 'Escape') { e.preventDefault(); closeMenu(true); }
+    else if (e.key === 'Tab') { closeMenu(false); }
+  });
+
+  items.forEach(function (item) {
+    item.addEventListener('click', function () { closeMenu(true); });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!menuButton.contains(e.target)) closeMenu(false);
+  });
+
+  /* Reject: a confirmation that asks for a reason */
+  var template = document.getElementById('reject-dialog');
+  var backdrop = null;
+
+  function showMessage(el, kind, text) {
+    el.className = kind;
+    el.textContent = text;
+  }
+
+  function closeReject(returnFocus) {
+    if (!backdrop) return;
+    backdrop.remove();
+    backdrop = null;
+    app.inert = false;
+    if (returnFocus) reject.focus();
+  }
+
+  function openReject() {
+    closeMenu(false);
+    backdrop = template.content.firstElementChild.cloneNode(true);
+    document.body.append(backdrop);
+    app.inert = true;
+
+    var form = backdrop.querySelector('#reject-form');
+    var reason = backdrop.querySelector('#reject-reason');
+    var reasonMsg = backdrop.querySelector('#reject-reason-msg');
+    var note = backdrop.querySelector('#reject-note');
+    var noteMsg = backdrop.querySelector('#reject-note-msg');
+    var reasonHint = reasonMsg.textContent;
+    var noteHint = noteMsg.textContent;
+
+    function clearErrors() {
+      if (reason.value) { showMessage(reasonMsg, 'field__hint', reasonHint); reason.removeAttribute('aria-invalid'); }
+      if (reason.value !== 'Other' || note.value.trim()) { showMessage(noteMsg, 'field__hint', noteHint); note.removeAttribute('aria-invalid'); }
+    }
+
+    reason.addEventListener('change', clearErrors);
+    note.addEventListener('input', clearErrors);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var why = reason.value;
+      var extra = note.value.trim();
+      if (!why) {
+        showMessage(reasonMsg, 'field__error', 'Choose a reason so the carrier knows what to fix.');
+        reason.setAttribute('aria-invalid', 'true');
+        reason.focus();
+        return;
+      }
+      if (why === 'Other' && !extra) {
+        showMessage(noteMsg, 'field__error', 'With Other, add a note so the carrier knows what to fix.');
+        note.setAttribute('aria-invalid', 'true');
+        note.focus();
+        return;
+      }
+      closeReject(false);
+      settle('Rejected', 'badge--critical',
+        'You rejected this invoice. Vidal & Seixo Transportes gets an email with your reason and has to send a new invoice.',
+        'rejected it. Reason: ' + why + (extra ? '. Note: “' + extra + '”' : ''));
+    });
+
+    backdrop.querySelector('#reject-cancel').addEventListener('click', function () { closeReject(true); });
+    backdrop.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { e.preventDefault(); closeReject(true); }
+    });
+
+    reason.focus();
+  }
+
+  reject.addEventListener('click', openReject);
+})();
+</script>
+</body>
+</html>

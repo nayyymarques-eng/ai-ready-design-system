@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · Tolvane</title>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../components.css">
+</head>
+<body>
+<div class="app">
+  <nav class="nav-rail" aria-label="Main">
+    <span class="nav-rail__brand">Tolvane</span>
+    <a class="nav-rail__item is-current" href="#" aria-current="page">Dashboard</a>
+    <a class="nav-rail__item" href="#">Dispatch</a>
+    <a class="nav-rail__item" href="#">Deliveries</a>
+    <a class="nav-rail__item" href="#">Exceptions <span class="numeral" data-count="exceptions">7</span></a>
+    <a class="nav-rail__item" href="#">Drivers</a>
+    <a class="nav-rail__item" href="#">Vehicles</a>
+    <a class="nav-rail__item" href="#">Reports</a>
+    <a class="nav-rail__item" href="#">Settings</a>
+  </nav>
+
+  <main class="page">
+    <header class="page-header">
+      <h1 class="page-header__title">Dashboard</h1>
+      <div class="page-header__actions">
+        <button class="btn btn--secondary" type="button">Download report</button>
+        <button class="btn btn--primary" type="button">Plan routes</button>
+      </div>
+    </header>
+
+    <div class="banner banner--warning" role="status">
+      <p><strong>Today’s dispatch cut-off is in 2 hours, at 16:00.</strong> Exceptions decided before then go on tomorrow’s routes.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="stat">
+          <span class="stat__label">Deliveries this month</span>
+          <span class="stat__value">3,524</span>
+        </div>
+        <p>6% ahead of the same point in October</p>
+      </div>
+      <div class="card">
+        <div class="stat">
+          <span class="stat__label">Drivers on duty</span>
+          <span class="stat__value">24</span>
+        </div>
+        <p>Of 27 rostered today</p>
+      </div>
+      <div class="card">
+        <div class="stat">
+          <span class="stat__label">Exceptions waiting</span>
+          <span class="stat__value" data-count="exceptions">7</span>
+        </div>
+        <p><span data-count="overdue">3</span> waiting over 24 hours</p>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="exceptions-title">
+      <h2 class="section__title" id="exceptions-title" tabindex="-1">Exceptions waiting for a decision <span class="numeral" data-count="exceptions">7</span></h2>
+      <div class="stack" role="list" id="exceptions-list">
+        <div class="card" role="listitem" data-id="TL-48172" data-recipient="Marta Sousa" data-area="Campolide" data-reason="Not home, third attempt" data-sender="Casa Lusa" data-overdue="true">
+          <div class="grid">
+            <div class="row"><strong>Not home, third attempt</strong><span class="badge badge--critical">Waiting&nbsp;52&nbsp;h</span></div>
+            <div class="row"><span>TL-48172 · Marta Sousa · Campolide</span></div>
+            <div class="row">
+              <button class="btn btn--secondary" type="button" data-decision="reschedule" aria-label="Reschedule TL-48172">Reschedule</button>
+              <button class="btn btn--secondary" type="button" data-decision="return" aria-label="Return to sender TL-48172">Return&nbsp;to&nbsp;sender</button>
+            </div>
+          </div>
+        </div>
+        <div class="card" role="listitem" data-id="TL-48205" data-recipient="Ricardo Almeida" data-area="Graça" data-reason="Address not found" data-sender="Livraria Alfama" data-overdue="true">
+          <div class="grid">
+            <div class="row"><strong>Address not found</strong><span class="badge badge--critical">Waiting&nbsp;31&nbsp;h</span></div>
+            <div class="row"><span>TL-48205 · Ricardo Almeida · Graça</span></div>
+            <div class="row">
+              <button class="btn btn--secondary" type="button" data-decision="reschedule" aria-label="Reschedule TL-48205">Reschedule</button>
+              <button class="btn btn--secondary" type="button" data-decision="return" aria-label="Return to sender TL-48205">Return&nbsp;to&nbsp;sender</button>
+            </div>
+          </div>
+        </div>
+        <div class="card" role="listitem" data-id="TL-48233" data-recipient="Farmácia Belvira" data-area="Lumiar" data-reason="Business closed" data-sender="FarmaMais" data-overdue="true">
+          <div class="grid">
+            <div class="row"><strong>Business closed</strong><span class="badge badge--critical">Waiting&nbsp;26&nbsp;h</span></div>
+            <div class="row"><span>TL-48233 · Farmácia Belvira · Lumiar</span></div>
+            <div class="row">
+              <button class="btn btn--secondary" type="button" data-decision="reschedule" aria-label="Reschedule TL-48233">Reschedule</button>
+              <button class="btn btn--secondary" type="button" data-decision="return" aria-label="Return to sender TL-48233">Return&nbsp;to&nbsp;sender</button>
+            </div>
+          </div>
+        </div>
+        <div class="card" role="listitem" data-id="TL-48261" data-recipient="João Pereira" data-area="Alvalade" data-reason="Refused by recipient" data-sender="TecnoPonto" data-overdue="false">
+          <div class="grid">
+            <div class="row"><strong>Refused by recipient</strong><span class="badge">Waiting&nbsp;9&nbsp;h</span></div>
+            <div class="row"><span>TL-48261 · João Pereira · Alvalade</span></div>
+            <div class="row">
+              <button class="btn btn--secondary" type="button" data-decision="reschedule" aria-label="Reschedule TL-48261">Reschedule</button>
+              <button class="btn btn--secondary" type="button" data-decision="return" aria-label="Return to sender TL-48261">Return&nbsp;to&nbsp;sender</button>
+            </div>
+          </div>
+        </div>
+        <div class="card" role="listitem" data-id="TL-48290" data-recipient="Inês Carvalho" data-area="Telheiras" data-reason="No access to building" data-sender="Moda Tejo" data-overdue="false">
+          <div class="grid">
+            <div class="row"><strong>No access to building</strong><span class="badge">Waiting&nbsp;6&nbsp;h</span></div>
+            <div class="row"><span>TL-48290 · Inês Carvalho · Telheiras</span></div>
+            <div class="row">
+              <button class="btn btn--secondary" type="button" data-decision="reschedule" aria-label="Reschedule TL-48290">Reschedule</button>
+              <button class="btn btn--secondary" type="button" data-decision="return" aria-label="Return to sender TL-48290">Return&nbsp;to&nbsp;sender</button>
+            </div>
+          </div>
+        </div>
+        <div class="card" role="listitem" data-id="TL-48318" data-recipient="Tiago Martins" data-area="Arroios" data-reason="Not home, second attempt" data-sender="Casa Lusa" data-overdue="false">
+          <div class="grid">
+            <div class="row"><strong>Not home, second attempt</strong><span class="badge">Waiting&nbsp;4&nbsp;h</span></div>
+            <div class="row"><span>TL-48318 · Tiago Martins · Arroios</span></div>
+            <div class="row">
+              <button class="btn btn--secondary" type="button" data-decision="reschedule" aria-label="Reschedule TL-48318">Reschedule</button>
+              <button class="btn btn--secondary" type="button" data-decision="return" aria-label="Return to sender TL-48318">Return&nbsp;to&nbsp;sender</button>
+            </div>
+          </div>
+        </div>
+        <div class="card" role="listitem" data-id="TL-48344" data-recipient="Beatriz Costa" data-area="Baixa" data-reason="No ID for age-restricted item" data-sender="Adega Norte" data-overdue="false">
+          <div class="grid">
+            <div class="row"><strong>No ID for age-restricted item</strong><span class="badge">Waiting&nbsp;2&nbsp;h</span></div>
+            <div class="row"><span>TL-48344 · Beatriz Costa · Baixa</span></div>
+            <div class="row">
+              <button class="btn btn--secondary" type="button" data-decision="reschedule" aria-label="Reschedule TL-48344">Reschedule</button>
+              <button class="btn btn--secondary" type="button" data-decision="return" aria-label="Return to sender TL-48344">Return&nbsp;to&nbsp;sender</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="trend-title">
+      <h2 class="section__title" id="trend-title">Deliveries, last six months</h2>
+      <div class="card">
+        <div class="bar-chart" role="img" aria-label="Completed deliveries in each full month: May 10,412, June 11,086, July 11,795, August 10,874, September 12,618, October 13,903">
+          <div class="bar-chart__col"><span class="bar-chart__value">10.4k</span><div class="bar-chart__bar" style="--value:75"></div><span class="bar-chart__label">May</span></div>
+          <div class="bar-chart__col"><span class="bar-chart__value">11.1k</span><div class="bar-chart__bar" style="--value:80"></div><span class="bar-chart__label">Jun</span></div>
+          <div class="bar-chart__col"><span class="bar-chart__value">11.8k</span><div class="bar-chart__bar" style="--value:85"></div><span class="bar-chart__label">Jul</span></div>
+          <div class="bar-chart__col"><span class="bar-chart__value">10.9k</span><div class="bar-chart__bar" style="--value:78"></div><span class="bar-chart__label">Aug</span></div>
+          <div class="bar-chart__col"><span class="bar-chart__value">12.6k</span><div class="bar-chart__bar" style="--value:91"></div><span class="bar-chart__label">Sep</span></div>
+          <div class="bar-chart__col"><span class="bar-chart__value">13.9k</span><div class="bar-chart__bar is-current" style="--value:100"></div><span class="bar-chart__label">Oct</span></div>
+        </div>
+        <p>Completed deliveries in each full month. October was the busiest, 10% up on September.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<template id="reschedule-dialog">
+  <div class="dialog-backdrop">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="reschedule-title">
+      <h2 class="dialog__title" id="reschedule-title">Reschedule <span data-field="id"></span></h2>
+      <p><span data-field="reason"></span> · <span data-field="recipient"></span>, <span data-field="area"></span></p>
+      <div class="field">
+        <label class="field__label" for="reschedule-date">Delivery date</label>
+        <select class="field__select" id="reschedule-date" data-autofocus>
+          <option value="Mon 9 Nov">Tomorrow, Mon 9 Nov</option>
+          <option value="Tue 10 Nov">Tue 10 Nov</option>
+          <option value="Wed 11 Nov">Wed 11 Nov</option>
+          <option value="Thu 12 Nov">Thu 12 Nov</option>
+        </select>
+        <p class="field__hint">Tomorrow is only possible until the 16:00 cut-off.</p>
+      </div>
+      <div class="field">
+        <label class="field__label" for="reschedule-window">Time window</label>
+        <select class="field__select" id="reschedule-window">
+          <option>09:00–13:00</option>
+          <option>13:00–17:00</option>
+          <option>17:00–21:00</option>
+        </select>
+      </div>
+      <label class="checkbox"><input type="checkbox" checked><span>Text <span data-field="recipient"></span> the new date</span></label>
+      <div class="dialog__actions">
+        <button class="btn btn--secondary" type="button" data-action="cancel">Cancel</button>
+        <button class="btn btn--primary" type="button" data-action="confirm">Reschedule</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="return-dialog">
+  <div class="dialog-backdrop">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="return-title">
+      <h2 class="dialog__title" id="return-title">Return <span data-field="id"></span> to sender?</h2>
+      <p>It goes back to <span data-field="sender"></span> on the next linehaul, marked “<span data-field="reason"></span>”. Once it leaves the depot, this can’t be undone.</p>
+      <div class="dialog__actions">
+        <button class="btn btn--secondary" type="button" data-action="cancel" data-autofocus>Cancel</button>
+        <button class="btn btn--primary" type="button" data-action="confirm">Return to sender</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="exceptions-empty">
+  <div class="empty-state">
+    <h3 class="empty-state__title">No exceptions waiting</h3>
+    <p>New exceptions appear here as soon as a driver reports one.</p>
+  </div>
+</template>
+
+<script>
+(function () {
+  var app = document.querySelector('.app');
+  var list = document.getElementById('exceptions-list');
+  var heading = document.getElementById('exceptions-title');
+  var open = null;
+
+  function setCount(name, value) {
+    document.querySelectorAll('[data-count="' + name + '"]').forEach(function (el) { el.textContent = value; });
+  }
+
+  function openDialog(kind, item, opener) {
+    var backdrop = document.getElementById(kind + '-dialog').content.firstElementChild.cloneNode(true);
+    backdrop.querySelectorAll('[data-field]').forEach(function (el) { el.textContent = item.dataset[el.dataset.field]; });
+    backdrop.addEventListener('click', function (event) {
+      var action = event.target.closest('[data-action]');
+      if (event.target === backdrop || (action && action.dataset.action === 'cancel')) closeDialog(true);
+      else if (action) decide();
+    });
+    document.body.appendChild(backdrop);
+    app.inert = true;
+    open = { kind: kind, item: item, opener: opener, backdrop: backdrop };
+    backdrop.querySelector('[data-autofocus]').focus();
+  }
+
+  function closeDialog(restoreFocus) {
+    open.backdrop.remove();
+    app.inert = false;
+    if (restoreFocus) open.opener.focus();
+    open = null;
+  }
+
+  function announce(message) {
+    var status = document.getElementById('decision-status');
+    if (!status) {
+      status = document.createElement('div');
+      status.id = 'decision-status';
+      status.className = 'banner';
+      status.setAttribute('role', 'status');
+      status.appendChild(document.createElement('p'));
+      heading.insertAdjacentElement('afterend', status);
+    }
+    setTimeout(function () { status.firstElementChild.textContent = message; }, 50);
+  }
+
+  function decide() {
+    var item = open.item;
+    var data = item.dataset;
+    var message = open.kind === 'reschedule'
+      ? data.id + ' rescheduled for ' + open.backdrop.querySelector('#reschedule-date').value + ', ' + open.backdrop.querySelector('#reschedule-window').value + '.'
+      : data.id + ' will go back to ' + data.sender + ' on the next linehaul.';
+    var next = item.nextElementSibling || item.previousElementSibling;
+    closeDialog(false);
+    item.remove();
+    setCount('exceptions', list.querySelectorAll('[data-id]').length);
+    setCount('overdue', list.querySelectorAll('[data-overdue="true"]').length);
+    announce(message);
+    if (next) {
+      next.querySelector('button').focus();
+    } else {
+      list.replaceWith(document.getElementById('exceptions-empty').content.firstElementChild.cloneNode(true));
+      heading.focus();
+    }
+  }
+
+  list.addEventListener('click', function (event) {
+    var button = event.target.closest('[data-decision]');
+    if (button) openDialog(button.dataset.decision, button.closest('[data-id]'), button);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && open) closeDialog(true);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# Card
+
+A white surface that groups one piece of content.
+
+## Markup
+```html
+<div class="card">…</div>
+```
+
+## Variants and states
+None.
+
+## Use for
+- Grouping one piece of content on the page
+
+## Never
+- A card inside a card
+- A card with a coloured border to show a message (use a banner)
+
+## Lives in
+The page, a grid or a section.
+
+## Tokens
+--surface, --border, --radius, --raise-1, --s5
+
+## Checked by
+CARD-01

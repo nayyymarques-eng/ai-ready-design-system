@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · Tolvane</title>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../components.css">
+</head>
+<body>
+<!--
+  Tolvane dashboard. Built only from contracted components: app shell, nav rail, numeral, page header,
+  button, banner, grid, card, stat, section, table, badge, bar chart, dialog, field. No new component, no style block.
+  Not decided (rules.md §12): date formats. This screen avoids them: waiting times are durations in hours,
+  the chart uses month abbreviations as in the bar chart contract, and the reschedule dialog offers
+  tomorrow's slots in a select (a field), not a date picker (not built).
+-->
+<div class="app">
+  <nav class="nav-rail" aria-label="Main">
+    <span class="nav-rail__brand">Tolvane</span>
+    <a class="nav-rail__item is-current" href="#" aria-current="page">Dashboard</a>
+    <a class="nav-rail__item" href="#">Deliveries</a>
+    <a class="nav-rail__item" href="#">Exceptions <span class="numeral" data-count="waiting">10</span></a>
+    <a class="nav-rail__item" href="#">Routes</a>
+    <a class="nav-rail__item" href="#">Drivers</a>
+    <a class="nav-rail__item" href="#">Depots</a>
+    <a class="nav-rail__item" href="#">Reports</a>
+    <a class="nav-rail__item" href="#">Settings</a>
+  </nav>
+
+  <main class="page">
+    <header class="page-header">
+      <h1 class="page-header__title">Dashboard</h1>
+      <div class="page-header__actions">
+        <button class="btn btn--secondary" type="button">Export report</button>
+      </div>
+    </header>
+
+    <div class="banner banner--warning" role="status">
+      <p><strong>Today's dispatch cut-off is at 16:00, in 2&nbsp;hours.</strong> Exceptions decided before then go on tomorrow's routes. Later decisions wait an extra day.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="stat">
+          <span class="stat__label">Deliveries this month</span>
+          <span class="stat__value">25,914</span>
+        </div>
+        <p>Up 3% on the same days in October.</p>
+      </div>
+      <div class="card">
+        <div class="stat">
+          <span class="stat__label">Drivers on duty</span>
+          <span class="stat__value">46</span>
+        </div>
+        <p>Out of 52 scheduled today.</p>
+      </div>
+      <div class="card">
+        <div class="stat">
+          <span class="stat__label">Exceptions waiting</span>
+          <span class="stat__value" data-count="waiting">10</span>
+        </div>
+        <p data-count="late">4 have waited more than 24 hours.</p>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="exceptions-title">
+      <h2 class="section__title" id="exceptions-title" tabindex="-1">Exceptions waiting for a decision <span class="numeral" data-count="waiting">10</span></h2>
+      <div class="table-scroll">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Parcel</th>
+              <th>Reason</th>
+              <th>Sender</th>
+              <th class="is-number">Attempts</th>
+              <th class="is-number">Waiting</th>
+              <th>Decision</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-hours="31">
+              <td data-field="parcel"><strong>TL&nbsp;30418</strong></td>
+              <td data-field="reason">Refused by recipient</td>
+              <td data-field="sender">Larkmoor Home</td>
+              <td class="is-number" data-field="attempts">1&nbsp;of&nbsp;3</td>
+              <td class="is-number">31&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 30418">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 30418">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-hours="29">
+              <td data-field="parcel"><strong>TL&nbsp;30127</strong></td>
+              <td data-field="reason">Recipient not in</td>
+              <td data-field="sender">Northside Pharmacy</td>
+              <td class="is-number" data-field="attempts">3&nbsp;of&nbsp;3</td>
+              <td class="is-number">29&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 30127">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 30127">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-hours="27">
+              <td data-field="parcel"><strong>TL&nbsp;30562</strong></td>
+              <td data-field="reason">Address not found</td>
+              <td data-field="sender">Bloom &amp; Basket</td>
+              <td class="is-number" data-field="attempts">2&nbsp;of&nbsp;3</td>
+              <td class="is-number">27&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 30562">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 30562">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-hours="25">
+              <td data-field="parcel"><strong>TL&nbsp;30609</strong></td>
+              <td data-field="reason">Damaged in transit</td>
+              <td data-field="sender">Fernwood Books</td>
+              <td class="is-number" data-field="attempts">1&nbsp;of&nbsp;3</td>
+              <td class="is-number">25&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 30609">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 30609">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-hours="19">
+              <td data-field="parcel"><strong>TL&nbsp;30733</strong></td>
+              <td data-field="reason">No building access</td>
+              <td data-field="sender">Larkmoor Home</td>
+              <td class="is-number" data-field="attempts">2&nbsp;of&nbsp;3</td>
+              <td class="is-number">19&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 30733">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 30733">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-hours="11">
+              <td data-field="parcel"><strong>TL&nbsp;30781</strong></td>
+              <td data-field="reason">ID check failed</td>
+              <td data-field="sender">Northside Pharmacy</td>
+              <td class="is-number" data-field="attempts">1&nbsp;of&nbsp;3</td>
+              <td class="is-number">11&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 30781">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 30781">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-hours="8">
+              <td data-field="parcel"><strong>TL&nbsp;30846</strong></td>
+              <td data-field="reason">Business closed</td>
+              <td data-field="sender">Harbour Coffee Co.</td>
+              <td class="is-number" data-field="attempts">1&nbsp;of&nbsp;3</td>
+              <td class="is-number">8&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 30846">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 30846">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-hours="6">
+              <td data-field="parcel"><strong>TL&nbsp;30902</strong></td>
+              <td data-field="reason">Recipient not in</td>
+              <td data-field="sender">Lumen Electrical</td>
+              <td class="is-number" data-field="attempts">2&nbsp;of&nbsp;3</td>
+              <td class="is-number">6&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 30902">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 30902">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-hours="4">
+              <td data-field="parcel"><strong>TL&nbsp;30955</strong></td>
+              <td data-field="reason">Wrong postcode on label</td>
+              <td data-field="sender">Atlas Sportswear</td>
+              <td class="is-number" data-field="attempts">1&nbsp;of&nbsp;3</td>
+              <td class="is-number">4&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 30955">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 30955">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-hours="2">
+              <td data-field="parcel"><strong>TL&nbsp;31012</strong></td>
+              <td data-field="reason">Recipient not in</td>
+              <td data-field="sender">Fernwood Books</td>
+              <td class="is-number" data-field="attempts">1&nbsp;of&nbsp;3</td>
+              <td class="is-number">2&nbsp;h</td>
+              <td data-field="decision">
+                <div class="row">
+                  <button class="btn btn--secondary" type="button" data-decide="reschedule" aria-label="Reschedule TL 31012">Reschedule</button>
+                  <button class="btn btn--secondary" type="button" data-decide="return" aria-label="Return to sender TL 31012">Return&nbsp;to&nbsp;sender</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="trend-title">
+      <h2 class="section__title" id="trend-title">Deliveries, last six months</h2>
+      <div class="card">
+        <div class="bar-chart" role="img" aria-label="Deliveries per month, May to October: May 71,860; June 76,420; July 80,150; August 78,930; September 88,240; October 97,610">
+          <div class="bar-chart__col">
+            <span class="bar-chart__value">71.9k</span>
+            <div class="bar-chart__bar" style="--value:74"></div>
+            <span class="bar-chart__label">May</span>
+          </div>
+          <div class="bar-chart__col">
+            <span class="bar-chart__value">76.4k</span>
+            <div class="bar-chart__bar" style="--value:78"></div>
+            <span class="bar-chart__label">Jun</span>
+          </div>
+          <div class="bar-chart__col">
+            <span class="bar-chart__value">80.2k</span>
+            <div class="bar-chart__bar" style="--value:82"></div>
+            <span class="bar-chart__label">Jul</span>
+          </div>
+          <div class="bar-chart__col">
+            <span class="bar-chart__value">78.9k</span>
+            <div class="bar-chart__bar" style="--value:81"></div>
+            <span class="bar-chart__label">Aug</span>
+          </div>
+          <div class="bar-chart__col">
+            <span class="bar-chart__value">88.2k</span>
+            <div class="bar-chart__bar" style="--value:90"></div>
+            <span class="bar-chart__label">Sep</span>
+          </div>
+          <div class="bar-chart__col">
+            <span class="bar-chart__value">97.6k</span>
+            <div class="bar-chart__bar is-current" style="--value:100"></div>
+            <span class="bar-chart__label">Oct</span>
+          </div>
+        </div>
+        <p>Complete months only. November so far: 25,914.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<template id="dialog-reschedule">
+  <div class="dialog-backdrop">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="reschedule-title">
+      <h2 class="dialog__title" id="reschedule-title">Reschedule <span data-fill="parcel"></span></h2>
+      <p><span data-fill="reason"></span>, <span data-fill="attempts"></span> attempts used.</p>
+      <div class="field">
+        <label class="field__label" for="reschedule-slot">New delivery slot</label>
+        <select class="field__input" id="reschedule-slot">
+          <option>Tomorrow, 08:00–12:00</option>
+          <option>Tomorrow, 12:00–17:00</option>
+          <option>Tomorrow, 17:00–21:00</option>
+        </select>
+        <p class="field__hint">The recipient gets a text with the new slot.</p>
+      </div>
+      <div class="dialog__actions">
+        <button class="btn btn--secondary" type="button" data-close>Cancel</button>
+        <button class="btn btn--primary" type="button" data-confirm>Reschedule</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="dialog-return">
+  <div class="dialog-backdrop">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="return-title">
+      <h2 class="dialog__title" id="return-title">Return <span data-fill="parcel"></span> to sender?</h2>
+      <p>It goes back to <span data-fill="sender"></span> on tonight's linehaul. You can't undo this once it leaves the depot.</p>
+      <div class="dialog__actions">
+        <button class="btn btn--secondary" type="button" data-close>Cancel</button>
+        <button class="btn btn--primary" type="button" data-confirm>Return to sender</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+(function () {
+  var app = document.querySelector('.app');
+
+  document.addEventListener('click', function (event) {
+    var trigger = event.target.closest('[data-decide]');
+    if (trigger) openDialog(trigger);
+  });
+
+  function field(row, name) {
+    return row.querySelector('[data-field="' + name + '"]');
+  }
+
+  function openDialog(trigger) {
+    var row = trigger.closest('tr');
+    var kind = trigger.getAttribute('data-decide');
+    var backdrop = document.getElementById('dialog-' + kind).content.firstElementChild.cloneNode(true);
+    backdrop.querySelectorAll('[data-fill]').forEach(function (slot) {
+      slot.textContent = field(row, slot.getAttribute('data-fill')).textContent;
+    });
+    document.body.appendChild(backdrop);
+    app.inert = true;
+    (backdrop.querySelector('select') || backdrop.querySelector('[data-close]')).focus();
+
+    function close(decided) {
+      document.removeEventListener('keydown', onKey);
+      backdrop.remove();
+      app.inert = false;
+      if (decided) focusNext(row); else trigger.focus();
+    }
+    function onKey(event) {
+      if (event.key === 'Escape') close(false);
+    }
+    document.addEventListener('keydown', onKey);
+    backdrop.addEventListener('click', function (event) {
+      if (event.target === backdrop || event.target.closest('[data-close]')) {
+        close(false);
+      } else if (event.target.closest('[data-confirm]')) {
+        decide(row, kind);
+        close(true);
+      }
+    });
+  }
+
+  function decide(row, kind) {
+    var badge = document.createElement('span');
+    badge.className = kind === 'reschedule' ? 'badge badge--positive' : 'badge';
+    badge.textContent = kind === 'reschedule' ? 'Rescheduled' : 'Returning';
+    field(row, 'decision').replaceChildren(badge);
+    row.setAttribute('data-decided', kind);
+    recount();
+  }
+
+  function recount() {
+    var waiting = document.querySelectorAll('tr[data-hours]:not([data-decided])');
+    var late = Array.prototype.filter.call(waiting, function (row) {
+      return Number(row.getAttribute('data-hours')) > 24;
+    }).length;
+    document.querySelectorAll('[data-count="waiting"]').forEach(function (count) {
+      count.textContent = waiting.length;
+    });
+    document.querySelector('[data-count="late"]').textContent =
+      waiting.length === 0 ? 'Every exception has a decision.' :
+      late === 0 ? 'None has waited more than 24 hours.' :
+      late === 1 ? '1 has waited more than 24 hours.' :
+      late + ' have waited more than 24 hours.';
+  }
+
+  function focusNext(row) {
+    var next = row.nextElementSibling;
+    while (next && next.hasAttribute('data-decided')) next = next.nextElementSibling;
+    var target = next ? next.querySelector('[data-decide]') :
+      document.querySelector('tr[data-hours]:not([data-decided]) [data-decide]');
+    (target || document.getElementById('exceptions-title')).focus();
+  }
+})();
+</script>
+</body>
+</html>

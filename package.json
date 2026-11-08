@@ -1,0 +1,12 @@
+{
+  "name": "ai-ready-design-system",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "score": "node harness/score.mjs test/components-only test/framework",
+    "map": "python3 build-map.py"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

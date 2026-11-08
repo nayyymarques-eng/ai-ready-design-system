@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Company settings · Tolvane</title>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../components.css">
+</head>
+<body>
+<div class="app">
+  <nav class="nav-rail" aria-label="Main">
+    <span class="nav-rail__brand">Tolvane</span>
+    <a class="nav-rail__item" href="#">Dispatch</a>
+    <a class="nav-rail__item" href="#">Orders</a>
+    <a class="nav-rail__item" href="#">Routes</a>
+    <a class="nav-rail__item" href="#">Exceptions <span class="numeral">3</span></a>
+    <a class="nav-rail__item" href="#">Drivers <span class="numeral">38</span></a>
+    <a class="nav-rail__item" href="#">Vehicles</a>
+    <a class="nav-rail__item" href="#">Reports</a>
+    <a class="nav-rail__item is-current" href="#" aria-current="page">Settings</a>
+  </nav>
+
+  <main class="page">
+    <header class="page-header">
+      <h1 class="page-header__title">Company settings</h1>
+    </header>
+
+    <section class="section" aria-labelledby="details-title">
+      <h2 class="section__title" id="details-title">Company details</h2>
+      <div class="card">
+        <form class="stack" id="details-form" novalidate>
+          <div class="grid">
+            <div class="field">
+              <label class="field__label" for="company-name">Company name</label>
+              <input class="field__input" id="company-name" name="company_name" value="Tejo Express" autocomplete="organization" required data-error="Enter the company name" aria-describedby="company-name-hint">
+              <p class="field__hint" id="company-name-hint">Drivers see it in the app; customers see it in tracking texts.</p>
+              <p class="field__error" id="company-name-error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="legal-entity">Legal entity</label>
+              <input class="field__input" id="legal-entity" name="legal_entity" value="Tejo Express Logística, Lda." autocomplete="off" required data-error="Enter the registered name of the company" aria-describedby="legal-entity-hint">
+              <p class="field__hint" id="legal-entity-hint">The registered name, printed on invoices and delivery receipts.</p>
+              <p class="field__error" id="legal-entity-error" hidden></p>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="field">
+              <label class="field__label" for="country">Country</label>
+              <select class="field__select" id="country" name="country" aria-describedby="country-hint">
+                <option>Austria</option>
+                <option>Belgium</option>
+                <option>France</option>
+                <option>Germany</option>
+                <option>Ireland</option>
+                <option>Italy</option>
+                <option>Luxembourg</option>
+                <option>Netherlands</option>
+                <option selected>Portugal</option>
+                <option>Spain</option>
+                <option>Switzerland</option>
+                <option>United Kingdom</option>
+              </select>
+              <p class="field__hint" id="country-hint">Sets VAT on invoices and where address search looks first.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="currency">Currency</label>
+              <select class="field__select" id="currency" name="currency" aria-describedby="currency-hint">
+                <option value="CZK">Czech koruna (CZK)</option>
+                <option value="DKK">Danish krone (DKK)</option>
+                <option value="EUR" selected>Euro (EUR)</option>
+                <option value="PLN">Polish złoty (PLN)</option>
+                <option value="GBP">Pound sterling (GBP)</option>
+                <option value="SEK">Swedish krona (SEK)</option>
+                <option value="CHF">Swiss franc (CHF)</option>
+                <option value="USD">US dollar (USD)</option>
+              </select>
+              <p class="field__hint" id="currency-hint">Used for delivery fees, driver pay and reports. Past amounts are not converted.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="cutoff">Daily dispatch cut-off</label>
+              <select class="field__select" id="cutoff" name="dispatch_cutoff" aria-describedby="cutoff-hint">
+                <option>12:00</option>
+                <option>12:30</option>
+                <option>13:00</option>
+                <option>13:30</option>
+                <option>14:00</option>
+                <option>14:30</option>
+                <option>15:00</option>
+                <option selected>15:30</option>
+                <option>16:00</option>
+                <option>16:30</option>
+                <option>17:00</option>
+                <option>17:30</option>
+                <option>18:00</option>
+              </select>
+              <p class="field__hint" id="cutoff-hint">Orders confirmed after this time go on the next day’s routes.</p>
+            </div>
+          </div>
+          <div class="row">
+            <button class="btn btn--primary" type="submit">Save changes</button>
+            <button class="btn btn--secondary" type="reset">Discard changes</button>
+            <span id="details-status" role="status"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="alerts-title">
+      <h2 class="section__title" id="alerts-title">Notifications</h2>
+      <div class="card">
+        <p>Sent to dispatchers in Tolvane and by email. Each switch applies straight away.</p>
+        <label class="switch"><input type="checkbox" role="switch" name="alert_late_stop" checked> Stop running 15 minutes late</label>
+        <label class="switch"><input type="checkbox" role="switch" name="alert_failed_delivery" checked> Delivery marked as failed</label>
+        <label class="switch"><input type="checkbox" role="switch" name="alert_driver_offline" checked> Driver offline for 10 minutes</label>
+        <label class="switch"><input type="checkbox" role="switch" name="alert_unassigned"> Unassigned orders before cut-off</label>
+        <label class="switch"><input type="checkbox" role="switch" name="alert_vehicle_check" checked> Vehicle check failed</label>
+        <label class="switch"><input type="checkbox" role="switch" name="daily_summary"> Daily summary by email at 19:00</label>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="danger-title">
+      <h2 class="section__title" id="danger-title">Danger zone</h2>
+      <div class="card">
+        <p>Deleting the workspace removes <span data-company>Tejo Express</span> and everything in it: 38 drivers, 4 depots, every route and 14 months of delivery history. Export anything you need from Reports first.</p>
+        <div class="row">
+          <button class="btn btn--danger" type="button" id="delete-open" aria-haspopup="dialog">Delete workspace</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<template id="delete-dialog">
+  <div class="dialog-backdrop">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="delete-title" aria-describedby="delete-text">
+      <h2 class="dialog__title" id="delete-title">Delete the <span data-company>Tejo Express</span> workspace</h2>
+      <p id="delete-text">This removes 38 drivers, 4 depots, every route and 14 months of delivery history for everyone in the workspace. Drivers are signed out of the app straight away. You can’t undo this.</p>
+      <form class="stack" novalidate>
+        <div class="field">
+          <label class="field__label" for="delete-confirm">Type “<span data-company>Tejo Express</span>” to confirm</label>
+          <input class="field__input" id="delete-confirm" name="confirm_name" autocomplete="off" autocapitalize="off" spellcheck="false">
+          <p class="field__error" id="delete-confirm-error" hidden></p>
+        </div>
+        <div class="dialog__actions">
+          <button class="btn btn--secondary" type="button" data-close>Cancel</button>
+          <button class="btn btn--danger" type="submit">Delete workspace</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<template id="deleted-banner">
+  <div class="banner banner--critical" role="status" tabindex="-1">
+    <p><span data-company>Tejo Express</span> is being deleted. Drivers have been signed out of the app, and everyone else will be signed out within a few minutes.</p>
+  </div>
+</template>
+
+<script>
+(function () {
+  var app = document.querySelector('.app');
+
+  // On phones the rail is a bar that scrolls sideways: bring the current place into view.
+  var rail = document.querySelector('.nav-rail');
+  var here = rail.querySelector('.is-current');
+  var past = here.getBoundingClientRect().right - rail.getBoundingClientRect().right;
+  if (past > 0) rail.scrollLeft += past + 8;
+
+  // A field__error replaces the hint while the value is wrong.
+  function showError(input, message) {
+    var field = input.closest('.field');
+    var hint = field.querySelector('.field__hint');
+    var error = field.querySelector('.field__error');
+    error.textContent = message;
+    error.hidden = !message;
+    if (hint) hint.hidden = Boolean(message);
+    if (message) input.setAttribute('aria-invalid', 'true');
+    else input.removeAttribute('aria-invalid');
+    var described = message ? error.id : (hint ? hint.id : '');
+    if (described) input.setAttribute('aria-describedby', described);
+    else input.removeAttribute('aria-describedby');
+  }
+
+  function savedName() {
+    return document.getElementById('company-name').defaultValue.trim();
+  }
+
+  function fillName(root) {
+    root.querySelectorAll('[data-company]').forEach(function (el) { el.textContent = savedName(); });
+  }
+
+  // Company details: checked, then saved with the button.
+  var form = document.getElementById('details-form');
+  var status = document.getElementById('details-status');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var first = null;
+    form.querySelectorAll('[required]').forEach(function (input) {
+      var empty = input.value.trim() === '';
+      showError(input, empty ? input.dataset.error : '');
+      if (empty && !first) first = input;
+    });
+    if (first) {
+      status.textContent = '';
+      first.focus();
+      return;
+    }
+    form.querySelectorAll('input').forEach(function (input) {
+      input.value = input.value.trim();
+      input.defaultValue = input.value;
+    });
+    form.querySelectorAll('option').forEach(function (option) { option.defaultSelected = option.selected; });
+    fillName(document);
+    status.textContent = 'Changes saved';
+  });
+
+  form.addEventListener('input', function (event) {
+    status.textContent = '';
+    var input = event.target;
+    if (input.hasAttribute('aria-invalid') && input.value.trim() !== '') showError(input, '');
+  });
+
+  form.addEventListener('reset', function () {
+    status.textContent = '';
+    form.querySelectorAll('[required]').forEach(function (input) { showError(input, ''); });
+  });
+
+  // Delete the workspace: a dialog asks for the company name first.
+  var trigger = document.getElementById('delete-open');
+  var backdrop = null;
+  var pressedOutside = false;
+
+  function onKey(event) {
+    if (event.key === 'Escape') closeDialog(true);
+  }
+
+  function openDialog() {
+    backdrop = document.getElementById('delete-dialog').content.firstElementChild.cloneNode(true);
+    fillName(backdrop);
+    var input = backdrop.querySelector('input');
+    backdrop.addEventListener('mousedown', function (event) { pressedOutside = event.target === backdrop; });
+    backdrop.addEventListener('click', function (event) {
+      if (pressedOutside && event.target === backdrop) closeDialog(true);
+    });
+    backdrop.querySelector('[data-close]').addEventListener('click', function () { closeDialog(true); });
+    backdrop.querySelector('form').addEventListener('submit', confirmDelete);
+    input.addEventListener('input', function () {
+      if (input.hasAttribute('aria-invalid')) showError(input, '');
+    });
+    document.body.appendChild(backdrop);
+    app.inert = true;
+    document.addEventListener('keydown', onKey);
+    input.focus();
+  }
+
+  function closeDialog(returnFocus) {
+    if (!backdrop) return;
+    backdrop.remove();
+    backdrop = null;
+    app.inert = false;
+    document.removeEventListener('keydown', onKey);
+    if (returnFocus) trigger.focus();
+  }
+
+  function confirmDelete(event) {
+    event.preventDefault();
+    var input = backdrop.querySelector('input');
+    if (input.value.trim() !== savedName()) {
+      showError(input, 'The name doesn’t match. Type ' + savedName() + ' exactly as shown.');
+      input.focus();
+      return;
+    }
+    closeDialog(false);
+    var banner = document.getElementById('deleted-banner').content.firstElementChild.cloneNode(true);
+    fillName(banner);
+    document.querySelector('.page-header').after(banner);
+    trigger.closest('.row').remove();
+    banner.focus();
+  }
+
+  trigger.addEventListener('click', openDialog);
+})();
+</script>
+</body>
+</html>

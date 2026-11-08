@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proof of delivery TLV-48213 · Tolvane</title>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../components.css">
+<!--
+  Screen: pod-detail. The proof of delivery for one disputed delivery, to accept or send back to the driver.
+  New components (rule CMP-03), each marked with data-new, data-job and data-why on its root: photo, signature, textarea.
+  The photo and the signature are drawn in SVG with tokens only. They stand in for the image files that the driver app uploads.
+  Not decided in rules.md section 12: date formats. This screen uses "Thu 6 Nov" and 24-hour times such as "14:05".
+-->
+<style>
+  /* photo (CMP-03): the photo the driver took at the door */
+  .x-photo { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius); background: var(--line); }
+  .x-photo__scene { display: block; width: 100%; height: 100%; }
+  .x-photo__wall { fill: var(--line); }
+  .x-photo__pipe { fill: var(--muted); }
+  .x-photo__trim { fill: var(--surface); }
+  .x-photo__glass { fill: var(--muted); }
+  .x-photo__digits { fill: var(--surface); font: var(--type-heading); text-anchor: middle; }
+  .x-photo__door { fill: var(--text); }
+  .x-photo__panel { fill: var(--ink); fill-opacity: .25; }
+  .x-photo__metal { fill: var(--line); }
+  .x-photo__slot { fill: var(--ink); }
+  .x-photo__ground { fill: var(--text); }
+  .x-photo__joint { fill: none; stroke: var(--ink); stroke-width: 1; stroke-opacity: .5; }
+  .x-photo__step { fill: var(--surface-sunken); }
+  .x-photo__riser { fill: var(--muted); }
+  .x-photo__mat { fill: var(--ink); }
+  .x-photo__box { fill: var(--surface-sunken); }
+  .x-photo__box-top { fill: var(--surface); }
+  .x-photo__box-side { fill: var(--line); }
+  .x-photo__tape { fill: var(--line); }
+  .x-photo__label { fill: var(--surface); stroke: var(--line); stroke-width: 1; }
+  .x-photo__bars { fill: none; stroke: var(--ink); stroke-width: 1; }
+  .x-photo__stamp { position: absolute; left: var(--s2); bottom: var(--s2); padding: 0 var(--s2); border-radius: var(--radius); background: var(--ink); color: var(--on-accent); font: var(--type-small); }
+
+  /* signature (CMP-03): the signature the recipient drew on the driver's phone */
+  .x-signature { aspect-ratio: 8 / 5; border-radius: var(--radius); background: var(--surface-sunken); }
+  .x-signature__drawing { display: block; width: 100%; height: 100%; }
+  .x-signature__line { fill: none; stroke: var(--line); stroke-width: 2; }
+  .x-signature__mark { fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; }
+  .x-signature__stroke { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* textarea (CMP-03): a message of a few lines */
+  .x-textarea { display: flex; flex-direction: column; gap: var(--s1); }
+  .x-textarea__label { font: var(--type-body-strong); color: var(--ink); }
+  .x-textarea__input { width: 100%; padding: var(--s2) var(--s3); border: var(--border); border-radius: var(--radius); background: var(--surface); font: var(--type-body); color: var(--ink); resize: vertical; }
+  .x-textarea__hint { font: var(--type-small); color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="nav-rail" aria-label="Main">
+    <span class="nav-rail__brand">Tolvane</span>
+    <a class="nav-rail__item" href="#">Today</a>
+    <a class="nav-rail__item" href="#">Deliveries</a>
+    <a class="nav-rail__item is-current" href="#" aria-current="page">Disputes <span class="numeral">7</span></a>
+    <a class="nav-rail__item" href="#">Drivers</a>
+    <a class="nav-rail__item" href="#">Routes</a>
+    <a class="nav-rail__item" href="#">Settings</a>
+  </nav>
+
+  <main class="page">
+    <header class="page-header">
+      <div class="row">
+        <h1 class="page-header__title">Proof of delivery TLV-48213</h1>
+        <span class="badge badge--warning" id="pod-status">Needs review</span>
+      </div>
+      <div class="page-header__actions">
+        <button class="btn btn--secondary" type="button" id="send-back" aria-haspopup="dialog">Send back to driver</button>
+        <button class="btn btn--primary" type="button" id="accept-proof">Accept proof</button>
+      </div>
+    </header>
+
+    <div class="banner banner--warning" role="status">
+      <p><strong>Daniel Mensah disputed this delivery on Fri 7 Nov at 09:14.</strong> “The parcel never arrived. I was home all afternoon and nobody knocked.”</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <section class="section" aria-labelledby="photo-title">
+          <h2 class="section__title" id="photo-title">Photo at the door</h2>
+          <div class="x-photo" data-new="photo" data-job="Shows the photo the driver took at the door, with the time the app stamped on it" data-why="No contract shows an image: the system has no image or photo component" role="img" aria-label="Photo taken at the door: a parcel on the doormat in front of a front door with the number 14 on the glass above it. Stamped Thu 6 Nov 2026, 14:01.">
+            <svg class="x-photo__scene" viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+              <rect class="x-photo__wall" x="0" y="0" width="400" height="300"/>
+              <rect class="x-photo__pipe" x="58" y="0" width="6" height="262"/>
+              <rect class="x-photo__pipe" x="55" y="70" width="12" height="4"/>
+              <rect class="x-photo__pipe" x="55" y="170" width="12" height="4"/>
+              <rect class="x-photo__trim" x="300" y="40" width="86" height="160"/>
+              <rect class="x-photo__glass" x="308" y="48" width="33" height="68"/>
+              <rect class="x-photo__glass" x="345" y="48" width="33" height="68"/>
+              <rect class="x-photo__glass" x="308" y="124" width="33" height="68"/>
+              <rect class="x-photo__glass" x="345" y="124" width="33" height="68"/>
+              <rect class="x-photo__trim" x="294" y="200" width="98" height="6"/>
+              <rect class="x-photo__trim" x="136" y="14" width="128" height="232"/>
+              <rect class="x-photo__glass" x="146" y="24" width="108" height="34"/>
+              <text class="x-photo__digits" x="200" y="47">14</text>
+              <rect class="x-photo__door" x="146" y="66" width="108" height="180"/>
+              <rect class="x-photo__panel" x="158" y="78" width="38" height="56"/>
+              <rect class="x-photo__panel" x="204" y="78" width="38" height="56"/>
+              <rect class="x-photo__panel" x="158" y="170" width="38" height="64"/>
+              <rect class="x-photo__panel" x="204" y="170" width="38" height="64"/>
+              <rect class="x-photo__metal" x="176" y="144" width="48" height="14"/>
+              <rect class="x-photo__slot" x="181" y="149" width="38" height="4"/>
+              <circle class="x-photo__metal" cx="248" cy="164" r="3.5"/>
+              <rect class="x-photo__ground" x="0" y="262" width="400" height="38"/>
+              <path class="x-photo__joint" d="M0 280 H400 M40 262 L20 300 M120 262 L110 300 M280 262 L290 300 M360 262 L380 300"/>
+              <polygon class="x-photo__step" points="118,246 282,246 294,258 106,258"/>
+              <rect class="x-photo__riser" x="106" y="258" width="188" height="14"/>
+              <polygon class="x-photo__mat" points="150,247 250,247 256,256 144,256"/>
+              <rect class="x-photo__box" x="160" y="204" width="72" height="48"/>
+              <polygon class="x-photo__box-top" points="160,204 232,204 241,195 169,195"/>
+              <polygon class="x-photo__box-side" points="232,204 241,195 241,243 232,252"/>
+              <polygon class="x-photo__tape" points="192,204 200,204 209,195 201,195"/>
+              <rect class="x-photo__tape" x="192" y="204" width="8" height="7"/>
+              <rect class="x-photo__label" x="167" y="214" width="24" height="18"/>
+              <path class="x-photo__bars" d="M169.5 216.5v8 M171.5 216.5v8 M173 216.5v8 M175.5 216.5v8 M177.5 216.5v8 M179 216.5v8 M181.5 216.5v8 M183 216.5v8 M185.5 216.5v8 M187.5 216.5v8 M169 228.5h14"/>
+            </svg>
+            <span class="x-photo__stamp" aria-hidden="true">Thu 6 Nov 2026 · 14:01</span>
+          </div>
+          <div class="list">
+            <div class="list__item"><span>Address</span><strong>14 Larkfield Road, E8 2NT</strong></div>
+            <div class="list__item"><span>Expected parcel</span><strong>1&nbsp;box, 4.2&nbsp;kg</strong></div>
+            <div class="list__item"><span>Taken</span><strong>Thu 6 Nov, 14:01</strong></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="card">
+        <section class="section" aria-labelledby="signature-title">
+          <h2 class="section__title" id="signature-title">Recipient’s signature</h2>
+          <div class="x-signature" data-new="signature" data-job="Shows the signature the recipient drew on the driver's phone" data-why="No contract shows a drawn signature: the system has no image component" role="img" aria-label="Handwritten signature, J. Mensah">
+            <svg class="x-signature__drawing" viewBox="0 -25 400 250" aria-hidden="true" focusable="false">
+              <path class="x-signature__line" d="M32 160 H368"/>
+              <path class="x-signature__mark" d="M34 138 l10 10 M44 138 l-10 10"/>
+              <path class="x-signature__stroke" d="M70 74 C92 56 148 46 170 58 M146 56 C150 98 146 140 126 160 C112 174 84 172 80 154 C77 140 96 132 122 138 M166 156 l2 1 M182 156 C188 132 194 108 200 104 C206 102 206 134 208 150 C212 128 220 108 226 106 C232 106 230 136 234 152 C238 144 246 134 254 136 C262 138 258 150 248 148 C244 160 258 162 266 152 C272 144 276 140 280 144 C284 150 280 156 284 156 C288 148 294 140 300 144 C304 150 302 158 308 156 C314 152 320 140 326 144 C330 150 318 154 324 158 C328 162 336 154 340 148 C344 142 354 144 350 152 C346 160 338 160 342 152 C346 146 352 152 356 156 C362 140 368 108 372 100 C376 96 380 104 374 124 C370 140 368 154 372 158 C376 148 384 142 388 150 M176 176 C236 168 316 168 380 162"/>
+            </svg>
+          </div>
+          <div class="list">
+            <div class="list__item"><span>Name typed by the recipient</span><strong>J.&nbsp;Mensah</strong></div>
+            <div class="list__item"><span>Name on the order</span><strong>Daniel&nbsp;Mensah</strong></div>
+            <div class="list__item"><span>Received by</span><strong>Household member</strong></div>
+            <div class="list__item"><span>Signed</span><strong>Thu 6 Nov, 14:02</strong></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <section class="section" aria-labelledby="distance-title">
+          <div class="row">
+            <h2 class="section__title" id="distance-title">Distance from the address</h2>
+            <span class="badge badge--warning">Over the limit</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">When marked delivered, 14:05</span>
+            <span class="stat__value">186&nbsp;m</span>
+          </div>
+          <div class="list">
+            <div class="list__item"><span>Van parked, 13:57</span><strong>40&nbsp;m</strong></div>
+            <div class="list__item"><span>Photo taken, 14:01</span><strong>12&nbsp;m</strong></div>
+            <div class="list__item"><span>Signature collected, 14:02</span><strong>15&nbsp;m</strong></div>
+            <div class="list__item"><span>Limit for marking delivered</span><strong>50&nbsp;m</strong></div>
+            <div class="list__item"><span>GPS accuracy</span><strong>±8&nbsp;m</strong></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="card">
+        <section class="section" aria-labelledby="steps-title">
+          <h2 class="section__title" id="steps-title">Delivery steps, Thu 6 Nov</h2>
+          <div class="list" role="list">
+            <div class="list__item" role="listitem"><span>Picked up by Marta Kowalski at Leyton depot</span><strong><time datetime="2026-11-06T07:46">07:46</time></strong></div>
+            <div class="list__item" role="listitem"><span>Out for delivery on route E8-04</span><strong><time datetime="2026-11-06T08:12">08:12</time></strong></div>
+            <div class="list__item" role="listitem"><span>Van parked 40 m from the address</span><strong><time datetime="2026-11-06T13:57">13:57</time></strong></div>
+            <div class="list__item" role="listitem"><span>Parcel label scanned</span><strong><time datetime="2026-11-06T13:59">13:59</time></strong></div>
+            <div class="list__item" role="listitem"><span>Photo taken at the door</span><strong><time datetime="2026-11-06T14:01">14:01</time></strong></div>
+            <div class="list__item" role="listitem"><span>Signature collected from J.&nbsp;Mensah</span><strong><time datetime="2026-11-06T14:02">14:02</time></strong></div>
+            <div class="list__item" role="listitem"><span>Marked delivered, 186 m from the address</span><strong><time datetime="2026-11-06T14:05">14:05</time></strong></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+
+<template id="send-back-dialog">
+  <div class="dialog-backdrop">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="send-back-title" aria-describedby="send-back-text">
+      <h2 class="dialog__title" id="send-back-title">Send the proof back to Marta Kowalski</h2>
+      <p id="send-back-text">She gets your message in the driver app and can reply with a note or a new photo. The dispute stays open until you review her reply.</p>
+      <form id="send-back-form">
+        <div class="x-textarea" data-new="textarea" data-job="A message of a few lines that a person types, here what the driver must add to the proof" data-why="The field contract covers inputs and selects only, and rules.md lists textarea as not built">
+          <label class="x-textarea__label" for="send-back-message">What is missing</label>
+          <textarea class="x-textarea__input" id="send-back-message" name="message" rows="4" required aria-describedby="send-back-hint"></textarea>
+          <p class="x-textarea__hint" id="send-back-hint">Be specific, for example a photo that shows the door number, or the name of the person who took the parcel.</p>
+        </div>
+      </form>
+      <div class="dialog__actions">
+        <button class="btn btn--secondary" type="button" data-close>Cancel</button>
+        <button class="btn btn--primary" type="submit" form="send-back-form">Send to driver</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  (function () {
+    var app = document.querySelector('.app');
+    var header = document.querySelector('.page-header');
+    var actions = document.querySelector('.page-header__actions');
+    var status = document.getElementById('pod-status');
+    var sendBack = document.getElementById('send-back');
+    var accept = document.getElementById('accept-proof');
+    var template = document.getElementById('send-back-dialog');
+    var backdrop = null;
+
+    function showOutcome(variant, statusText, lead, detail) {
+      status.className = 'badge badge--' + variant;
+      status.textContent = statusText;
+      var banner = document.createElement('div');
+      var text = document.createElement('p');
+      var strong = document.createElement('strong');
+      banner.className = 'banner';
+      banner.setAttribute('role', 'status');
+      banner.tabIndex = -1;
+      strong.textContent = lead;
+      text.appendChild(strong);
+      text.appendChild(document.createTextNode(' ' + detail));
+      banner.appendChild(text);
+      header.insertAdjacentElement('afterend', banner);
+      actions.remove();
+      banner.focus();
+    }
+
+    function onKeydown(event) {
+      if (event.key === 'Escape') closeDialog(true);
+    }
+
+    function closeDialog(returnFocus) {
+      if (!backdrop) return;
+      backdrop.remove();
+      backdrop = null;
+      app.inert = false;
+      document.removeEventListener('keydown', onKeydown);
+      if (returnFocus) sendBack.focus();
+    }
+
+    function openDialog() {
+      backdrop = template.content.firstElementChild.cloneNode(true);
+      document.body.appendChild(backdrop);
+      app.inert = true;
+      var form = backdrop.querySelector('form');
+      var message = backdrop.querySelector('textarea');
+      backdrop.addEventListener('click', function (event) {
+        if (event.target === backdrop || event.target.hasAttribute('data-close')) closeDialog(true);
+      });
+      message.addEventListener('input', function () { message.setCustomValidity(''); });
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var text = message.value.trim();
+        if (!text) {
+          message.setCustomValidity('Write what is missing before you send.');
+          message.reportValidity();
+          return;
+        }
+        closeDialog(false);
+        showOutcome('info', 'Sent back', 'Sent back to Marta Kowalski.', '“' + text + '” The dispute stays open until you review her reply.');
+      });
+      document.addEventListener('keydown', onKeydown);
+      message.focus();
+    }
+
+    sendBack.addEventListener('click', openDialog);
+    accept.addEventListener('click', function () {
+      showOutcome('positive', 'Accepted', 'Proof accepted.', 'The dispute is closed as delivered.');
+    });
+  })();
+</script>
+</body>
+</html>

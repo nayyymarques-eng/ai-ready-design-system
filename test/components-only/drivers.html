@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drivers · Tolvane</title>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../components.css">
+<style>
+  /* Page-local rules, only for what the catalogue does not cover. No raw values. */
+  /* Catalogue components set their own display, which would beat the hidden attribute. */
+  [hidden] { display: none !important; }
+  /* One line per driver. On phones the table scrolls sideways inside .table-scroll, with the driver's name held in place. */
+  #drivers th, #drivers td { white-space: nowrap; }
+  #drivers .row { flex-wrap: nowrap; }
+  #drivers th:first-child, #drivers td:first-child { position: sticky; left: 0; background: var(--surface); }
+  #drivers td:last-child { text-align: right; }
+  /* The filter keeps its labels on one line; on a very narrow screen it scrolls rather than wrapping. */
+  #filter { overflow-x: auto; }
+  #filter .toggle-group__item { white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="nav-rail" aria-label="Main">
+    <span class="nav-rail__brand">Tolvane</span>
+    <a class="nav-rail__item" href="#">Today</a>
+    <a class="nav-rail__item" href="#">Routes</a>
+    <a class="nav-rail__item is-current" href="#" aria-current="page">Drivers <span class="numeral" data-count="all">24</span></a>
+    <a class="nav-rail__item" href="#">Vehicles</a>
+    <a class="nav-rail__item" href="#">Depots</a>
+    <a class="nav-rail__item" href="#">Reports</a>
+    <a class="nav-rail__item" href="#">Settings</a>
+  </nav>
+
+  <main class="page">
+    <header class="page-header">
+      <h1 class="page-header__title">Drivers</h1>
+      <div class="page-header__actions">
+        <button class="btn btn--primary" type="button" data-invite>Invite driver</button>
+      </div>
+    </header>
+
+    <div class="banner" role="status" id="banner" hidden>
+      <div class="row">
+        <p id="banner-text"></p>
+        <button class="btn btn--ghost" type="button" id="banner-dismiss">Dismiss</button>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="row" id="filter">
+        <div class="toggle-group" role="group" aria-label="Filter drivers by status">
+          <button class="toggle-group__item is-selected" type="button" aria-pressed="true" data-filter="all">All <span class="numeral" data-count="all">24</span></button>
+          <button class="toggle-group__item" type="button" aria-pressed="false" data-filter="on-duty">On duty <span class="numeral" data-count="on-duty">17</span></button>
+          <button class="toggle-group__item" type="button" aria-pressed="false" data-filter="invited">Invited <span class="numeral" data-count="invited">3</span></button>
+          <button class="toggle-group__item" type="button" aria-pressed="false" data-filter="inactive">Inactive <span class="numeral" data-count="inactive">4</span></button>
+        </div>
+      </div>
+
+      <div class="table-scroll" id="drivers-box">
+        <table class="table" id="drivers" aria-label="Drivers">
+          <thead>
+            <tr>
+              <th scope="col">Driver</th>
+              <th scope="col">Status</th>
+              <th scope="col">Vehicle</th>
+              <th scope="col">Depot</th>
+              <th scope="col">Licence</th>
+              <th scope="col" aria-label="Actions"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-status="on-duty" data-phone="07700 900114">
+              <td><div class="row"><span class="avatar" aria-hidden="true">AR</span><span data-field="name">Aisha Rahman</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YK23 HNR · Ford E-Transit</td>
+              <td data-field="depot">Leeds South</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Aisha Rahman" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900287">
+              <td><div class="row"><span class="avatar" aria-hidden="true">BW</span><span data-field="name">Ben Whitaker</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YD72 KXR · DAF LF 7.5t</td>
+              <td data-field="depot">Bradford</td>
+              <td data-field="licence">C1</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Ben Whitaker" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900352">
+              <td><div class="row"><span class="avatar" aria-hidden="true">CF</span><span data-field="name">Callum Fraser</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YJ21 BWT · Mercedes Sprinter</td>
+              <td data-field="depot">Wakefield</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Callum Fraser" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900419">
+              <td><div class="row"><span class="avatar" aria-hidden="true">CB</span><span data-field="name">Chloe Bennett</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YE73 LMV · Ford Transit Custom</td>
+              <td data-field="depot">Leeds South</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Chloe Bennett" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900506">
+              <td><div class="row"><span class="avatar" aria-hidden="true">DO</span><span data-field="name">Daniel Okafor</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YX71 DMK · DAF CF 18t</td>
+              <td data-field="depot">Leeds South</td>
+              <td data-field="licence">C</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Daniel Okafor" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900631">
+              <td><div class="row"><span class="avatar" aria-hidden="true">DK</span><span data-field="name">Dominika Kowalska</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YH22 RZP · Iveco Daily 7.2t</td>
+              <td data-field="depot">Huddersfield</td>
+              <td data-field="licence">C1</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Dominika Kowalska" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="inactive" data-phone="07700 900748">
+              <td><div class="row"><span class="avatar" aria-hidden="true">EM</span><span data-field="name">Ewan McLeod</span></div></td>
+              <td><span class="badge">Inactive</span></td>
+              <td data-field="vehicle">Not assigned</td>
+              <td data-field="depot">Bradford</td>
+              <td data-field="licence">C+E</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Ewan McLeod" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="reactivate">Reactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="invited" data-phone="07700 900822">
+              <td><div class="row"><span class="avatar" aria-hidden="true">FS</span><span data-field="name">Farah Siddiqui</span></div></td>
+              <td><span class="badge badge--info">Invited</span></td>
+              <td data-field="vehicle">Not assigned</td>
+              <td data-field="depot">Wakefield</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Farah Siddiqui" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900193">
+              <td><div class="row"><span class="avatar" aria-hidden="true">GL</span><span data-field="name">Gareth Lloyd</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YB71 OGC · Volvo FH</td>
+              <td data-field="depot">Leeds South</td>
+              <td data-field="licence">C+E</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Gareth Lloyd" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900275">
+              <td><div class="row"><span class="avatar" aria-hidden="true">HB</span><span data-field="name">Hannah Brooks</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YS24 TFA · Mercedes eSprinter</td>
+              <td data-field="depot">Huddersfield</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Hannah Brooks" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900368">
+              <td><div class="row"><span class="avatar" aria-hidden="true">IM</span><span data-field="name">Imran Malik</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YC73 NWD · Ford E-Transit</td>
+              <td data-field="depot">Bradford</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Imran Malik" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="inactive" data-phone="07700 900441">
+              <td><div class="row"><span class="avatar" aria-hidden="true">JT</span><span data-field="name">Jade Thompson</span></div></td>
+              <td><span class="badge">Inactive</span></td>
+              <td data-field="vehicle">Not assigned</td>
+              <td data-field="depot">Leeds South</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Jade Thompson" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="reactivate">Reactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900527">
+              <td><div class="row"><span class="avatar" aria-hidden="true">KA</span><span data-field="name">Kwame Asante</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YF22 PLU · Scania P280</td>
+              <td data-field="depot">Wakefield</td>
+              <td data-field="licence">C</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Kwame Asante" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900614">
+              <td><div class="row"><span class="avatar" aria-hidden="true">LD</span><span data-field="name">Liam Doherty</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YA23 VRE · Ford Transit Custom</td>
+              <td data-field="depot">Huddersfield</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Liam Doherty" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="invited" data-phone="07700 900709">
+              <td><div class="row"><span class="avatar" aria-hidden="true">MH</span><span data-field="name">Megan Hughes</span></div></td>
+              <td><span class="badge badge--info">Invited</span></td>
+              <td data-field="vehicle">YG24 KCX · Mercedes eSprinter</td>
+              <td data-field="depot">Leeds South</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Megan Hughes" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900836">
+              <td><div class="row"><span class="avatar" aria-hidden="true">NC</span><span data-field="name">Nathan Clarke</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YN72 HTA · Iveco Daily 7.2t</td>
+              <td data-field="depot">Leeds South</td>
+              <td data-field="licence">C1</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Nathan Clarke" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900912">
+              <td><div class="row"><span class="avatar" aria-hidden="true">OG</span><span data-field="name">Olivia Grant</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YP21 JSU · VW Crafter</td>
+              <td data-field="depot">Bradford</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Olivia Grant" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="inactive" data-phone="07700 900158">
+              <td><div class="row"><span class="avatar" aria-hidden="true">PB</span><span data-field="name">Patrick Byrne</span></div></td>
+              <td><span class="badge">Inactive</span></td>
+              <td data-field="vehicle">Not assigned</td>
+              <td data-field="depot">Wakefield</td>
+              <td data-field="licence">C</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Patrick Byrne" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="reactivate">Reactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900243">
+              <td><div class="row"><span class="avatar" aria-hidden="true">PN</span><span data-field="name">Priya Nair</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YR73 MEO · Ford E-Transit</td>
+              <td data-field="depot">Wakefield</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Priya Nair" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900389">
+              <td><div class="row"><span class="avatar" aria-hidden="true">RW</span><span data-field="name">Ryan Walsh</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YT22 GBZ · DAF LF 7.5t</td>
+              <td data-field="depot">Huddersfield</td>
+              <td data-field="licence">C1</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Ryan Walsh" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="inactive" data-phone="07700 900472">
+              <td><div class="row"><span class="avatar" aria-hidden="true">SG</span><span data-field="name">Sean Gallagher</span></div></td>
+              <td><span class="badge">Inactive</span></td>
+              <td data-field="vehicle">Not assigned</td>
+              <td data-field="depot">Huddersfield</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Sean Gallagher" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="reactivate">Reactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900565">
+              <td><div class="row"><span class="avatar" aria-hidden="true">TN</span><span data-field="name">Tomasz Nowak</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YV71 LRK · Mercedes Sprinter</td>
+              <td data-field="depot">Bradford</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Tomasz Nowak" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="on-duty" data-phone="07700 900658">
+              <td><div class="row"><span class="avatar" aria-hidden="true">UA</span><span data-field="name">Usman Akhtar</span></div></td>
+              <td><span class="badge badge--positive">On duty</span></td>
+              <td data-field="vehicle">YW23 FDJ · VW Crafter</td>
+              <td data-field="depot">Leeds South</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Usman Akhtar" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr data-status="invited" data-phone="07700 900791">
+              <td><div class="row"><span class="avatar" aria-hidden="true">ZM</span><span data-field="name">Zoe Marsh</span></div></td>
+              <td><span class="badge badge--info">Invited</span></td>
+              <td data-field="vehicle">Not assigned</td>
+              <td data-field="depot">Bradford</td>
+              <td data-field="licence">B</td>
+              <td>
+                <div class="menu-button">
+                  <button class="btn btn--ghost" type="button" aria-label="Actions for Zoe Marsh" aria-haspopup="menu" aria-expanded="false">⋯</button>
+                  <div class="menu" role="menu">
+                    <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+                    <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="empty-state" id="empty" hidden>
+        <h2 class="empty-state__title" id="empty-title">No drivers yet</h2>
+        <p id="empty-text">Invite your first driver. They get a text with a link to set up the Tolvane Driver app.</p>
+        <button class="btn btn--primary" type="button" id="empty-invite" data-invite>Invite driver</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- A new driver's row, filled in by the invite dialog. -->
+<template id="row-template">
+  <tr data-status="invited" data-phone="">
+    <td><div class="row"><span class="avatar" aria-hidden="true">DN</span><span data-field="name">Driver Name</span></div></td>
+    <td><span class="badge badge--info">Invited</span></td>
+    <td data-field="vehicle">Not assigned</td>
+    <td data-field="depot">Leeds South</td>
+    <td data-field="licence">B</td>
+    <td>
+      <div class="menu-button">
+        <button class="btn btn--ghost" type="button" aria-label="Actions for Driver Name" aria-haspopup="menu" aria-expanded="false">⋯</button>
+        <div class="menu" role="menu">
+          <button class="menu__item" type="button" role="menuitem" data-action="edit">Edit</button>
+          <button class="menu__item" type="button" role="menuitem" data-action="remind">Send reminder</button>
+          <button class="menu__item" type="button" role="menuitem" data-action="deactivate">Deactivate</button>
+        </div>
+      </div>
+    </td>
+  </tr>
+</template>
+
+<div class="dialog-backdrop" id="driver-dialog" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="driver-dialog-title" aria-describedby="driver-dialog-text">
+    <h2 class="dialog__title" id="driver-dialog-title">Invite driver</h2>
+    <p id="driver-dialog-text">We’ll text them a link to set up the Tolvane Driver app. The link works for 7 days.</p>
+    <form class="stack" id="driver-form" novalidate>
+      <div class="field">
+        <label class="field__label" for="driver-name">Full name</label>
+        <input class="field__input" id="driver-name" name="name" autocomplete="off" required>
+        <p class="field__error" id="driver-name-error" hidden>Enter the driver’s full name.</p>
+      </div>
+      <div class="field">
+        <label class="field__label" for="driver-phone">Mobile number</label>
+        <input class="field__input" id="driver-phone" name="phone" type="tel" inputmode="tel" autocomplete="off" required aria-describedby="driver-phone-hint">
+        <p class="field__hint" id="driver-phone-hint">UK mobile. Invites and reminders go here by text.</p>
+        <p class="field__error" id="driver-phone-error" hidden>Enter a UK mobile number, like 07700 900123.</p>
+      </div>
+      <div class="field">
+        <label class="field__label" for="driver-depot">Depot</label>
+        <select class="field__select" id="driver-depot" name="depot">
+          <option>Leeds South</option>
+          <option>Bradford</option>
+          <option>Wakefield</option>
+          <option>Huddersfield</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field__label" for="driver-licence">Licence class</label>
+        <select class="field__select" id="driver-licence" name="licence">
+          <option value="B">B (vans up to 3.5t)</option>
+          <option value="C1">C1 (lorries up to 7.5t)</option>
+          <option value="C">C (rigid lorries)</option>
+          <option value="C+E">C+E (articulated lorries)</option>
+        </select>
+      </div>
+      <div class="dialog__actions">
+        <button class="btn btn--secondary" type="button" data-close>Cancel</button>
+        <button class="btn btn--primary" type="submit" id="driver-submit">Send invite</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="dialog-backdrop" id="deactivate-dialog" hidden>
+  <div class="dialog" role="alertdialog" aria-modal="true" aria-labelledby="deactivate-title" aria-describedby="deactivate-text">
+    <h2 class="dialog__title" id="deactivate-title">Deactivate driver?</h2>
+    <p id="deactivate-text">They’ll be signed out of the driver app and won’t get new routes. You can reactivate them later.</p>
+    <div class="dialog__actions">
+      <button class="btn btn--secondary" type="button" data-close>Cancel</button>
+      <button class="btn btn--danger" type="button" id="deactivate-confirm">Deactivate</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const STATUS = {
+    'on-duty': { label: 'On duty', badge: 'badge badge--positive' },
+    invited: { label: 'Invited', badge: 'badge badge--info' },
+    inactive: { label: 'Inactive', badge: 'badge' }
+  };
+  const MENU = {
+    'on-duty': [['edit', 'Edit'], ['remind', 'Send reminder'], ['deactivate', 'Deactivate']],
+    invited: [['edit', 'Edit'], ['remind', 'Send reminder'], ['deactivate', 'Deactivate']],
+    inactive: [['edit', 'Edit'], ['reactivate', 'Reactivate']]
+  };
+  const EMPTY = {
+    all: ['No drivers yet', 'Invite your first driver. They get a text with a link to set up the Tolvane Driver app.', true],
+    'on-duty': ['No drivers on duty', 'Drivers show here once they’ve set up the driver app.', false],
+    invited: ['No pending invites', 'Drivers you invite show here until they’ve set up the driver app.', true],
+    inactive: ['No inactive drivers', 'Drivers you deactivate show here. You can reactivate them at any time.', false]
+  };
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const app = $('.app');
+  const tbody = $('#drivers tbody');
+  const banner = $('#banner');
+  let filter = 'all';
+
+  /* Rows */
+  const cell = (row, name) => $(`[data-field="${name}"]`, row);
+  const nameOf = row => cell(row, 'name').textContent;
+  const triggerOf = row => $('[aria-haspopup="menu"]', row);
+  const regOf = row => { const v = cell(row, 'vehicle').textContent; return v.includes('·') ? v.split('·')[0].trim() : ''; };
+  const initialsOf = name => { const w = name.split(' '); return (w[0][0] + (w.length > 1 ? w[w.length - 1][0] : '')).toUpperCase(); };
+
+  function setStatus(row, status) {
+    row.dataset.status = status;
+    const badge = $('.badge', row);
+    badge.className = STATUS[status].badge;
+    badge.textContent = STATUS[status].label;
+    $('.menu', row).replaceChildren(...MENU[status].map(([action, label]) => {
+      const item = document.createElement('button');
+      item.className = 'menu__item';
+      item.type = 'button';
+      item.setAttribute('role', 'menuitem');
+      item.dataset.action = action;
+      item.textContent = label;
+      return item;
+    }));
+  }
+
+  function setDetails(row, d) {
+    cell(row, 'name').textContent = d.name;
+    $('.avatar', row).textContent = initialsOf(d.name);
+    triggerOf(row).setAttribute('aria-label', `Actions for ${d.name}`);
+    row.dataset.phone = d.phone;
+    cell(row, 'depot').textContent = d.depot;
+    cell(row, 'licence').textContent = d.licence;
+  }
+
+  function placeRow(row) {
+    const name = nameOf(row);
+    const next = [...tbody.rows].find(r => r !== row && nameOf(r).localeCompare(name, 'en-GB') > 0);
+    tbody.insertBefore(row, next || null);
+  }
+
+  /* Counts, filter and empty state */
+  function refresh() {
+    const counts = { all: 0, 'on-duty': 0, invited: 0, inactive: 0 };
+    let shown = 0;
+    for (const row of tbody.rows) {
+      counts.all += 1;
+      counts[row.dataset.status] += 1;
+      row.hidden = filter !== 'all' && row.dataset.status !== filter;
+      if (!row.hidden) shown += 1;
+    }
+    for (const el of $$('[data-count]')) el.textContent = counts[el.dataset.count];
+    const [title, text, canInvite] = EMPTY[filter];
+    $('#empty-title').textContent = title;
+    $('#empty-text').textContent = text;
+    $('#empty-invite').hidden = !canInvite;
+    $('#drivers-box').hidden = shown === 0;
+    $('#empty').hidden = shown > 0;
+  }
+
+  for (const button of $$('[data-filter]')) {
+    button.addEventListener('click', () => {
+      filter = button.dataset.filter;
+      for (const b of $$('[data-filter]')) {
+        b.classList.toggle('is-selected', b === button);
+        b.setAttribute('aria-pressed', String(b === button));
+      }
+      refresh();
+    });
+  }
+
+  /* Focus goes back where it came from, or to the filter when that row is now filtered out. */
+  function focusOrFilter(el) {
+    (el && el.isConnected && el.offsetParent ? el : $('[data-filter].is-selected')).focus();
+  }
+
+  /* Banner: a status message after each action */
+  function announce(message) {
+    $('#banner-text').textContent = '';
+    banner.hidden = false;
+    setTimeout(() => { $('#banner-text').textContent = message; }, 50);
+  }
+  $('#banner-dismiss').addEventListener('click', () => {
+    banner.hidden = true;
+    focusOrFilter(null);
+  });
+
+  /* Row menus */
+  let openMenuButton = null;
+  const space = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--s1')) || 0;
+
+  function closeMenu(returnFocus) {
+    const menuButton = openMenuButton;
+    if (!menuButton) return;
+    openMenuButton = null;
+    menuButton.classList.remove('is-open');
+    const trigger = $('[aria-haspopup="menu"]', menuButton);
+    trigger.setAttribute('aria-expanded', 'false');
+    if (returnFocus) trigger.focus();
+  }
+
+  /* .table-scroll clips anything that overflows it, so an open menu is pinned to the viewport beside its button.
+     It follows the button when the page or the table scrolls, and closes once the button scrolls out of sight. */
+  function placeMenu() {
+    if (!openMenuButton) return;
+    const trigger = $('[aria-haspopup="menu"]', openMenuButton);
+    const menu = $('.menu', openMenuButton);
+    const box = trigger.getBoundingClientRect();
+    const view = trigger.closest('.table-scroll').getBoundingClientRect();
+    if (box.right <= view.left || box.left >= view.right || box.bottom <= 0 || box.top >= window.innerHeight) {
+      closeMenu();
+      return;
+    }
+    const gap = space();
+    menu.style.position = 'fixed';
+    menu.style.zIndex = '1';
+    menu.style.right = `${document.documentElement.clientWidth - box.right}px`;
+    const fitsBelow = box.bottom + gap + menu.offsetHeight <= window.innerHeight;
+    menu.style.top = `${fitsBelow ? box.bottom + gap : box.top - gap - menu.offsetHeight}px`;
+  }
+
+  function openMenu(menuButton, focusLast) {
+    closeMenu();
+    openMenuButton = menuButton;
+    menuButton.classList.add('is-open');
+    $('[aria-haspopup="menu"]', menuButton).setAttribute('aria-expanded', 'true');
+    placeMenu();
+    const items = $$('.menu__item', menuButton);
+    (focusLast ? items[items.length - 1] : items[0]).focus({ preventScroll: true });
+  }
+
+  tbody.addEventListener('click', event => {
+    const trigger = event.target.closest('[aria-haspopup="menu"]');
+    if (trigger) {
+      const menuButton = trigger.closest('.menu-button');
+      if (menuButton === openMenuButton) closeMenu(); else openMenu(menuButton);
+      return;
+    }
+    const item = event.target.closest('.menu__item');
+    if (item) {
+      closeMenu(true);
+      ACTIONS[item.dataset.action](item.closest('tr'));
+    }
+  });
+
+  tbody.addEventListener('keydown', event => {
+    const trigger = event.target.closest('[aria-haspopup="menu"]');
+    if (trigger && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+      event.preventDefault();
+      openMenu(trigger.closest('.menu-button'), event.key === 'ArrowUp');
+      return;
+    }
+    if (!openMenuButton || !openMenuButton.contains(event.target)) return;
+    const items = $$('.menu__item', openMenuButton);
+    const at = items.indexOf(document.activeElement);
+    const moves = { ArrowDown: at + 1, ArrowUp: at - 1, Home: 0, End: items.length - 1 };
+    if (event.key in moves) {
+      event.preventDefault();
+      items[(moves[event.key] + items.length) % items.length].focus();
+    } else if (event.key === 'Escape') {
+      event.preventDefault();
+      closeMenu(true);
+    } else if (event.key === 'Tab') {
+      closeMenu(true);
+    }
+  });
+
+  document.addEventListener('click', event => {
+    if (openMenuButton && !openMenuButton.contains(event.target)) closeMenu();
+  });
+  window.addEventListener('scroll', placeMenu, true);
+  window.addEventListener('resize', placeMenu);
+
+  /* Dialogs */
+  let openDialog = null;
+  let returnTo = null;
+
+  function showDialog(backdrop, focusTarget, from) {
+    closeMenu();
+    openDialog = backdrop;
+    returnTo = from;
+    backdrop.hidden = false;
+    app.inert = true;
+    focusTarget.focus();
+  }
+
+  function hideDialog() {
+    if (!openDialog) return;
+    openDialog.hidden = true;
+    openDialog = null;
+    app.inert = false;
+    focusOrFilter(returnTo);
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && openDialog) {
+      event.preventDefault();
+      hideDialog();
+    }
+  });
+  for (const button of $$('[data-close]')) button.addEventListener('click', hideDialog);
+
+  /* Invite and edit share one form */
+  const form = $('#driver-form');
+  const nameInput = $('#driver-name');
+  const phoneInput = $('#driver-phone');
+  let editing = null;
+
+  function showError(input, isWrong) {
+    $(`#${input.id}-error`).hidden = !isWrong;
+    const hint = $(`#${input.id}-hint`);
+    const describedBy = [hint && hint.id, isWrong && `${input.id}-error`].filter(Boolean).join(' ');
+    if (describedBy) input.setAttribute('aria-describedby', describedBy); else input.removeAttribute('aria-describedby');
+    if (isWrong) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+  }
+
+  function ukMobile(value) {
+    let digits = value.replace(/[\s().-]/g, '');
+    if (digits.startsWith('+44')) digits = `0${digits.slice(3)}`;
+    else if (digits.startsWith('0044')) digits = `0${digits.slice(4)}`;
+    return /^07\d{9}$/.test(digits) ? `${digits.slice(0, 5)} ${digits.slice(5)}` : '';
+  }
+
+  function openDriverDialog(row, from) {
+    editing = row;
+    form.reset();
+    showError(nameInput, false);
+    showError(phoneInput, false);
+    $('#driver-dialog-title').textContent = row ? 'Edit driver' : 'Invite driver';
+    $('#driver-dialog-text').textContent = row
+      ? 'Changes reach their driver app the next time it syncs.'
+      : 'We’ll text them a link to set up the Tolvane Driver app. The link works for 7 days.';
+    $('#driver-submit').textContent = row ? 'Save changes' : 'Send invite';
+    if (row) {
+      nameInput.value = nameOf(row);
+      phoneInput.value = row.dataset.phone;
+      $('#driver-depot').value = cell(row, 'depot').textContent;
+      $('#driver-licence').value = cell(row, 'licence').textContent;
+    }
+    showDialog($('#driver-dialog'), nameInput, from);
+  }
+
+  for (const button of $$('[data-invite]')) button.addEventListener('click', () => openDriverDialog(null, button));
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const name = nameInput.value.trim().replace(/\s+/g, ' ');
+    const phone = ukMobile(phoneInput.value);
+    showError(nameInput, !name);
+    showError(phoneInput, !phone);
+    if (!name) return nameInput.focus();
+    if (!phone) return phoneInput.focus();
+    const details = { name, phone, depot: $('#driver-depot').value, licence: $('#driver-licence').value };
+    if (editing) {
+      setDetails(editing, details);
+      placeRow(editing);
+      hideDialog();
+      announce(`Changes to ${name} saved.`);
+    } else {
+      const row = $('#row-template').content.firstElementChild.cloneNode(true);
+      setDetails(row, details);
+      setStatus(row, 'invited');
+      placeRow(row);
+      refresh();
+      hideDialog();
+      announce(`Invite sent to ${name} at ${phone}.`);
+    }
+  });
+
+  /* Deactivate asks first */
+  let deactivating = null;
+  $('#deactivate-confirm').addEventListener('click', () => {
+    const row = deactivating;
+    deactivating = null;
+    setStatus(row, 'inactive');
+    cell(row, 'vehicle').textContent = 'Not assigned';
+    refresh();
+    hideDialog();
+    announce(`${nameOf(row)} deactivated.`);
+  });
+
+  /* Row actions */
+  const ACTIONS = {
+    edit: row => openDriverDialog(row, triggerOf(row)),
+    remind: row => announce(row.dataset.status === 'invited'
+      ? `Reminder sent to ${nameOf(row)} by text, with a fresh invite link.`
+      : `Reminder sent to ${nameOf(row)} in the driver app.`),
+    deactivate: row => {
+      deactivating = row;
+      const reg = regOf(row);
+      const freed = reg ? `, and ${reg} is freed up` : '';
+      $('#deactivate-title').textContent = `Deactivate ${nameOf(row)}?`;
+      $('#deactivate-text').textContent = row.dataset.status === 'invited'
+        ? `Their invite link will stop working${freed}. You can reactivate them later.`
+        : `They’ll be signed out of the driver app and won’t get new routes. Any stops left on today’s route go back to Unassigned${freed}. You can reactivate them later.`;
+      showDialog($('#deactivate-dialog'), $('#deactivate-dialog [data-close]'), triggerOf(row));
+    },
+    reactivate: row => {
+      setStatus(row, 'invited');
+      refresh();
+      focusOrFilter(triggerOf(row));
+      announce(`${nameOf(row)} reactivated. We’ve texted them a link to sign back in.`);
+    }
+  };
+
+  /* On a phone the nav rail scrolls sideways: make sure the current item is in view. */
+  const nav = $('.nav-rail');
+  const overhang = $('.nav-rail__item.is-current', nav).getBoundingClientRect().right - nav.getBoundingClientRect().right;
+  if (overhang > 0) nav.scrollLeft += overhang + space();
+
+  refresh();
+})();
+</script>
+</body>
+</html>

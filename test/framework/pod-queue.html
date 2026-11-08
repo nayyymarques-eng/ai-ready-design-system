@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proof to review · Tolvane</title>
+  <link rel="stylesheet" href="../../tokens.css">
+  <link rel="stylesheet" href="../../components.css">
+  <!--
+    pod-queue: Proof to review.
+    Deliveries a customer disputes, or whose proof (photo or signature) is incomplete. Oldest first.
+    New components (CMP-03), each marked with data-new: proof-scenes, proof-thumb, filter-bar, review.
+    Not decided yet (rules.md, section 12): date format. This screen uses "Thu 5 Nov, 11:03",
+    with "Today" and "Yesterday" for the last two days, and 24-hour times. Confirm before shipping.
+  -->
+  <style>
+    /* New components (CMP-03). Only x- classes are styled here; system components are left as they are. */
+
+    /* filter-bar: the toggle group keeps its own width and scrolls sideways when the screen is narrower */
+    .x-filter-bar { overflow-x: auto; }
+    .x-filter-bar__track { width: max-content; }
+
+    /* proof-thumb: a small copy of the delivery photo in a table row */
+    .x-thumb { display: flex; align-items: center; justify-content: center; width: var(--s8); height: var(--s7); overflow: hidden; border: var(--border); border-radius: var(--radius); background: var(--surface-sunken); }
+    .x-thumb--empty { border-style: dashed; background: var(--surface); }
+    .x-thumb__img { display: block; width: 100%; height: 100%; }
+    .x-thumb__icon { width: var(--s5); height: var(--s5); }
+
+    /* review: photo, signature and notes inside the review dialog; scrolls when the screen is short */
+    .x-review { display: flex; flex-direction: column; gap: var(--s4); overflow-y: auto; max-height: calc(100vh - var(--s8) * 3 - var(--s5)); max-height: calc(100dvh - var(--s8) * 3 - var(--s5)); }
+    .x-review__proof { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s3); }
+    .x-review__tile { margin: 0; display: flex; flex-direction: column; gap: var(--s2); min-width: 0; }
+    .x-review__frame { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s1); aspect-ratio: 4 / 3; overflow: hidden; border: var(--border); border-radius: var(--radius); background: var(--surface-sunken); }
+    .x-review__frame--signature { background: var(--surface); }
+    .x-review__frame--empty { border-style: dashed; background: var(--surface); }
+    .x-review__img { display: block; width: 100%; height: 100%; }
+    .x-review__icon { width: var(--s5); height: var(--s5); }
+    .x-review__empty { font: var(--type-small); color: var(--muted); }
+    .x-review__caption { display: flex; flex-direction: column; }
+    .x-review__label { font: var(--type-body-strong); color: var(--ink); }
+    .x-review__note { font: var(--type-small); color: var(--muted); }
+
+    /* proof-scenes: drawings that stand in for photos and signatures, in tones from the tokens */
+    .x-scenes { display: none; }
+    .x-scenes__paper { fill: var(--surface); }
+    .x-scenes__sunken { fill: var(--surface-sunken); }
+    .x-scenes__line { fill: var(--line); }
+    .x-scenes__muted { fill: var(--muted); }
+    .x-scenes__text { fill: var(--text); }
+    .x-scenes__ink { fill: var(--ink); }
+    .x-scenes__pen { fill: none; stroke: var(--ink); }
+    .x-scenes__rule { fill: none; stroke: var(--line); }
+    .x-scenes__icon { fill: none; stroke: var(--muted); }
+  </style>
+</head>
+<body>
+  <svg class="x-scenes" data-new="proof-scenes" data-job="Holds the drawings that stand in for the photos and signatures drivers collect" data-why="Screens may not load image files, and no contract draws a photo or a signature" aria-hidden="true" focusable="false">
+    <symbol id="scene-door" viewBox="0 0 160 120">
+      <rect class="x-scenes__line" width="160" height="120"/>
+      <rect class="x-scenes__ink" x="20" y="30" width="12" height="18"/>
+      <rect class="x-scenes__sunken" x="23" y="33" width="6" height="12"/>
+      <rect class="x-scenes__muted" y="100" width="160" height="20"/>
+      <rect class="x-scenes__sunken" x="36" y="93" width="88" height="9"/>
+      <rect class="x-scenes__ink" x="50" y="10" width="60" height="84"/>
+      <rect class="x-scenes__text" x="54" y="14" width="52" height="80"/>
+      <rect class="x-scenes__muted" x="60" y="20" width="40" height="27"/>
+      <rect class="x-scenes__muted" x="60" y="54" width="40" height="34"/>
+      <rect class="x-scenes__line" x="72" y="48.5" width="16" height="3"/>
+      <circle class="x-scenes__line" cx="100.5" cy="50" r="2"/>
+      <rect class="x-scenes__paper" x="118" y="34" width="16" height="10"/>
+      <rect class="x-scenes__muted" x="121.5" y="38" width="9" height="2"/>
+      <rect class="x-scenes__sunken" x="62" y="70" width="40" height="25"/>
+      <rect class="x-scenes__line" x="62" y="70" width="40" height="5"/>
+      <rect class="x-scenes__muted" x="79" y="70" width="6" height="25"/>
+    </symbol>
+    <symbol id="scene-door2" viewBox="0 0 160 120">
+      <rect class="x-scenes__sunken" width="160" height="120"/>
+      <rect class="x-scenes__line" y="18" width="160" height="2"/>
+      <rect class="x-scenes__line" y="38" width="160" height="2"/>
+      <rect class="x-scenes__line" y="58" width="160" height="2"/>
+      <rect class="x-scenes__line" y="78" width="160" height="2"/>
+      <rect class="x-scenes__text" y="100" width="160" height="20"/>
+      <rect class="x-scenes__muted" x="46" y="8" width="64" height="92"/>
+      <rect class="x-scenes__line" x="50" y="12" width="56" height="88"/>
+      <rect class="x-scenes__paper" x="58" y="18" width="40" height="36"/>
+      <rect class="x-scenes__line" x="77" y="18" width="2" height="36"/>
+      <rect class="x-scenes__line" x="58" y="35" width="40" height="2"/>
+      <rect class="x-scenes__muted" x="68" y="62" width="20" height="4"/>
+      <circle class="x-scenes__text" cx="99.5" cy="64" r="2.5"/>
+      <circle class="x-scenes__muted" cx="130" cy="71" r="11"/>
+      <polygon class="x-scenes__text" points="120,80 140,80 137,100 123,100"/>
+      <rect class="x-scenes__muted" x="55" y="77" width="46" height="23"/>
+      <rect class="x-scenes__text" x="55" y="77" width="46" height="4"/>
+      <rect class="x-scenes__line" x="76" y="77" width="4" height="23"/>
+    </symbol>
+    <symbol id="scene-bin" viewBox="0 0 160 120">
+      <rect class="x-scenes__sunken" width="160" height="120"/>
+      <rect class="x-scenes__line" x="0" y="6" width="18" height="92"/>
+      <rect class="x-scenes__line" x="22" y="6" width="18" height="92"/>
+      <rect class="x-scenes__line" x="44" y="6" width="18" height="92"/>
+      <rect class="x-scenes__line" x="66" y="6" width="18" height="92"/>
+      <rect class="x-scenes__line" x="88" y="6" width="18" height="92"/>
+      <rect class="x-scenes__line" x="110" y="6" width="18" height="92"/>
+      <rect class="x-scenes__line" x="132" y="6" width="18" height="92"/>
+      <rect class="x-scenes__line" x="154" y="6" width="6" height="92"/>
+      <rect class="x-scenes__muted" y="28" width="160" height="4"/>
+      <rect class="x-scenes__muted" y="70" width="160" height="4"/>
+      <rect class="x-scenes__muted" y="96" width="160" height="24"/>
+      <rect class="x-scenes__line" y="107" width="160" height="1.5"/>
+      <rect class="x-scenes__paper" x="30" y="72" width="44" height="26"/>
+      <rect class="x-scenes__line" x="30" y="72" width="44" height="5"/>
+      <rect class="x-scenes__muted" x="49" y="72" width="6" height="26"/>
+      <polygon class="x-scenes__text" points="72,32 120,32 116,98 76,98"/>
+      <rect class="x-scenes__muted" x="88" y="40" width="2" height="50"/>
+      <rect class="x-scenes__muted" x="102" y="40" width="2" height="50"/>
+      <rect class="x-scenes__ink" x="68" y="25" width="56" height="8"/>
+      <circle class="x-scenes__ink" cx="112" cy="99" r="6"/>
+    </symbol>
+    <symbol id="scene-dark" viewBox="0 0 160 120">
+      <rect class="x-scenes__ink" width="160" height="120"/>
+      <circle class="x-scenes__text" cx="124" cy="28" r="18"/>
+      <circle class="x-scenes__muted" cx="124" cy="28" r="7"/>
+      <rect class="x-scenes__text" x="42" y="14" width="58" height="90"/>
+      <rect class="x-scenes__ink" x="46" y="18" width="50" height="86"/>
+      <rect class="x-scenes__text" y="104" width="160" height="16"/>
+      <rect class="x-scenes__text" x="58" y="86" width="30" height="19"/>
+    </symbol>
+    <symbol id="scene-porch" viewBox="0 0 160 120">
+      <rect class="x-scenes__line" width="160" height="120"/>
+      <rect class="x-scenes__muted" x="12" y="14" width="58" height="46"/>
+      <rect class="x-scenes__paper" x="16" y="18" width="50" height="38"/>
+      <rect class="x-scenes__muted" x="40" y="18" width="2" height="38"/>
+      <rect class="x-scenes__ink" x="94" y="8" width="50" height="82"/>
+      <rect class="x-scenes__text" x="98" y="12" width="42" height="78"/>
+      <circle class="x-scenes__line" cx="134" cy="52" r="2"/>
+      <rect class="x-scenes__sunken" y="88" width="160" height="32"/>
+      <rect class="x-scenes__line" y="99" width="160" height="1.5"/>
+      <rect class="x-scenes__line" y="110" width="160" height="1.5"/>
+      <circle class="x-scenes__muted" cx="34" cy="76" r="11"/>
+      <polygon class="x-scenes__text" points="24,84 44,84 41,100 27,100"/>
+      <rect class="x-scenes__ink" x="86" y="94" width="66" height="10"/>
+      <rect class="x-scenes__sunken" x="100" y="70" width="38" height="27"/>
+      <rect class="x-scenes__line" x="100" y="70" width="38" height="5"/>
+      <rect class="x-scenes__muted" x="116" y="70" width="6" height="27"/>
+    </symbol>
+    <symbol id="scene-reception" viewBox="0 0 160 120">
+      <rect class="x-scenes__sunken" width="160" height="120"/>
+      <rect class="x-scenes__line" width="160" height="62"/>
+      <rect class="x-scenes__paper" x="20" y="12" width="86" height="22"/>
+      <rect class="x-scenes__muted" x="28" y="20" width="44" height="6"/>
+      <rect class="x-scenes__line" x="76" y="20" width="22" height="6"/>
+      <rect class="x-scenes__ink" x="118" y="34" width="30" height="20"/>
+      <rect class="x-scenes__muted" x="121" y="37" width="24" height="14"/>
+      <rect class="x-scenes__ink" x="131" y="54" width="4" height="8"/>
+      <rect class="x-scenes__paper" x="58" y="38" width="46" height="24"/>
+      <rect class="x-scenes__line" x="58" y="38" width="46" height="5"/>
+      <rect class="x-scenes__muted" x="78" y="38" width="6" height="24"/>
+      <rect class="x-scenes__ink" y="62" width="160" height="8"/>
+      <rect class="x-scenes__text" y="70" width="160" height="50"/>
+      <rect class="x-scenes__muted" x="52" y="70" width="2" height="50"/>
+      <rect class="x-scenes__muted" x="106" y="70" width="2" height="50"/>
+    </symbol>
+    <symbol id="scene-steps" viewBox="0 0 160 120">
+      <rect class="x-scenes__muted" width="160" height="120"/>
+      <rect class="x-scenes__line" y="12" width="160" height="1.5"/>
+      <rect class="x-scenes__line" y="26" width="160" height="1.5"/>
+      <rect class="x-scenes__line" y="40" width="160" height="1.5"/>
+      <rect class="x-scenes__line" y="54" width="160" height="1.5"/>
+      <rect class="x-scenes__line" y="68" width="160" height="1.5"/>
+      <rect class="x-scenes__sunken" x="54" y="2" width="52" height="72"/>
+      <rect class="x-scenes__line" x="60" y="8" width="40" height="8"/>
+      <rect class="x-scenes__ink" x="60" y="18" width="40" height="56"/>
+      <rect class="x-scenes__line" x="78" y="36" width="4" height="7"/>
+      <rect class="x-scenes__line" x="46" y="74" width="68" height="10"/>
+      <rect class="x-scenes__sunken" x="38" y="84" width="84" height="10"/>
+      <rect class="x-scenes__line" x="30" y="94" width="100" height="10"/>
+      <rect class="x-scenes__text" y="104" width="160" height="16"/>
+      <rect class="x-scenes__ink" x="8" y="60" width="26" height="3"/>
+      <rect class="x-scenes__ink" x="11" y="60" width="2" height="44"/>
+      <rect class="x-scenes__ink" x="20" y="60" width="2" height="44"/>
+      <rect class="x-scenes__ink" x="29" y="60" width="2" height="44"/>
+      <rect class="x-scenes__ink" x="126" y="60" width="26" height="3"/>
+      <rect class="x-scenes__ink" x="129" y="60" width="2" height="44"/>
+      <rect class="x-scenes__ink" x="138" y="60" width="2" height="44"/>
+      <rect class="x-scenes__ink" x="147" y="60" width="2" height="44"/>
+      <rect class="x-scenes__paper" x="65" y="56" width="30" height="19"/>
+      <rect class="x-scenes__line" x="65" y="56" width="30" height="4"/>
+      <rect class="x-scenes__muted" x="77.5" y="56" width="5" height="19"/>
+    </symbol>
+    <symbol id="icon-no-photo" viewBox="0 0 24 24">
+      <path class="x-scenes__icon" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 8.5h3.2l1.6-2.5h6.4l1.6 2.5H20v10H4z"/>
+      <circle class="x-scenes__icon" stroke-width="1.6" cx="12" cy="13.5" r="3.2"/>
+      <path class="x-scenes__icon" stroke-width="1.6" stroke-linecap="round" d="M3.5 3.5l17 17"/>
+    </symbol>
+    <symbol id="icon-no-signature" viewBox="0 0 24 24">
+      <path class="x-scenes__icon" stroke-width="1.6" stroke-linecap="round" d="M3 18.5h18"/>
+      <path class="x-scenes__icon" stroke-width="1.6" stroke-linecap="round" d="M4.5 10l4.5 4.5m0-4.5L4.5 14.5"/>
+    </symbol>
+    <symbol id="sig-holt" viewBox="0 0 160 120">
+      <path class="x-scenes__rule" stroke-width="1.5" d="M14 94H146"/>
+      <path class="x-scenes__pen" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M30 42 C38 39 44 41 44 46 C44 62 42 80 34 86 C28 90 22 84 26 78 M50 85 L51 85 M58 84 C62 66 66 50 68 44 M64 66 C72 62 80 62 86 64 M84 44 C82 58 80 74 82 85 C86 78 90 70 96 70 C102 70 102 81 96 83 C91 85 89 78 93 74 M106 46 C104 62 104 76 108 85 M114 62 C118 62 124 60 130 58 M120 50 C118 64 118 78 124 85 C128 87 134 83 140 76"/>
+    </symbol>
+    <symbol id="sig-walsh" viewBox="0 0 160 120">
+      <path class="x-scenes__rule" stroke-width="1.5" d="M14 94H146"/>
+      <path class="x-scenes__pen" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M20 66 C26 50 30 52 32 70 C34 84 38 84 42 66 C44 56 48 56 50 70 C52 84 56 84 60 62 C62 52 64 60 66 74 C68 84 74 80 76 70 C78 60 84 58 86 70 C88 80 94 82 98 70 M106 48 C104 64 104 78 110 83 M114 74 C122 60 130 62 126 74 C122 84 134 84 144 70"/>
+    </symbol>
+    <symbol id="sig-khan" viewBox="0 0 160 120">
+      <path class="x-scenes__rule" stroke-width="1.5" d="M14 94H146"/>
+      <path class="x-scenes__pen" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M24 85 C34 70 40 52 46 42 C50 52 54 70 62 85 M34 70 C40 68 48 68 56 66 M68 86 L69 86 M78 44 C76 60 76 74 78 86 M78 72 C86 66 92 60 94 56 M82 70 C88 76 92 82 96 86 M102 48 C100 62 100 76 102 86 C106 76 112 72 116 76 C118 80 118 84 120 86 M126 76 C132 72 138 74 136 80 C134 86 128 84 130 78 M138 84 C142 80 146 76 150 72"/>
+    </symbol>
+    <symbol id="sig-marin" viewBox="0 0 160 120">
+      <path class="x-scenes__rule" stroke-width="1.5" d="M14 94H146"/>
+      <path class="x-scenes__pen" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M22 84 C30 62 36 48 40 48 C44 48 42 64 46 76 C50 64 54 52 58 52 C62 52 60 72 64 82 M70 76 C74 68 82 68 82 76 C82 84 74 84 74 78 C78 74 84 78 88 82 M92 84 C94 76 96 72 100 72 M107 62 L107 64 M105 74 C105 80 107 84 111 84 M115 84 C117 76 121 72 125 74 C129 76 127 84 131 84 C135 84 139 78 143 74"/>
+    </symbol>
+    <symbol id="sig-adeyemi" viewBox="0 0 160 120">
+      <path class="x-scenes__rule" stroke-width="1.5" d="M14 94H146"/>
+      <path class="x-scenes__pen" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M18 86 C26 64 32 50 36 46 C40 56 44 72 50 86 M26 72 C34 70 42 70 48 68 M56 76 C60 70 66 72 64 80 C62 87 56 85 58 78 M68 60 C66 70 66 80 70 85 C78 81 82 73 86 71 C90 73 86 81 90 83 C96 83 98 73 102 71 C106 73 102 85 108 85 C114 83 116 73 120 73 C124 75 120 83 126 83 C132 83 136 75 144 71"/>
+    </symbol>
+    <symbol id="sig-mehta" viewBox="0 0 160 120">
+      <path class="x-scenes__rule" stroke-width="1.5" d="M14 94H146"/>
+      <path class="x-scenes__pen" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M20 85 C24 70 28 56 30 52 C34 62 36 70 40 74 C44 66 48 58 50 52 C52 62 54 74 56 85 M62 77 C68 73 74 73 72 79 C70 85 62 83 64 77 M82 56 C80 66 80 78 82 85 M76 66 L88 66 M94 56 C92 66 92 78 94 85 C98 77 102 73 106 75 C110 77 108 85 112 85 M118 77 C124 73 130 73 128 81 C126 87 120 85 122 79 C126 83 134 83 144 75"/>
+    </symbol>
+  </svg>
+
+  <div class="app">
+    <nav class="nav-rail" aria-label="Main">
+      <span class="nav-rail__brand">Tolvane</span>
+      <a class="nav-rail__item" href="#">Overview</a>
+      <a class="nav-rail__item" href="#">Deliveries</a>
+      <a class="nav-rail__item is-current" href="#" aria-current="page">Proof&nbsp;to&nbsp;review <span class="numeral" id="nav-count">12</span></a>
+      <a class="nav-rail__item" href="#">Routes</a>
+      <a class="nav-rail__item" href="#">Drivers</a>
+      <a class="nav-rail__item" href="#">Settings</a>
+    </nav>
+
+    <main class="page">
+      <header class="page-header">
+        <h1 class="page-header__title" tabindex="-1">Proof to review</h1>
+        <div class="page-header__actions">
+          <button class="btn btn--primary" type="button" id="review-next">Review next</button>
+        </div>
+      </header>
+
+      <div class="stack" id="queue">
+        <div class="x-filter-bar" data-new="filter-bar" data-job="Keeps the filter on one line and lets it scroll sideways on a phone" data-why="The toggle group does not wrap, and four filters with counts are wider than a 375px phone">
+          <div class="x-filter-bar__track">
+            <div class="toggle-group" role="group" aria-label="Filter deliveries">
+              <button class="toggle-group__item is-selected" type="button" aria-pressed="true" data-filter="all">All <span class="numeral">12</span></button>
+              <button class="toggle-group__item" type="button" aria-pressed="false" data-filter="disputed">Disputed <span class="numeral">5</span></button>
+              <button class="toggle-group__item" type="button" aria-pressed="false" data-filter="photo">Missing photo <span class="numeral">4</span></button>
+              <button class="toggle-group__item" type="button" aria-pressed="false" data-filter="signature">Missing signature <span class="numeral">6</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-scroll">
+          <table class="table" aria-label="Deliveries to review">
+            <thead>
+              <tr>
+                <th scope="col">Parcel</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Recipient</th>
+                <th scope="col">Driver</th>
+                <th scope="col">Marked&nbsp;delivered</th>
+                <th scope="col" aria-label="Action"></th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr data-id="TLV48217730" data-disputed="true" data-missing="">
+              <td><strong>TLV&nbsp;4821&nbsp;7730</strong></td>
+              <td><div class="row"><span class="badge badge--critical">Disputed</span></div></td>
+              <td><span class="x-thumb" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="Photo of a parcel on the doorstep of a front door with a glass panel"><svg class="x-thumb__img" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#scene-door2"></use></svg></span></td>
+              <td>Priya&nbsp;Raman</td>
+              <td>Tomasz&nbsp;Wójcik</td>
+              <td><time datetime="2026-11-05T11:03">Thu&nbsp;5&nbsp;Nov,&nbsp;11:03</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4821 7730">Review</button></td>
+            </tr>
+            <tr data-id="TLV48220195" data-disputed="true" data-missing="photo">
+              <td><strong>TLV&nbsp;4822&nbsp;0195</strong></td>
+              <td><div class="row"><span class="badge badge--critical">Disputed</span><span class="badge badge--warning">Missing&nbsp;photo</span></div></td>
+              <td><span class="x-thumb x-thumb--empty" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="No photo"><svg class="x-thumb__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-no-photo"></use></svg></span></td>
+              <td>Callum&nbsp;Fraser</td>
+              <td>Grace&nbsp;Mensah</td>
+              <td><time datetime="2026-11-05T16:47">Thu&nbsp;5&nbsp;Nov,&nbsp;16:47</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4822 0195">Review</button></td>
+            </tr>
+            <tr data-id="TLV48361048" data-disputed="false" data-missing="signature">
+              <td><strong>TLV&nbsp;4836&nbsp;1048</strong></td>
+              <td><div class="row"><span class="badge badge--warning">Missing&nbsp;signature</span></div></td>
+              <td><span class="x-thumb" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="Photo of a parcel tucked beside a wheelie bin by a fence"><svg class="x-thumb__img" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#scene-bin"></use></svg></span></td>
+              <td>Daniel&nbsp;Osei</td>
+              <td>Nadia&nbsp;Haddad</td>
+              <td><time datetime="2026-11-06T13:35">Fri&nbsp;6&nbsp;Nov,&nbsp;13:35</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4836 1048">Review</button></td>
+            </tr>
+            <tr data-id="TLV48413307" data-disputed="true" data-missing="">
+              <td><strong>TLV&nbsp;4841&nbsp;3307</strong></td>
+              <td><div class="row"><span class="badge badge--critical">Disputed</span></div></td>
+              <td><span class="x-thumb" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="Photo of a parcel on the step of a panelled front door"><svg class="x-thumb__img" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#scene-door"></use></svg></span></td>
+              <td>Hamza&nbsp;Iqbal</td>
+              <td>Kofi&nbsp;Boateng</td>
+              <td><time datetime="2026-11-06T15:20">Fri&nbsp;6&nbsp;Nov,&nbsp;15:20</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4841 3307">Review</button></td>
+            </tr>
+            <tr data-id="TLV48399921" data-disputed="false" data-missing="photo">
+              <td><strong>TLV&nbsp;4839&nbsp;9921</strong></td>
+              <td><div class="row"><span class="badge badge--warning">Missing&nbsp;photo</span></div></td>
+              <td><span class="x-thumb x-thumb--empty" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="No photo"><svg class="x-thumb__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-no-photo"></use></svg></span></td>
+              <td>Sofia&nbsp;Marin</td>
+              <td>Owen&nbsp;Pryce</td>
+              <td><time datetime="2026-11-06T15:58">Fri&nbsp;6&nbsp;Nov,&nbsp;15:58</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4839 9921">Review</button></td>
+            </tr>
+            <tr data-id="TLV48305562" data-disputed="true" data-missing="signature">
+              <td><strong>TLV&nbsp;4830&nbsp;5562</strong></td>
+              <td><div class="row"><span class="badge badge--critical">Disputed</span><span class="badge badge--warning">Missing&nbsp;signature</span></div></td>
+              <td><span class="x-thumb" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="Photo taken in the dark. The parcel is hard to make out"><svg class="x-thumb__img" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#scene-dark"></use></svg></span></td>
+              <td>Megan&nbsp;Lloyd</td>
+              <td>Liam&nbsp;Carter</td>
+              <td><time datetime="2026-11-06T17:48">Fri&nbsp;6&nbsp;Nov,&nbsp;17:48</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4830 5562">Review</button></td>
+            </tr>
+            <tr data-id="TLV48436610" data-disputed="false" data-missing="signature">
+              <td><strong>TLV&nbsp;4843&nbsp;6610</strong></td>
+              <td><div class="row"><span class="badge badge--warning">Missing&nbsp;signature</span></div></td>
+              <td><span class="x-thumb" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="Photo of a parcel on a doormat inside a porch"><svg class="x-thumb__img" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#scene-porch"></use></svg></span></td>
+              <td>Eleanor&nbsp;Pike</td>
+              <td>Tomasz&nbsp;Wójcik</td>
+              <td><time datetime="2026-11-07T10:05">Yesterday,&nbsp;10:05</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4843 6610">Review</button></td>
+            </tr>
+            <tr data-id="TLV48442276" data-disputed="false" data-missing="photo signature">
+              <td><strong>TLV&nbsp;4844&nbsp;2276</strong></td>
+              <td><div class="row"><span class="badge badge--warning">Missing&nbsp;photo</span><span class="badge badge--warning">Missing&nbsp;signature</span></div></td>
+              <td><span class="x-thumb x-thumb--empty" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="No photo"><svg class="x-thumb__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-no-photo"></use></svg></span></td>
+              <td>Jamie&nbsp;Kerr</td>
+              <td>Grace&nbsp;Mensah</td>
+              <td><time datetime="2026-11-07T12:41">Yesterday,&nbsp;12:41</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4844 2276">Review</button></td>
+            </tr>
+            <tr data-id="TLV48470083" data-disputed="true" data-missing="">
+              <td><strong>TLV&nbsp;4847&nbsp;0083</strong></td>
+              <td><div class="row"><span class="badge badge--critical">Disputed</span></div></td>
+              <td><span class="x-thumb" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="Photo of a parcel on the top step of a terraced house"><svg class="x-thumb__img" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#scene-steps"></use></svg></span></td>
+              <td>Ruth&nbsp;Adeyemi</td>
+              <td>Liam&nbsp;Carter</td>
+              <td><time datetime="2026-11-07T14:26">Yesterday,&nbsp;14:26</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4847 0083">Review</button></td>
+            </tr>
+            <tr data-id="TLV48507419" data-disputed="false" data-missing="signature">
+              <td><strong>TLV&nbsp;4850&nbsp;7419</strong></td>
+              <td><div class="row"><span class="badge badge--warning">Missing&nbsp;signature</span></div></td>
+              <td><span class="x-thumb" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="Photo of a parcel on a reception desk"><svg class="x-thumb__img" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#scene-reception"></use></svg></span></td>
+              <td>Lucy&nbsp;Whitfield</td>
+              <td>Nadia&nbsp;Haddad</td>
+              <td><time datetime="2026-11-07T16:02">Yesterday,&nbsp;16:02</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4850 7419">Review</button></td>
+            </tr>
+            <tr data-id="TLV48512954" data-disputed="false" data-missing="photo">
+              <td><strong>TLV&nbsp;4851&nbsp;2954</strong></td>
+              <td><div class="row"><span class="badge badge--warning">Missing&nbsp;photo</span></div></td>
+              <td><span class="x-thumb x-thumb--empty" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="No photo"><svg class="x-thumb__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-no-photo"></use></svg></span></td>
+              <td>Arjun&nbsp;Mehta</td>
+              <td>Owen&nbsp;Pryce</td>
+              <td><time datetime="2026-11-08T08:54">Today,&nbsp;08:54</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4851 2954">Review</button></td>
+            </tr>
+            <tr data-id="TLV48538862" data-disputed="false" data-missing="signature">
+              <td><strong>TLV&nbsp;4853&nbsp;8862</strong></td>
+              <td><div class="row"><span class="badge badge--warning">Missing&nbsp;signature</span></div></td>
+              <td><span class="x-thumb" data-new="proof-thumb" data-job="Shows a small copy of the driver’s delivery photo in a table row" data-why="No contract shows an image" role="img" aria-label="Photo of a parcel on the doorstep of a front door with a glass panel"><svg class="x-thumb__img" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#scene-door2" transform="matrix(-1 0 0 1 160 0)"></use></svg></span></td>
+              <td>Chloe&nbsp;Barnes</td>
+              <td>Kofi&nbsp;Boateng</td>
+              <td><time datetime="2026-11-08T09:31">Today,&nbsp;09:31</time></td>
+              <td><button class="btn btn--secondary" type="button" data-review aria-label="Review TLV 4853 8862">Review</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <template id="tpl-review">
+    <div class="dialog-backdrop">
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="review-title" aria-describedby="review-summary" tabindex="-1">
+        <h2 class="dialog__title" id="review-title" data-slot="title">Proof</h2>
+        <div class="row">
+          <span class="badge badge--critical" data-badge="disputed">Disputed</span>
+          <span class="badge badge--warning" data-badge="photo">Missing&nbsp;photo</span>
+          <span class="badge badge--warning" data-badge="signature">Missing&nbsp;signature</span>
+        </div>
+        <div class="x-review" data-new="review" data-job="Shows the photo, signature and notes of one delivery inside the review dialog" data-why="No contract shows a photo or a signature, and the dialog has no area that scrolls when the screen is short">
+          <p id="review-summary" data-slot="summary"></p>
+          <div class="x-review__proof">
+            <figure class="x-review__tile">
+              <div class="x-review__frame" role="img" data-slot="photo-frame">
+                <svg class="x-review__img" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use></use></svg>
+              </div>
+              <div class="x-review__frame x-review__frame--empty" data-slot="photo-empty">
+                <svg class="x-review__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-no-photo"></use></svg>
+                <span class="x-review__empty">No photo</span>
+              </div>
+              <figcaption class="x-review__caption">
+                <span class="x-review__label">Photo</span>
+                <span class="x-review__note" data-slot="photo-note"></span>
+              </figcaption>
+            </figure>
+            <figure class="x-review__tile">
+              <div class="x-review__frame x-review__frame--signature" role="img" data-slot="sig-frame">
+                <svg class="x-review__img" viewBox="0 0 160 120" aria-hidden="true" focusable="false"><use></use></svg>
+              </div>
+              <div class="x-review__frame x-review__frame--empty" data-slot="sig-empty">
+                <svg class="x-review__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-no-signature"></use></svg>
+                <span class="x-review__empty">No signature</span>
+              </div>
+              <figcaption class="x-review__caption">
+                <span class="x-review__label">Signature</span>
+                <span class="x-review__note" data-slot="sig-note"></span>
+              </figcaption>
+            </figure>
+          </div>
+          <p data-slot="driver"></p>
+          <p data-slot="customer"></p>
+          <p data-slot="outcome"></p>
+        </div>
+        <div class="dialog__actions">
+          <button class="btn btn--ghost" type="button" data-action="close">Close</button>
+          <button class="btn btn--secondary" type="button" data-action="reject">Reject</button>
+          <button class="btn btn--primary" type="button" data-action="accept">Accept</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-empty">
+    <div class="empty-state">
+      <h2 class="empty-state__title">No deliveries here</h2>
+      <p>Every delivery in this filter has been reviewed.</p>
+      <button class="btn btn--secondary" type="button">Show all</button>
+    </div>
+  </template>
+
+  <template id="tpl-banner">
+    <div class="banner" role="status"><p></p></div>
+  </template>
+
+  <script>
+  (() => {
+    'use strict';
+
+    const DELIVERIES = {
+      "TLV48217730": {
+        "parcel": "TLV 4821 7730",
+        "recipient": "Priya Raman",
+        "address": "14 Alder Road, Headingley, Leeds LS6 3BN",
+        "driver": "Tomasz Wójcik",
+        "sentence": "on Thu 5 Nov at 11:03",
+        "disputed": true,
+        "customerWhen": "Fri 6 Nov",
+        "customer": "Tracking says delivered, but nothing was left at my door. I was in all morning.",
+        "note": "No answer at number 14. Left with the neighbour at number 16.",
+        "missing": [],
+        "photo": {
+          "scene": "door2",
+          "alt": "Photo of a parcel on the doorstep of a front door with a glass panel",
+          "note": "Taken at 11:02, 18 m from the address."
+        },
+        "photoMissing": null,
+        "sig": {
+          "id": "sig-holt",
+          "alt": "Signature of J. Holt",
+          "note": "Signed by J. Holt at number 16."
+        },
+        "sigMissing": null
+      },
+      "TLV48220195": {
+        "parcel": "TLV 4822 0195",
+        "recipient": "Callum Fraser",
+        "address": "Flat 9, Aire Point, 3 Whitehall Road, Leeds LS1 4AW",
+        "driver": "Grace Mensah",
+        "sentence": "on Thu 5 Nov at 16:47",
+        "disputed": true,
+        "customerWhen": "Sat 7 Nov",
+        "customer": "The concierge says they have no record of this parcel.",
+        "note": "Handed to the concierge at the front desk. No signal in the lobby.",
+        "missing": [
+          "photo"
+        ],
+        "photo": null,
+        "photoMissing": "Did not upload. The phone had no signal.",
+        "sig": {
+          "id": "sig-walsh",
+          "alt": "Signature of D. Walsh",
+          "note": "Signed by D. Walsh, concierge."
+        },
+        "sigMissing": null
+      },
+      "TLV48361048": {
+        "parcel": "TLV 4836 1048",
+        "recipient": "Daniel Osei",
+        "address": "5 Moorfield Close, Horsforth, Leeds LS18 4QT",
+        "driver": "Nadia Haddad",
+        "sentence": "on Fri 6 Nov at 13:35",
+        "disputed": false,
+        "customerWhen": null,
+        "customer": null,
+        "note": "No one home. Left behind the green bin, as the customer asked in the app.",
+        "missing": [
+          "signature"
+        ],
+        "photo": {
+          "scene": "bin",
+          "alt": "Photo of a parcel tucked beside a wheelie bin by a fence",
+          "note": "Taken at 13:35, 4 m from the address."
+        },
+        "photoMissing": null,
+        "sig": null,
+        "sigMissing": "Not collected. No one was home."
+      },
+      "TLV48413307": {
+        "parcel": "TLV 4841 3307",
+        "recipient": "Hamza Iqbal",
+        "address": "41 Roundhay Mount, Leeds LS8 4DW",
+        "driver": "Kofi Boateng",
+        "sentence": "on Fri 6 Nov at 15:20",
+        "disputed": true,
+        "customerWhen": "Sat 7 Nov",
+        "customer": "I don’t know anyone called A. Khan. Nothing came to number 41.",
+        "note": "Handed over at the door.",
+        "missing": [],
+        "photo": {
+          "scene": "door",
+          "alt": "Photo of a parcel on the step of a panelled front door",
+          "note": "Taken at 15:19, 240 m from the address."
+        },
+        "photoMissing": null,
+        "sig": {
+          "id": "sig-khan",
+          "alt": "Signature of A. Khan",
+          "note": "Signed by A. Khan."
+        },
+        "sigMissing": null
+      },
+      "TLV48399921": {
+        "parcel": "TLV 4839 9921",
+        "recipient": "Sofia Marin",
+        "address": "88 Kirkstall Lane, Leeds LS5 3NB",
+        "driver": "Owen Pryce",
+        "sentence": "on Fri 6 Nov at 15:58",
+        "disputed": false,
+        "customerWhen": null,
+        "customer": null,
+        "note": "Handed to the customer. A dog was at the door, so I skipped the photo.",
+        "missing": [
+          "photo"
+        ],
+        "photo": null,
+        "photoMissing": "Skipped by the driver.",
+        "sig": {
+          "id": "sig-marin",
+          "alt": "Signature of S. Marin",
+          "note": "Signed by S. Marin."
+        },
+        "sigMissing": null
+      },
+      "TLV48305562": {
+        "parcel": "TLV 4830 5562",
+        "recipient": "Megan Lloyd",
+        "address": "27 Bankside Street, Harehills, Leeds LS8 5AD",
+        "driver": "Liam Carter",
+        "sentence": "on Fri 6 Nov at 17:48",
+        "disputed": true,
+        "customerWhen": "Sat 7 Nov",
+        "customer": "There is nothing behind our gate, and we keep it locked.",
+        "note": "No one home. Left behind the side gate, as the delivery notes asked.",
+        "missing": [
+          "signature"
+        ],
+        "photo": {
+          "scene": "dark",
+          "alt": "Photo taken in the dark. The parcel is hard to make out",
+          "note": "Taken at 17:48, 6 m from the address. Too dark to see the parcel."
+        },
+        "photoMissing": null,
+        "sig": null,
+        "sigMissing": "Not collected. No one was home."
+      },
+      "TLV48436610": {
+        "parcel": "TLV 4843 6610",
+        "recipient": "Eleanor Pike",
+        "address": "The Old Vicarage, Church Lane, Adel, Leeds LS16 8DE",
+        "driver": "Tomasz Wójcik",
+        "sentence": "yesterday at 10:05",
+        "disputed": false,
+        "customerWhen": null,
+        "customer": null,
+        "note": "No answer. Left inside the porch and closed the outer door.",
+        "missing": [
+          "signature"
+        ],
+        "photo": {
+          "scene": "porch",
+          "alt": "Photo of a parcel on a doormat inside a porch",
+          "note": "Taken at 10:04, 9 m from the address."
+        },
+        "photoMissing": null,
+        "sig": null,
+        "sigMissing": "Not collected. No one was home."
+      },
+      "TLV48442276": {
+        "parcel": "TLV 4844 2276",
+        "recipient": "Jamie Kerr",
+        "address": "Flat 2, 17 Hyde Park Road, Leeds LS6 1AH",
+        "driver": "Grace Mensah",
+        "sentence": "yesterday at 12:41",
+        "disputed": false,
+        "customerWhen": null,
+        "customer": null,
+        "note": "Handed to a resident at the main door. The app closed before I could take the photo.",
+        "missing": [
+          "photo",
+          "signature"
+        ],
+        "photo": null,
+        "photoMissing": "Not taken. The app closed during the hand-over.",
+        "sig": null,
+        "sigMissing": "Not collected. The app closed during the hand-over."
+      },
+      "TLV48470083": {
+        "parcel": "TLV 4847 0083",
+        "recipient": "Ruth Adeyemi",
+        "address": "63 Stainbeck Lane, Chapel Allerton, Leeds LS7 3PJ",
+        "driver": "Liam Carter",
+        "sentence": "yesterday at 14:26",
+        "disputed": true,
+        "customerWhen": "today",
+        "customer": "I never received this parcel. Please send a replacement.",
+        "note": "Handed to the customer at the door.",
+        "missing": [],
+        "photo": {
+          "scene": "steps",
+          "alt": "Photo of a parcel on the top step of a terraced house",
+          "note": "Taken at 14:25, 7 m from the address."
+        },
+        "photoMissing": null,
+        "sig": {
+          "id": "sig-adeyemi",
+          "alt": "Signature of R. Adeyemi",
+          "note": "Signed by R. Adeyemi."
+        },
+        "sigMissing": null
+      },
+      "TLV48507419": {
+        "parcel": "TLV 4850 7419",
+        "recipient": "Lucy Whitfield",
+        "address": "Moss & Pine Studio, Unit 4, Marshall Mill, Leeds LS11 9YJ",
+        "driver": "Nadia Haddad",
+        "sentence": "yesterday at 16:02",
+        "disputed": false,
+        "customerWhen": null,
+        "customer": null,
+        "note": "Left at the building’s reception. Staff there don’t sign for other businesses.",
+        "missing": [
+          "signature"
+        ],
+        "photo": {
+          "scene": "reception",
+          "alt": "Photo of a parcel on a reception desk",
+          "note": "Taken at 16:01, 11 m from the address."
+        },
+        "photoMissing": null,
+        "sig": null,
+        "sigMissing": "Not collected. Reception would not sign."
+      },
+      "TLV48512954": {
+        "parcel": "TLV 4851 2954",
+        "recipient": "Arjun Mehta",
+        "address": "12 Larkfield Avenue, Rawdon, Leeds LS19 6EN",
+        "driver": "Owen Pryce",
+        "sentence": "today at 08:54",
+        "disputed": false,
+        "customerWhen": null,
+        "customer": null,
+        "note": "Handed to the customer.",
+        "missing": [
+          "photo"
+        ],
+        "photo": null,
+        "photoMissing": "Waiting to upload. The phone is offline.",
+        "sig": {
+          "id": "sig-mehta",
+          "alt": "Signature of A. Mehta",
+          "note": "Signed by A. Mehta."
+        },
+        "sigMissing": null
+      },
+      "TLV48538862": {
+        "parcel": "TLV 4853 8862",
+        "recipient": "Chloe Barnes",
+        "address": "9 Grove Terrace, Pudsey, Leeds LS28 7AB",
+        "driver": "Kofi Boateng",
+        "sentence": "today at 09:31",
+        "disputed": false,
+        "customerWhen": null,
+        "customer": null,
+        "note": "The customer took the parcel but would not sign on my phone.",
+        "missing": [
+          "signature"
+        ],
+        "photo": {
+          "scene": "door2",
+          "mirror": true,
+          "alt": "Photo of a parcel on the doorstep of a front door with a glass panel",
+          "note": "Taken at 09:30, 5 m from the address."
+        },
+        "photoMissing": null,
+        "sig": null,
+        "sigMissing": "Not collected. The customer refused to sign."
+      }
+    };
+
+    const app = document.querySelector('.app');
+    const page = document.querySelector('.page');
+    const header = page.querySelector('.page-header');
+    const pageTitle = header.querySelector('.page-header__title');
+    const queue = document.getElementById('queue');
+    const tableBox = queue.querySelector('.table-scroll');
+    const tbody = tableBox.querySelector('tbody');
+    const filters = Array.from(document.querySelectorAll('[data-filter]'));
+    const navCount = document.getElementById('nav-count');
+    const nextButton = document.getElementById('review-next');
+    const tpl = {
+      review: document.getElementById('tpl-review'),
+      empty: document.getElementById('tpl-empty'),
+      banner: document.getElementById('tpl-banner')
+    };
+    const EMPTY_TITLES = {
+      disputed: 'No disputed deliveries',
+      photo: 'No deliveries missing a photo',
+      signature: 'No deliveries missing a signature'
+    };
+
+    let current = 'all';
+    let open = null;
+
+    const rows = () => Array.from(tbody.rows);
+    const clone = (template) => template.content.firstElementChild.cloneNode(true);
+
+    function inFilter(row, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'disputed') return row.dataset.disputed === 'true';
+      return row.dataset.missing.split(' ').includes(filter);
+    }
+
+    /* Counts, visible rows and the empty state, all from the rows that are left. */
+    function update() {
+      const all = rows();
+      filters.forEach((button) => {
+        const selected = button.dataset.filter === current;
+        button.querySelector('.numeral').textContent = String(all.filter((row) => inFilter(row, button.dataset.filter)).length);
+        button.classList.toggle('is-selected', selected);
+        button.setAttribute('aria-pressed', String(selected));
+      });
+      navCount.textContent = String(all.length);
+
+      let shown = 0;
+      all.forEach((row) => {
+        const show = inFilter(row, current);
+        row.hidden = !show;
+        if (show) shown += 1;
+      });
+
+      const oldEmpty = queue.querySelector('.empty-state');
+      if (oldEmpty) oldEmpty.remove();
+      tableBox.hidden = shown === 0;
+      if (shown === 0) queue.append(emptyState(all.length === 0));
+      if (all.length === 0 && nextButton.isConnected) nextButton.remove();
+    }
+
+    function emptyState(queueIsEmpty) {
+      const node = clone(tpl.empty);
+      const button = node.querySelector('button');
+      if (queueIsEmpty) {
+        node.querySelector('.empty-state__title').textContent = 'Nothing to review';
+        node.querySelector('p').textContent = 'New disputes and deliveries with missing proof will show up here.';
+        button.remove();
+      } else {
+        node.querySelector('.empty-state__title').textContent = EMPTY_TITLES[current];
+        button.addEventListener('click', () => setFilter('all', true));
+      }
+      return node;
+    }
+
+    function setFilter(filter, moveFocus) {
+      current = filter;
+      update();
+      if (moveFocus) filters.find((button) => button.dataset.filter === filter).focus();
+    }
+
+    filters.forEach((button) => button.addEventListener('click', () => setFilter(button.dataset.filter)));
+
+    /* Review dialog */
+    function labelled(paragraph, label, text) {
+      const strong = document.createElement('strong');
+      strong.textContent = label;
+      paragraph.replaceChildren(strong, ' ' + text);
+    }
+
+    function openReview(row, opener) {
+      if (open || !row) return;
+      const d = DELIVERIES[row.dataset.id];
+      const backdrop = clone(tpl.review);
+      const dialog = backdrop.querySelector('.dialog');
+      const slot = (name) => backdrop.querySelector('[data-slot="' + name + '"]');
+
+      slot('title').textContent = 'Proof for ' + d.parcel;
+      backdrop.querySelectorAll('[data-badge]').forEach((badge) => {
+        const key = badge.dataset.badge;
+        if (key === 'disputed' ? !d.disputed : !d.missing.includes(key)) badge.remove();
+      });
+
+      const name = document.createElement('strong');
+      name.textContent = d.recipient;
+      slot('summary').replaceChildren(name, ', ' + d.address + '. Marked delivered by ' + d.driver + ' ' + d.sentence + '.');
+
+      if (d.photo) {
+        const use = slot('photo-frame').querySelector('use');
+        use.setAttribute('href', '#scene-' + d.photo.scene);
+        if (d.photo.mirror) use.setAttribute('transform', 'matrix(-1 0 0 1 160 0)');
+        slot('photo-frame').setAttribute('aria-label', d.photo.alt);
+        slot('photo-empty').remove();
+        slot('photo-note').textContent = d.photo.note;
+      } else {
+        slot('photo-frame').remove();
+        slot('photo-note').textContent = d.photoMissing;
+      }
+
+      if (d.sig) {
+        slot('sig-frame').querySelector('use').setAttribute('href', '#' + d.sig.id);
+        slot('sig-frame').setAttribute('aria-label', d.sig.alt);
+        slot('sig-empty').remove();
+        slot('sig-note').textContent = d.sig.note;
+      } else {
+        slot('sig-frame').remove();
+        slot('sig-note').textContent = d.sigMissing;
+      }
+
+      labelled(slot('driver'), 'Driver’s note:', '“' + d.note + '”');
+      if (d.disputed) labelled(slot('customer'), 'Customer, ' + d.customerWhen + ':', '“' + d.customer + '”');
+      else slot('customer').remove();
+      slot('outcome').textContent = d.disputed
+        ? 'Accept sends this proof to the customer. Reject marks the parcel not delivered and opens a claim.'
+        : 'Accept keeps the parcel delivered. Reject marks it not delivered and opens a claim.';
+
+      backdrop.querySelector('[data-action="close"]').addEventListener('click', () => closeReview(true));
+      backdrop.querySelector('[data-action="reject"]').addEventListener('click', () => decide('reject'));
+      backdrop.querySelector('[data-action="accept"]').addEventListener('click', () => decide('accept'));
+      backdrop.addEventListener('click', (event) => { if (event.target === backdrop) closeReview(true); });
+      backdrop.addEventListener('keydown', keepFocusInside);
+
+      open = { backdrop, dialog, row, data: d, opener };
+      document.body.append(backdrop);
+      app.inert = true;
+
+      const body = backdrop.querySelector('.x-review');
+      if (body.scrollHeight > body.clientHeight) {
+        body.tabIndex = 0;
+        body.setAttribute('role', 'region');
+        body.setAttribute('aria-label', 'Proof and notes');
+      }
+      backdrop.querySelector('[data-action="close"]').focus();
+    }
+
+    function closeReview(restoreFocus) {
+      if (!open) return;
+      const { backdrop, opener } = open;
+      open = null;
+      backdrop.remove();
+      app.inert = false;
+      if (restoreFocus && opener && opener.isConnected) opener.focus();
+    }
+
+    function keepFocusInside(event) {
+      if (event.key !== 'Tab' || !open) return;
+      const stops = Array.from(open.dialog.querySelectorAll('[tabindex="0"], button'));
+      const first = stops[0];
+      const last = stops[stops.length - 1];
+      if (event.shiftKey && (document.activeElement === first || document.activeElement === open.dialog)) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    function neighbour(row) {
+      let next = row.nextElementSibling;
+      while (next && next.hidden) next = next.nextElementSibling;
+      if (next) return next;
+      let previous = row.previousElementSibling;
+      while (previous && previous.hidden) previous = previous.previousElementSibling;
+      return previous;
+    }
+
+    function decide(action) {
+      const { row, data, opener } = open;
+      const after = neighbour(row);
+      row.remove();
+      closeReview(false);
+      update();
+      showBanner(action === 'accept'
+        ? (data.disputed ? 'Proof accepted for ' + data.parcel + ' and sent to the customer.' : 'Proof accepted for ' + data.parcel + '.')
+        : 'Proof rejected for ' + data.parcel + '. The parcel is marked not delivered and a claim is open.');
+
+      if (opener === nextButton && nextButton.isConnected) nextButton.focus();
+      else if (after && after.isConnected && !after.hidden) after.querySelector('[data-review]').focus();
+      else if (queue.querySelector('.empty-state button')) queue.querySelector('.empty-state button').focus();
+      else pageTitle.focus();
+    }
+
+    /* A page message under the header; the text goes in after the banner so screen readers announce it. */
+    function showBanner(text) {
+      const old = page.querySelector('.banner');
+      if (old) old.remove();
+      const banner = clone(tpl.banner);
+      header.after(banner);
+      requestAnimationFrame(() => { banner.querySelector('p').textContent = text; });
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && open) closeReview(true);
+    });
+
+    nextButton.addEventListener('click', () => {
+      let row = rows().find((candidate) => !candidate.hidden);
+      if (!row) {
+        setFilter('all');
+        row = rows()[0];
+      }
+      openReview(row, nextButton);
+    });
+
+    /* The Review button opens a delivery; a tap anywhere on its row does too. */
+    tbody.addEventListener('click', (event) => {
+      const row = event.target.closest('tr');
+      if (!row) return;
+      const button = event.target.closest('[data-review]');
+      if (button) {
+        openReview(row, button);
+        return;
+      }
+      if (String(window.getSelection ? window.getSelection() : '').length) return;
+      openReview(row, row.querySelector('[data-review]'));
+    });
+
+    update();
+  })();
+  </script>
+</body>
+</html>
