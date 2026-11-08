@@ -28,8 +28,8 @@ const api = async (method, p, body) => {
 };
 
 const DECISIONS = [
-  'Replaced by an existing component',
-  'Updates the component it refines',
+  'Replaced by one that exists',
+  'Updates the component',
   'Becomes a component',
   'Waits until it appears again',
 ];
