@@ -1,10 +1,10 @@
 # Triage log
 
-Every part the framework run logged under CMP-03, as the AI wrote it, and the decision triage took.
+Every new part the framework run labelled under CMP-03, as the AI wrote it, and the decision triage took.
 
-## What was logged
+## What was labelled
 
-| Logged as | Screen | Job | Why no component fit |
+| Labelled as | Screen | Job | Why no component fit |
 |---|---|---|---|
 | person | drivers, every row | A person in a table row: avatar and name side by side, on one line | A row wraps when a phone squeezes the table, so the name falls under the avatar. No contract keeps an avatar and a name on one line. |
 | photo | pod-detail | Shows the photo the driver took at the door, with the time the app stamped on it | No contract shows an image: the system has no image or photo component |
@@ -19,12 +19,12 @@ Every part the framework run logged under CMP-03, as the AI wrote it, and the de
 
 ## Decisions
 
-Triage grouped the parts by job and took the first decision that fits: replaced by a component that already does the job; becomes a component if logged more than once; waits if logged once.
+Triage grouped the parts by job and took the first decision that fits: replaced by a component that already does the job; becomes a component if it reached triage more than once; waits if it reached triage once. (The fourth decision, updates the component, came later; no part here refines a component.)
 
-| Part | Logged as | Decision | Next step |
+| Part | Labelled as | Decision | Next step |
 |---|---|---|---|
-| Photo and signature | photo, signature, proof-thumb, proof-scenes, review | Becomes a component: Image. Logged on two screens. | A contract, `contracts/image.md`, with a small size for table rows; styles in `components.css`; the same name in Figma; a check, or "Review only" until one exists. Then pod-queue and pod-detail switch to it. |
-| Filter that fits a phone | filter-bar | Waits until it appears again. Logged on one screen. | The components-only run hit the same limit on drivers and pod-queue, and restyled the toggle group both times, in a style block inside the screen. |
+| Photo and signature | photo, signature, proof-thumb, proof-scenes, review | Becomes a component: Image. Labelled on two screens. | A contract, `contracts/image.md`, with a small size for table rows; styles in `components.css`; the same name in Figma; a check, or "Review only" until one exists. Then pod-queue and pod-detail switch to it. |
+| Filter that fits a phone | filter-bar | Waits until it appears again. Labelled on one screen. | The components-only run hit the same limit on drivers and pod-queue, and restyled the toggle group both times, in a style block inside the screen. |
 | Text box with several lines | textarea | Waits until it appears again | rules.md lists it as not built. |
 | Date picker | date-picker | Waits until it appears again | rules.md lists it as not built. |
 | File upload | file-upload | Waits until it appears again | rules.md lists it as not built. |
@@ -34,7 +34,7 @@ No part did a job that an existing component already does, so none was replaced.
 
 ## What the components-only run did instead
 
-It logged nothing, so nothing reached triage. On the three feature screens, the harness found 73 class names outside the system: 43 on pod-detail (among them a map, a breadcrumb, coloured dots and a text box), 26 on pod-queue (among them photo thumbnails, a signature and its own dialog) and 4 on pod-rules (a two-pane layout and a photo). On drivers and pod-queue, it restyled the toggle group in a style block inside the screen.
+It labelled nothing, so nothing reached triage. On the three feature screens, the harness found 73 class names outside the system: 43 on pod-detail (among them a map, a breadcrumb, coloured dots and a text box), 26 on pod-queue (among them photo thumbnails, a signature and its own dialog) and 4 on pod-rules (a two-pane layout and a photo). On drivers and pod-queue, it restyled the toggle group in a style block inside the screen.
 
 ## Counting
 
