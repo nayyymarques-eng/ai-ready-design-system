@@ -105,6 +105,7 @@ test/                the first run, in HTML
 
 ## What it doesn't cover
 
+- Proof. The eval is small and shows how the framework works; it doesn't show the system is finished. The harness checks only the rules written down, so a screen can pass every check and still look wrong where no rule exists yet: in the framework's screens, cards side by side have different heights, because no rule says they share one. A gap like that becomes a new rule and a new check.
 - Fidelity to a design file. The harness checks that a screen follows the system, not that it matches a Figma frame; when a designer changes a frame, the Figma MCP server carries it to code.
 - A large team. The builds were AI tools working alone, and I did the triage.
 - Many people using the same design system. How triage works when many people add new parts at the same time is untested.
