@@ -3,25 +3,24 @@
 // it adds the occurrence and the count, and keeps the decision the owner already ticked.
 // It also leaves one comment on the pull request that lists what went to triage.
 // The same items.json can go to Jira, Linear, Notion or Shortcut with another sender like this one.
-// Usage (in CI): node harness/triage-to-issues.mjs triage-out
+// Usage (in CI): node harness/triage-to-issues.mjs  (reads triage-out/ in the repository)
 // Needs GITHUB_TOKEN, GITHUB_REPOSITORY, PR_NUMBER, PR_AUTHOR, PR_URL.
 import fs from 'node:fs';
 import path from 'node:path';
 
-// Inputs are checked before use: the folder stays inside the repository, and every value that
+// Inputs are checked before use: the folder is fixed, and every value that
 // goes into an API path (repository, pull request, branch, part name) has a fixed shape.
 const fail = m => { console.error(`triage: ${m}`); process.exit(1); };
-const dir = path.resolve(process.argv[2] || 'triage-out');
-if (!dir.startsWith(process.cwd() + path.sep)) fail('the triage folder must be inside the repository');
+const dir = 'triage-out'; // fixed: harness/triage.mjs writes here
 const { GITHUB_TOKEN: token, GITHUB_REPOSITORY: repo, PR_NUMBER: pr, PR_AUTHOR: author, PR_URL: prUrl } = process.env;
 if (!/^[\w.-]+\/[\w.-]+$/.test(repo || '')) fail('GITHUB_REPOSITORY is not owner/name');
 if (pr && !/^\d+$/.test(pr)) fail('PR_NUMBER is not a number');
 if (author && !/^[\w-]+(\[bot\])?$/.test(author)) fail('PR_AUTHOR is not a GitHub login');
 const items = JSON.parse(fs.readFileSync(path.join(dir, 'items.json'), 'utf8'));
-for (const it of items) if (!/^[a-z0-9-]+$/.test(it.name)) fail(`part name "${it.name}" must be lowercase letters, digits and hyphens`);
+for (const it of items) if (!/^[a-z0-9-]+$/.test(it.name)) fail('a part name must be lowercase letters, digits and hyphens');
 const SAFE_PATH = /^(\/[\w\-./?=&%]*)?$/; // empty = the repository itself
 const api = async (method, p, body) => {
-  if (!SAFE_PATH.test(p) || p.includes('..')) fail(`unsafe API path ${p}`);
+  if (!SAFE_PATH.test(p) || p.includes('..')) fail('unsafe API path');
   const r = await fetch(new URL(`/repos/${repo}${p}`, 'https://api.github.com'), { method, headers: { authorization: `Bearer ${token}`, accept: 'application/vnd.github+json', 'content-type': 'application/json' }, body: body && JSON.stringify(body) });
   // A 404 on a lookup and a 422 on "already exists" are expected; anything else stops the run.
   if (!r.ok && !(r.status === 404 && method === 'GET') && !(r.status === 422 && p === '/labels')) throw new Error(`${method} ${p}: ${r.status} ${await r.text()}`);

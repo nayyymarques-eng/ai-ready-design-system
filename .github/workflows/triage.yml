@@ -26,7 +26,7 @@ jobs:
         run: node harness/triage.mjs screens --out triage-out
       - name: Send them to the triage list
         if: github.event.pull_request.head.repo.full_name == github.repository
-        run: node harness/triage-to-issues.mjs triage-out
+        run: node harness/triage-to-issues.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
