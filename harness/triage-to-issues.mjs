@@ -8,13 +8,24 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const dir = process.argv[2] || 'triage-out';
+// Inputs are checked before use: the folder stays inside the repository, and every value that
+// goes into an API path (repository, pull request, branch, part name) has a fixed shape.
+const fail = m => { console.error(`triage: ${m}`); process.exit(1); };
+const dir = path.resolve(process.argv[2] || 'triage-out');
+if (!dir.startsWith(process.cwd() + path.sep)) fail('the triage folder must be inside the repository');
 const { GITHUB_TOKEN: token, GITHUB_REPOSITORY: repo, PR_NUMBER: pr, PR_AUTHOR: author, PR_URL: prUrl } = process.env;
+if (!/^[\w.-]+\/[\w.-]+$/.test(repo || '')) fail('GITHUB_REPOSITORY is not owner/name');
+if (pr && !/^\d+$/.test(pr)) fail('PR_NUMBER is not a number');
+if (author && !/^[\w-]+(\[bot\])?$/.test(author)) fail('PR_AUTHOR is not a GitHub login');
 const items = JSON.parse(fs.readFileSync(path.join(dir, 'items.json'), 'utf8'));
+for (const it of items) if (!/^[a-z0-9-]+$/.test(it.name)) fail(`part name "${it.name}" must be lowercase letters, digits and hyphens`);
+const SAFE_PATH = /^\/[\w\-./?=&%]*$/;
 const api = async (method, p, body) => {
-  const r = await fetch(`https://api.github.com/repos/${repo}${p}`, { method, headers: { authorization: `Bearer ${token}`, accept: 'application/vnd.github+json', 'content-type': 'application/json' }, body: body && JSON.stringify(body) });
-  if (!r.ok && r.status !== 404 && r.status !== 422) throw new Error(`${method} ${p}: ${r.status} ${await r.text()}`);
-  return r.status === 204 ? null : r.json().then(j => ({ status: r.status, ...j }));
+  if (!SAFE_PATH.test(p) || p.includes('..')) fail(`unsafe API path ${p}`);
+  const r = await fetch(new URL(`/repos/${repo}${p}`, 'https://api.github.com'), { method, headers: { authorization: `Bearer ${token}`, accept: 'application/vnd.github+json', 'content-type': 'application/json' }, body: body && JSON.stringify(body) });
+  // A 404 on a lookup and a 422 on "already exists" are expected; anything else stops the run.
+  if (!r.ok && !(r.status === 404 && method === 'GET') && !(r.status === 422 && p === '/labels')) throw new Error(`${method} ${p}: ${r.status} ${await r.text()}`);
+  return r.status === 204 ? null : r.json().then(j => ({ ...j, status: r.status }));
 };
 
 const DECISIONS = [
@@ -30,6 +41,7 @@ const PICS = 'triage-pictures';
 // Pictures live on their own branch, so the issue can show them.
 const main = await api('GET', '');
 if ((await api('GET', `/git/ref/heads/${PICS}`)).status === 404) {
+  if (!/^[\w.-]+$/.test(main.default_branch)) fail('unexpected default branch name');
   const head = await api('GET', `/git/ref/heads/${main.default_branch}`);
   await api('POST', '/git/refs', { ref: `refs/heads/${PICS}`, sha: head.object.sha });
 }
@@ -37,7 +49,7 @@ await api('POST', '/labels', { name: 'triage', color: 'efebe4', description: 'A 
 
 const open = [];
 for (let page = 1; ; page++) {
-  const batch = await fetch(`https://api.github.com/repos/${repo}/issues?labels=triage&state=all&per_page=100&page=${page}`, { headers: { authorization: `Bearer ${token}` } }).then(r => r.json());
+  const batch = await fetch(new URL(`/repos/${repo}/issues?labels=triage&state=all&per_page=100&page=${page}`, 'https://api.github.com'), { headers: { authorization: `Bearer ${token}` } }).then(r => r.json());
   open.push(...batch);
   if (batch.length < 100) break;
 }
@@ -78,7 +90,7 @@ for (const it of items) {
     if (!data.occ.some(x => x.screen === o.screen && x.pr === pr)) { data.occ.push({ ...o, pr, prUrl, who: author, date: today }); added++; }
   }
   // Upload the picture (first time, or a newer look of the part)
-  const pic = fs.readFileSync(path.join(dir, it.picture)).toString('base64');
+  const pic = fs.readFileSync(path.join(dir, `${it.name}.png`)).toString('base64');
   const existing = await api('GET', `/contents/${encodeURIComponent(it.name)}.png?ref=${PICS}`);
   const put = await api('PUT', `/contents/${encodeURIComponent(it.name)}.png`, { message: `Triage picture: ${it.name}`, content: pic, branch: PICS, ...(existing.sha ? { sha: existing.sha } : {}) });
   data.picture = put.content ? put.content.sha.slice(0, 7) : (data.picture || '');
@@ -98,7 +110,7 @@ for (const it of items) {
 if (pr) {
   const tag = '<!-- triage-summary -->';
   const text = `${tag}\n**Triage.** ${items.length ? `${items.length} new part${items.length === 1 ? '' : 's'} labelled by the AI went to the triage list. The design system owner decides; this pull request does not wait.\n\n${summary.join('\n')}` : 'No new parts in this pull request.'}`;
-  const comments = await fetch(`https://api.github.com/repos/${repo}/issues/${pr}/comments?per_page=100`, { headers: { authorization: `Bearer ${token}` } }).then(r => r.json());
+  const comments = await fetch(new URL(`/repos/${repo}/issues/${pr}/comments?per_page=100`, 'https://api.github.com'), { headers: { authorization: `Bearer ${token}` } }).then(r => r.json());
   const mine = comments.find(c => c.body.startsWith(tag));
   if (mine) await api('PATCH', `/issues/comments/${mine.id}`, { body: text });
   else await api('POST', `/issues/${pr}/comments`, { body: text });
