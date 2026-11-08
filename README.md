@@ -35,6 +35,7 @@ Once: `npm install` and `npx playwright install chromium`.
    ```
 
 3. When a contract changes, run `python3 build-map.py` to rebuild the decision map.
+4. Triage: on every pull request, `.github/workflows/triage.yml` runs the harness and sends each new part the AI labelled to the triage list, here GitHub Issues with the label `triage`. Each part gets one issue: a picture, its job, why the AI made it, its code, every screen and pull request where it appears, who made it, and the decision for the design system owner to tick. A part that appears again updates its issue. Locally, `node harness/triage.mjs screens` lists the parts. `harness/triage-to-issues.mjs` is the sender; another tracker needs only another sender.
 
 A failed check is an error: a value that isn't a token, a restyled component, or a part built outside the system with no label. The harness doesn't change the screen; the builder fixes it in the same pull request and the harness runs again. The screen is production-ready only when every check passes, so errors never reach triage. Run on every change, the same checks are the regression safeguards: an error that was fixed can't come back unnoticed.
 
