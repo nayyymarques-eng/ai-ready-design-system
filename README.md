@@ -18,7 +18,7 @@ This is the kit behind the [Design system case](https://nayaramarques.com/design
 | Rules | `rules.md` | How components sit together on a screen, and the one way in for a new part (CMP-03). |
 | Decision map | `decision-map.md` | The contracts' "use for" and "never" lines, sorted by job. `build-map.py` writes it from the contracts; nobody edits it by hand. |
 | Checks | `harness/score.mjs` | The guardrails. Opens each screen in a headless browser at 1280px and 375px and runs 19 checks: 10 from the screen rules (one is TSC-01, the screen compiles) and 9 from contracts. |
-| Triage | `test/triage-log.md` | What happened to each new part a build labelled. |
+| Triage | `test/triage-log.md` | Every new part the first run labelled: what reaches triage. |
 
 An AI tool starts at `AGENTS.md`, which says what to read, in order.
 

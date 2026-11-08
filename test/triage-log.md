@@ -1,6 +1,6 @@
 # Triage log
 
-Every new part the framework run labelled under CMP-03, as the AI wrote it, and the decision triage took.
+Every new part the framework run labelled under CMP-03, as the AI wrote it. This is what reaches triage; what each part becomes is the design system owner's decision, so no decisions are recorded here.
 
 ## What was labelled
 
@@ -16,21 +16,6 @@ Every new part the framework run labelled under CMP-03, as the AI wrote it, and 
 | review | pod-queue, in the review dialog | Shows the photo, signature and notes of one delivery inside the review dialog | No contract shows a photo or a signature, and the dialog has no area that scrolls when the screen is short |
 | date-picker | pod-rules | Pick the day a sender's new proof rules start | Date picker is listed as not built in rules.md, and the field contract has only input and select |
 | file-upload | pod-rules | Add the example photo that drivers see for a sender | File upload is listed as not built in rules.md, and the field contract has only input and select |
-
-## Decisions
-
-Triage grouped the parts by job and took the first decision that fits: replaced by a component that already does the job; becomes a component if it reached triage more than once; waits if it reached triage once. (The fourth decision, updates the component, came later; no part here refines a component.)
-
-| Part | Labelled as | Decision | Next step |
-|---|---|---|---|
-| Photo and signature | photo, signature, proof-thumb, proof-scenes, review | Becomes a component: Image. Labelled on two screens. | A contract, `contracts/image.md`, with a small size for table rows; styles in `components.css`; the same name in Figma; a check, or "Review only" until one exists. Then pod-queue and pod-detail switch to it. |
-| Filter that fits a phone | filter-bar | Waits until it appears again. Labelled on one screen. | The components-only run hit the same limit on drivers and pod-queue, and restyled the toggle group both times, in a style block inside the screen. |
-| Text box with several lines | textarea | Waits until it appears again | rules.md lists it as not built. |
-| Date picker | date-picker | Waits until it appears again | rules.md lists it as not built. |
-| File upload | file-upload | Waits until it appears again | rules.md lists it as not built. |
-| Avatar and name on one line | person | Waits until it appears again | |
-
-No part did a job that an existing component already does, so none was replaced. The system in this repository is the one the test ran on: the Image component is decided, not built yet.
 
 ## What the components-only run did instead
 
