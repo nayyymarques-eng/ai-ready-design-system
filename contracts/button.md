@@ -16,6 +16,8 @@ Starts one action. The variant says how important the action is.
 ## Variants and states
 primary (the main action), secondary (other actions), ghost (quiet actions, menu triggers), danger (destroys something, always after a confirmation). Nothing else.
 
+One word per variant, everywhere: `variant="primary"` in React, `btn--primary` in CSS, `Variant=primary` in Figma.
+
 ## Use for
 - The main action of a screen or dialog (one primary)
 - Any single action
@@ -32,4 +34,4 @@ Page header, cards, dialogs, empty states.
 --accent, --on-accent, --critical, --control-height, --radius
 
 ## Checked by
-BTN-01, BTN-02
+BTN-01, BTN-02, NAM-01

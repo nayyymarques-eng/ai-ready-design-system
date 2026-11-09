@@ -16,6 +16,8 @@ A message about the whole page.
 ## Variants and states
 none (info), warning, critical.
 
+One word per tone, everywhere: `tone="warning"` in React, `banner--warning` in CSS, `Tone=warning` in Figma.
+
 ## Use for
 - A message about the whole page
 
@@ -30,4 +32,4 @@ Under the page header.
 --tint-info, --tint-warning, --tint-critical
 
 ## Checked by
-BADGE-01
+BADGE-01, NAM-01

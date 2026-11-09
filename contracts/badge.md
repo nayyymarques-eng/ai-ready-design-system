@@ -16,6 +16,8 @@ Shows a status in a word.
 ## Variants and states
 positive, warning, critical, info, or none for neutral.
 
+One word per tone, everywhere: `tone="positive"` in React, `badge--positive` in CSS, `Tone=positive` in Figma.
+
 ## Use for
 - A status
 
@@ -30,4 +32,4 @@ Table cells, list items, next to a title.
 --tint-*, --positive, --warning, --critical, --info
 
 ## Checked by
-BADGE-01, NUM-01
+BADGE-01, NUM-01, NAM-01
