@@ -4,7 +4,7 @@
 name: Harness and triage
 on:
   pull_request:
-    paths: ['screens/**', 'src/**', 'components.css', 'tokens.css', 'harness/**', '.github/workflows/triage.yml']
+    paths: ['screens/**', 'src/**', 'contracts/**', 'components.css', 'tokens.css', 'harness/**', '.github/workflows/triage.yml']
 permissions:
   contents: write
   issues: write
@@ -18,6 +18,8 @@ jobs:
         with: { node-version: 22, cache: npm }
       - run: npm ci --ignore-scripts
       - run: ./node_modules/.bin/playwright install --with-deps chromium
+      - name: System checks (tokens, contrast, names)
+        run: node harness/system.mjs
       - name: Render the screens
         run: npm run render -- screens
       - name: Harness

@@ -15,6 +15,12 @@ On any conflict between this file and an existing screen, this file wins.
 - **TPL-02** If no template fits, build the screen from the app shell and the layout components (section, stack, row, grid), and say in a comment at the top of the screen which template came closest and why it didn't fit. That screen goes to triage like a new part: it may become a template.
 - **TPL-03** Never restyle a template or change its columns. If the layout needs to change, it is TPL-02.
 
+## 1b. Tokens (TOK)
+- **TOK-01** Every `var(--name)` names a token in `tokens.css`. The only other custom property is `--value`, on progress and bar chart. A name that doesn't exist fails quietly in the browser, so the harness checks it on every screen and in `components.css`. *(checked)*
+
+## 1c. Names (NAM)
+- **NAM-01** A variant has one name, the same word everywhere: the React prop value, the CSS class, the contract and the Figma property (`variant="primary"`, `btn--primary`, `Variant=primary`). A new variant gets its word once and keeps it. *(checked by `harness/system.mjs`)*
+
 ## 2. Code (TSC)
 - **TSC-01** A screen in React compiles with no TypeScript errors (`npm run typecheck:screens`). *(checked)*
 
@@ -38,6 +44,7 @@ On any conflict between this file and an existing screen, this file wins.
 
 ## 8. Colour (COL)
 - **COL-01** No literal colour anywhere on a screen: no hex, rgb, hsl or named colour. Only tokens. *(checked)*
+- **COL-03** Text reaches 4.5:1 against what is behind it (WCAG AA); 3:1 for large text (24px, or 18.66px bold). Disabled controls don't count. The harness checks every text on every screen, and every text colour in `components.css` on its background, so a token change that breaks contrast fails before any screen uses it. *(checked)*
 
 ## 9. Elevation (ELV)
 - **ELV-01** Two levels only: `--raise-1` (cards) and `--raise-2` (menus, dialogs).

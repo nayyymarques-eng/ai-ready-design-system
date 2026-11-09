@@ -12,13 +12,15 @@ const here = path.dirname(url.fileURLToPath(import.meta.url));
 const css = fs.readFileSync(path.join(here, '../components.css'), 'utf8');
 const CATALOGUE = [...new Set([...css.matchAll(/\.([a-z][a-z0-9_-]*)/g)].map(m => m[1]))]
   .filter(c => !/^(\d|is$)/.test(c));
+// Every custom property tokens.css defines, plus --value (the one a screen may set, on progress and bar chart).
+const TOKENS = [...new Set([...fs.readFileSync(path.join(here, '../tokens.css'), 'utf8').matchAll(/(--[a-z0-9-]+)\s*:/g)].map(m => m[1]))].concat('--value');
 
 const args = process.argv.slice(2);
 const jsonAt = args.indexOf('--json');
 const jsonOut = jsonAt >= 0 ? args.splice(jsonAt, 2)[1] : null;
 const dirs = args;
 
-function inPage([CATALOGUE, COMPONENTS]) {
+function inPage([CATALOGUE, COMPONENTS, TOKENS]) {
   const cat = new Set(CATALOGUE);
   const components = new Set(COMPONENTS);
   const res = {};
@@ -81,6 +83,34 @@ function inPage([CATALOGUE, COMPONENTS]) {
   set('COL-01', true, cols.length === 0, [...new Set(cols)].slice(0, 4).join(' '));
 
 
+  // TOK-01 every var(--name) on the screen is a token that exists
+  const tokens = new Set(TOKENS);
+  const missing = [...new Set([...raw.matchAll(/var\(\s*(--[a-zA-Z0-9_-]+)/g)].map(m => m[1]).filter(n => !tokens.has(n)))];
+  set('TOK-01', true, missing.length === 0, missing.slice(0, 4).join(' '));
+
+  // COL-03 text reaches 4.5:1 on what is behind it (3:1 at 24px, or 18.66px bold); disabled controls don't count
+  const rgba = c => { const m = c.match(/[\d.]+/g) || [0, 0, 0, 0]; return [+m[0], +m[1], +m[2], m[3] === undefined ? 1 : +m[3]]; };
+  const over = (top, under) => top.slice(0, 3).map((v, i) => v * top[3] + under[i] * (1 - top[3])).concat(1);
+  const ground = el => { // the colour behind an element: its backgrounds, top to bottom, laid over white
+    const layers = [];
+    for (let e = el; e; e = e.parentElement) { const b = rgba(getComputedStyle(e).backgroundColor); if (b[3] > 0) { layers.push(b); if (b[3] === 1) break; } }
+    return layers.reverse().reduce((acc, b) => over(b, acc), [255, 255, 255, 1]);
+  };
+  const lum = c => { const [r, g, b] = c.slice(0, 3).map(v => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+  const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+  const low = [];
+  for (const el of all) {
+    if (![...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
+    if (el.closest('svg, [disabled], [aria-disabled="true"], [hidden], [aria-hidden="true"]')) continue;
+    const st = getComputedStyle(el);
+    if (st.visibility === 'hidden' || st.display === 'none' || !el.getClientRects().length) continue;
+    const bg = ground(el), fg = over(rgba(st.color), bg);
+    const size = parseFloat(st.fontSize), large = size >= 24 || (size >= 18.66 && +st.fontWeight >= 700);
+    const r = ratio(fg, bg);
+    if (r < (large ? 3 : 4.5)) low.push(`"${el.textContent.trim().slice(0, 20)}" ${r.toFixed(2)}:1`);
+  }
+  set('COL-03', true, low.length === 0, [...new Set(low)].slice(0, 3).join(' | '));
+
   // COL-02 status colour only through badge or banner (no coloured text)
   const tone = ['--positive', '--warning', '--critical', '--info'].map(t => getComputedStyle(document.documentElement).getPropertyValue(t).trim());
   const toRgb = h => { const n = parseInt(h.slice(1), 16); return `rgb(${n >> 16}, ${(n >> 8) & 255}, ${n & 255})`; };
@@ -139,7 +169,7 @@ if (fs.existsSync(cdir)) for (const f of fs.readdirSync(cdir)) {
   for (const id of (t.split('## Checked by\n')[1] || '').match(/[A-Z]+-\d+/g) || []) (SOURCE[id] ||= []).push('contracts/' + f);
 }
 const COMPONENTS = fs.existsSync(cdir) ? fs.readdirSync(cdir).map(f => f.replace(/\.md$/, '')) : [];
-const from = id => (SOURCE[id] && !/^(TTL|LAY|SPC|CMP|TYP|COL|TSC)-/.test(id) ? SOURCE[id].join(', ') : 'rules.md');
+const from = id => (SOURCE[id] && !/^(TTL|LAY|SPC|CMP|TYP|COL|TSC|TOK|NAM)-/.test(id) ? SOURCE[id].join(', ') : 'rules.md');
 const browser = await chromium.launch();
 const report = [];
 for (const dir of dirs) {
@@ -148,7 +178,7 @@ for (const dir of dirs) {
     const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
     const file = url.pathToFileURL(path.resolve(dir, f)).href;
     await page.goto(file);
-    const r = await page.evaluate(inPage, [CATALOGUE, COMPONENTS]);
+    const r = await page.evaluate(inPage, [CATALOGUE, COMPONENTS, TOKENS]);
     // TSC-01 the screen compiles (scripts/typecheck.mjs writes typecheck.json next to the screens)
     const tscFile = path.join(dir, 'typecheck.json');
     if (fs.existsSync(tscFile)) {

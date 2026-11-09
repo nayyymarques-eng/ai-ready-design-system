@@ -18,7 +18,7 @@ This is the kit behind the [Design system case](https://nayaramarques.com/design
 | Contracts | `contracts/` | One file per component and per template: what it is, markup, variants, use for, never, where it lives, and the checks that enforce it. |
 | Rules | `rules.md` | How components sit together on a screen, which template to start from (TPL), and the one way in for a new part (CMP-03). |
 | Decision map | `decision-map.md` | The contracts' "use for" and "never" lines, sorted by job. `build-map.py` writes it from the contracts; nobody edits it by hand. |
-| Checks | `harness/score.mjs` | The guardrails. Opens each screen in a headless browser at 1280px and 375px and runs 19 checks: 10 from the screen rules (one is TSC-01, the screen compiles) and 9 from contracts. |
+| Checks | `harness/score.mjs`, `harness/system.mjs` | The guardrails. `score.mjs` opens each screen in a headless browser at 1280px and 375px and runs 21 checks: 12 from the screen rules (one is TSC-01, the screen compiles) and 9 from contracts. `system.mjs` checks the system itself: every token it uses exists, every text colour is readable on its background, and every variant has one name. |
 | Triage | `test/triage-log.md` | Every new part the first run labelled: what reaches triage. |
 
 An AI tool starts at `AGENTS.md`, which says what to read, in order.
@@ -34,7 +34,7 @@ Once: `npm install` and `npx playwright install chromium`.
    MENU-01 (3 cells with 3+ buttons)  ← contracts/menu-button.md
    ```
 
-3. When a contract changes, run `python3 build-map.py` to rebuild the decision map.
+3. When a token, a component or a contract changes, run `npm run system` (the system checks) and `python3 build-map.py` to rebuild the decision map.
 4. Triage: on every pull request, `.github/workflows/triage.yml` runs the harness and sends each new part the AI labelled to the triage list, here GitHub Issues with the label `triage`. Each part gets one issue: a picture, its job, why the AI made it, its code, every screen and pull request where it appears, who made it, and the decision for the design system owner to tick. A part that appears again updates its issue. Locally, `node harness/triage.mjs screens` lists the parts. `harness/triage-to-issues.mjs` is the sender; another tracker needs only another sender.
 
 A failed check is an error: a value that isn't a token, a restyled component, or a part built outside the system with no label. The harness doesn't change the screen; the builder fixes it in the same pull request and the harness runs again. The screen is production-ready only when every check passes, so errors never reach triage. Run on every change, the same checks are the regression safeguards: an error that was fixed can't come back unnoticed.
@@ -47,6 +47,16 @@ Only new parts reach triage. A new part is never blocked: the build labels it wi
 | Updates the component | It refines a component, and the change is worth keeping | The change goes into that component's contract, Figma and code. Every screen with the part switches back to the component. |
 | Becomes a component | The same part reached triage more than once | It gets a contract and goes into Figma and code, with the same name. Every screen with the part switches to it. |
 | Waits until it appears again | It reached triage once | The screen keeps the labelled part. If it reaches triage again, it becomes a component. |
+
+## Token checks
+
+Three checks guard the tokens and the names, the layer under the components:
+
+- **TOK-01**: every `var(--name)` is a token that exists. A name an AI invents, such as `var(--color-primary)`, fails quietly in the browser; the harness catches it.
+- **COL-03**: text reaches 4.5:1 against what is behind it (3:1 for large text), on every screen and for every text colour in `components.css`.
+- **NAM-01**: a variant has the same word in the React prop, the CSS class, the contract and the Figma property.
+
+They were added after the eval. Run on the eval's 27 screens with the tokens as they were, TOK-01 found nothing, and COL-03 failed 26 of 27 screens in every condition for one reason: the warning badge, `--warning` on `--tint-warning`, was 4.46:1. The screens did nothing wrong; the token did. One line in `tokens.css` (`#9a6200` → `#966000`, 4.63:1) fixed every screen. The scores in the eval below are from before these checks.
 
 ## The eval
 
@@ -97,7 +107,8 @@ contracts/           one contract per component
 rules.md             screen rules
 decision-map.md      built from the contracts
 build-map.py         builds the decision map
-harness/score.mjs    the checks
+harness/score.mjs    the checks on each screen
+harness/system.mjs   the checks on the system: tokens, contrast, names
 scripts/             preview, typecheck, render, make-eval
 eval/
   briefs.md          the three feature briefs
