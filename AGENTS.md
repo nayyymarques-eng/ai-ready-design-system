@@ -9,3 +9,6 @@ Load `tokens.css` then `components.css`. Nothing outside the contracts is part o
 
 ## In React
 Each component is in `src/components/`, and `src/index.ts` exports them all. A screen is one `.tsx` file that default-exports the screen, imports components from `src`, and may export `title` (the page title) and `css` (styles for its own `x-` classes only). The props are typed: a variant that doesn't exist, a `className` or a `style` on a component doesn't compile. A part the system doesn't have is a `<NewPart>` (rule CMP-03). Templates are in `src/templates/` and exported from `src` too: `ListPage`, `DetailPage`, `FormPage`.
+
+## Before you open the pull request
+Run `npm run fix -- screens`, then the checks (`npm run typecheck:screens -- screens` and `node harness/score.mjs screens`). Fix every failure the harness names, and run the checks again until they pass. Label new parts (CMP-03); never hide one to pass.

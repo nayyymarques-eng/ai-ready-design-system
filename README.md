@@ -28,7 +28,7 @@ An AI tool starts at `AGENTS.md`, which says what to read, in order.
 Once: `npm install` and `npx playwright install chromium`.
 
 1. Point your AI coding tool at this folder and ask for a screen. It reads `AGENTS.md` first. A screen is one `.tsx` file in `screens/` that default-exports the screen and imports components from `../src`.
-2. Check it: `npm run preview -- screens/<name>.tsx` says whether it compiles and renders it to HTML. Then `npm run typecheck:screens -- screens` and `node harness/score.mjs screens`. Each failed check names the rule, what broke and where the rule lives:
+2. Fix what has one right answer: `npm run fix -- screens`. Then check it: `npm run preview -- screens/<name>.tsx` says whether it compiles and renders it to HTML. Then `npm run typecheck:screens -- screens` and `node harness/score.mjs screens`. Each failed check names the rule, what broke and where the rule lives:
 
    ```
    MENU-01 (3 cells with 3+ buttons)  ← contracts/menu-button.md
@@ -37,7 +37,7 @@ Once: `npm install` and `npx playwright install chromium`.
 3. When a token, a component or a contract changes, run `npm run system` (the system checks) and `python3 build-map.py` to rebuild the decision map.
 4. Triage: on every pull request, `.github/workflows/triage.yml` runs the harness and sends each new part the AI labelled to the triage list, here GitHub Issues with the label `triage`. Each part gets one issue: a picture, its job, why the AI made it, its code, every screen and pull request where it appears, who made it, and the decision for the design system owner to tick. A part that appears again updates its issue. Locally, `node harness/triage.mjs screens` lists the parts. `harness/triage-to-issues.mjs` is the sender; another tracker needs only another sender.
 
-A failed check is an error: a value that isn't a token, a restyled component, or a part built outside the system with no label. The harness doesn't change the screen; the builder fixes it in the same pull request and the harness runs again. The screen is production-ready only when every check passes, so errors never reach triage. Run on every change, the same checks are the regression safeguards: an error that was fixed can't come back unnoticed.
+A failed check is an error: a value that isn't a token, a restyled component, or a part built outside the system with no label. The harness names the rule and the file, the builder fixes it in the same pull request, and the harness runs again. `npm run fix -- screens` fixes, with no AI, only the errors that have one right answer: a literal colour that is exactly the value of one token becomes that token. Anything that needs a choice, such as a colour two tokens share, is left for the builder and listed. The screen is production-ready only when every check passes, so errors never reach triage. Run on every change, the same checks are the regression safeguards: an error that was fixed can't come back unnoticed.
 
 Only new parts reach triage. A new part is never blocked: the build labels it with `data-new`, `data-job` and `data-why`, and adds `data-base` when it refines an existing component. Once every check passes, the screen ships and the part goes to triage. Triage takes the first decision that fits:
 

@@ -10,7 +10,8 @@
     "score": "node harness/score.mjs test/components-only test/framework",
     "eval:setup": "node scripts/make-eval.mjs",
     "map": "python3 build-map.py",
-    "system": "node harness/system.mjs"
+    "system": "node harness/system.mjs",
+    "fix": "node harness/fix.mjs"
   },
   "dependencies": {
     "react": "19.3.0",
