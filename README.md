@@ -23,6 +23,17 @@ This is the kit behind the [Design system case](https://nayaramarques.com/design
 
 An AI tool starts at `AGENTS.md`, which says what to read, in order.
 
+## What you can change
+
+The names are each organisation's choice: "critical" or "error", one layer of tokens or several. The framework doesn't pick the names. It makes sure the AI uses the ones the system has. A team brings its own tokens, components, contracts and rules. What stays the same is how they work together.
+
+| Part | What a team sets | What stays the same |
+|---|---|---|
+| Tokens and variants | The names and the values | Every name a screen uses exists, with one word in code, contract and Figma |
+| Contracts and rules | What they say | Each one is written as a value, and the checks test it |
+| Checks | Which rules get a check first | A failed check names the rule, and is fixed in the same pull request |
+| Triage | The tracker and who decides | Only new parts reach triage, each with a label |
+
 ## Use it
 
 Once: `npm install` and `npx playwright install chromium`.
