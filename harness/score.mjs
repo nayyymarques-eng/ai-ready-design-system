@@ -111,46 +111,46 @@ function inPage([CATALOGUE, COMPONENTS, TOKENS]) {
   }
   set('COL-03', true, low.length === 0, [...new Set(low)].slice(0, 3).join(' | '));
 
-  // COL-02 status colour only through badge or banner (no coloured text)
+  // BADGE-01 status colour only through badge or banner (no coloured text)
   const tone = ['--positive', '--warning', '--critical', '--info'].map(t => getComputedStyle(document.documentElement).getPropertyValue(t).trim());
   const toRgb = h => { const n = parseInt(h.slice(1), 16); return `rgb(${n >> 16}, ${(n >> 8) & 255}, ${n & 255})`; };
   const tones = new Set(tone.map(toRgb));
   const tinted = all.filter(el => el.closest('body') && !el.closest('.badge, .banner, .field__error, .btn, svg, [data-new]') && [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && tones.has(getComputedStyle(el).color));
   set('BADGE-01', true, tinted.length === 0, tinted.slice(0, 3).map(el => `"${el.textContent.trim().slice(0, 24)}"`).join(' '));
 
-  // SRF-02 no card inside a card
+  // CARD-01 no card inside a card
   const nested = [...document.querySelectorAll('.card .card')];
   set('CARD-01', document.querySelector('.card') !== null, nested.length === 0, `${nested.length} nested cards`);
 
-  // TYP-02 amounts in tables are right-aligned (is-number)
+  // TABLE-01 amounts in tables are right-aligned (is-number)
   const money = [...document.querySelectorAll('td')].filter(td => /^[-−]?\s*[$€£R]\$?\s?[\d.,]+$/.test(td.textContent.trim()) && getComputedStyle(td).textAlign !== 'right');
   set('TABLE-01', document.querySelector('td') !== null, money.length === 0, `${money.length} amounts not right-aligned`);
 
-  // STA-02 every input has a label
+  // FIELD-01 every input has a label
   const inputs = [...document.querySelectorAll('input, select, textarea')].filter(i => !['hidden', 'submit', 'button'].includes(i.type));
   const noLabel = inputs.filter(i => !(i.closest('label') || (i.id && document.querySelector(`label[for="${CSS.escape(i.id)}"]`)) || i.getAttribute('aria-label') || i.getAttribute('aria-labelledby')));
   set('FIELD-01', inputs.length > 0, noLabel.length === 0, `${noLabel.length} of ${inputs.length} inputs`);
 
-  // STA-03 every button has a name
+  // BTN-02 every button has a name
   const buttons = [...document.querySelectorAll('button')];
   const noName = buttons.filter(b => !b.textContent.trim().replace(/[⋯…•·]/g, '') && !b.getAttribute('aria-label') && !b.getAttribute('aria-labelledby'));
   set('BTN-02', buttons.length > 0, noName.length === 0, `${noName.length} of ${buttons.length} buttons`);
 
-  // MAP-01 several row actions go in a menu button
+  // MENU-01 several row actions go in a menu button
   const cells = [...document.querySelectorAll('td')];
   const crowded = cells.filter(td => td.querySelectorAll('button, a.btn').length > 2 && !td.querySelector('.menu-button'));
   set('MENU-01', cells.length > 0, crowded.length === 0, `${crowded.length} cells with 3+ buttons`);
 
-  // MAP-02 one primary action per header, card or dialog
+  // BTN-01 one primary action per header, card or dialog
   const scopes = [...document.querySelectorAll('.page-header, .card, .dialog, .empty-state')];
   const twoPrimary = scopes.filter(s => [...s.querySelectorAll('.btn--primary')].filter(b => b.closest('.page-header, .card, .dialog, .empty-state') === s).length > 1);
   set('BTN-01', document.querySelector('.btn--primary') !== null, twoPrimary.length === 0, `${twoPrimary.length} containers with 2+ primary`);
 
-  // MAP-03 one tab row per screen
+  // TABS-01 one tab row per screen
   const tabs = document.querySelectorAll('.tabs, [role="tablist"]');
   set('TABS-01', tabs.length > 0, tabs.length <= 1, `${tabs.length} tab rows`);
 
-  // MAP-04 counts are numerals, not badges
+  // NUM-01 counts are numerals, not badges
   const countBadges = [...document.querySelectorAll('.badge')].filter(b => b.closest('.nav-rail, h1, h2, h3, .tabs__item, .section__title') && /^\s*\d+\s*$/.test(b.textContent));
   set('NUM-01', document.querySelector('.nav-rail, .badge') !== null, countBadges.length === 0, `${countBadges.length} count badges`);
 
