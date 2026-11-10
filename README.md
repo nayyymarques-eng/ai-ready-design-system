@@ -34,15 +34,15 @@ The names are each organisation's choice: "critical" or "error", one layer of to
 | Checks | Which rules get a check first | A failed check names the rule, and is fixed in the same pull request |
 | Triage | The tracker and who decides | Only new parts reach triage, each with a label |
 
-## From Figma to code
+## Figma, when a team uses it
 
-The system is in Figma and in code, with the same tokens and components and the same names in both. The AI reads a Figma frame through the Figma MCP server and builds it with those components. A part the frame needs and the system doesn't have is labelled as a new part and goes to triage, and so does a component a designer refined in Figma. The harness makes sure nothing else gets in. So when every step of the framework is done, the screen in code is the one designed in Figma: the same components, variants and tokens.
+The system is for AI tools to build in code. Figma is optional, depending on how a company works. When a designer wants to refine a screen or a component, they do it in Figma, with the same tokens, components and names, and the Figma MCP server brings the change back to the code. It reaches the code in a pull request like any other change, so the harness checks it the same way, and a refined component goes to triage.
 
 ## Use it
 
 Once: `npm install` and `npx playwright install chromium`.
 
-1. Point your AI coding tool at this folder and ask for a screen, or give it a Figma frame. It reads `AGENTS.md` first. A screen is one `.tsx` file in `screens/` that default-exports the screen and imports components from `../src`.
+1. Point your AI coding tool at this folder and ask for a screen. It reads `AGENTS.md` first. A screen is one `.tsx` file in `screens/` that default-exports the screen and imports components from `../src`.
 2. Fix what has one right answer: `npm run fix -- screens`. Then check it: `npm run preview -- screens/<name>.tsx` says whether it compiles and renders it to HTML. Then `npm run typecheck:screens -- screens` and `node harness/score.mjs screens`. Each failed check names the rule, what broke and where the rule lives:
 
    ```
