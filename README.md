@@ -19,7 +19,7 @@ This is the kit behind the [Design system case](https://nayaramarques.com/design
 | Rules | `rules.md` | How components sit together on a screen, which template to start from (TPL), and the one way in for a new part (CMP-03). |
 | Decision map | `decision-map.md` | The contracts' "use for" and "never" lines, sorted by job. `build-map.py` writes it from the contracts; nobody edits it by hand. |
 | Checks | `harness/score.mjs`, `harness/system.mjs` | The guardrails. `score.mjs` opens each screen in a headless browser at 1280px and 375px and runs 21 checks: 12 from the screen rules (one is TSC-01, the screen compiles) and 9 from contracts. `system.mjs` checks the system itself: every token it uses exists, every text colour is readable on its background, and every variant has one name. |
-| Triage | `test/triage-log.md` | Every new part the first run labelled: what reaches triage. |
+| Triage | [GitHub Issues, label `triage`](https://github.com/nayyymarques-eng/ai-ready-design-system/issues?q=label%3Atriage) | Every new part the AI labelled on a pull request, one issue each: what reaches triage. |
 
 An AI tool starts at `AGENTS.md`, which says what to read, in order.
 
@@ -92,7 +92,7 @@ Three conditions on the same tokens and React components, for a delivery operati
 - **Framework, before templates** (`eval/framework-v1/`): the same tokens and components, plus `AGENTS.md`, the rules, the decision map and the contracts.
 - **Framework** (`eval/framework/`): all of that, plus the three templates and the rules for them.
 
-Each condition built a new feature, proof of delivery, three times. The feature has three screens (`eval/briefs.md`) and needs parts the system doesn't have, such as a photo, a signature and a file upload. That is where a design system is tested: on the screens it covers, both conditions do well (see the first run below). One AI agent built each screen from a fresh start and never saw the harness, the other conditions or the other runs; `eval/prompt.md` has the prompt. The scores are the first build, before any fix. The eval screens are kept as they were built, so their buttons still use `ghost`, the old name of the `tertiary` variant.
+Each condition built a new feature, proof of delivery, three times. The feature has three screens (`eval/briefs.md`) and needs parts the system doesn't have, such as a photo, a signature and a file upload. That is where a design system is tested. One AI agent built each screen from a fresh start and never saw the harness, the other conditions or the other runs; `eval/prompt.md` has the prompt. The scores are the first build, before any fix. The eval screens are kept as they were built, so their buttons still use `ghost`, the old name of the `tertiary` variant.
 
 | Condition | Checks passed | Per run | Production-ready screens | Unlabelled parts outside the system | Labelled new parts |
 |---|---|---|---|---|---|
@@ -117,13 +117,10 @@ node harness/score.mjs eval/*/run-* --json eval/results.json
 node eval/summary.mjs
 ```
 
-## The first run
-
-Before the kit moved to React, the same comparison ran once, in HTML, on nine screens: six the system covers and the same new feature. On the six covered screens the two conditions were close (99% and 100%). On the new feature, components only passed 84% and the framework 100%. The screens, the briefs and the results are in `test/`; `npm run score` scores them again.
-
 ## Files
 
 ```
+LICENSE              MIT
 AGENTS.md            the agent workflow: what to read, in order
 tokens.css           tokens
 components.css       component styles
@@ -145,7 +142,6 @@ eval/
   framework/         the framework with templates, and run-1 to run-3
   results.json       every check on every screen
   summary.mjs        sums the results by condition
-test/                the first run, in HTML
 ```
 
 ## What it doesn't cover
@@ -155,4 +151,4 @@ test/                the first run, in HTML
 - A large team. The builds were AI tools working alone, and I did the triage.
 - Many people using the same design system. How triage works when many people add new parts at the same time is untested.
 
-By [Nayara Marques](https://nayaramarques.com).
+By [Nayara Marques](https://nayaramarques.com). MIT License.
