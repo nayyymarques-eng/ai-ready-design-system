@@ -13,7 +13,7 @@ const css = fs.readFileSync(path.join(here, '../components.css'), 'utf8');
 const CATALOGUE = [...new Set([...css.matchAll(/\.([a-z][a-z0-9_-]*)/g)].map(m => m[1]))]
   .filter(c => !/^(\d|is$)/.test(c));
 // Every custom property tokens.css defines, plus --value (the one a screen may set, on progress and bar chart).
-const TOKENS = [...new Set([...fs.readFileSync(path.join(here, '../tokens.css'), 'utf8').matchAll(/(--[a-z0-9-]+)\s*:/g)].map(m => m[1]))].concat('--value');
+const TOKENS = [...new Set([...fs.readFileSync(path.join(here, '../tokens.css'), 'utf8').matchAll(/(--[a-z0-9-]+):/g)].map(m => m[1]))].concat('--value');
 
 const args = process.argv.slice(2);
 const jsonAt = args.indexOf('--json');
@@ -45,7 +45,7 @@ function inPage([CATALOGUE, COMPONENTS, TOKENS]) {
 
   // CMP-04 no restyling of catalogue components
   const styles = [...document.querySelectorAll('style')].map(s => s.textContent).join('\n');
-  const onlyValue = el => /^\s*(--value\s*:\s*[\d.]+\s*;?\s*)$/.test(el.getAttribute('style') || '');
+  const onlyValue = el => /^--value: *[\d.]+;?$/.test((el.getAttribute('style') || '').trim());
   const restyled = all.filter(el => el.hasAttribute('style') && !inNew(el) && !onlyValue(el)).map(el => el.tagName.toLowerCase() + '.' + [...el.classList].join('.'));
   const selectors = styles.replace(/\{[^}]*\}/g, '\n').split(/[\n,]/).map(s => s.trim()).filter(Boolean);
   for (const s of selectors.filter(s => !/\.x-/.test(s))) for (const m of s.matchAll(/\.([a-z][a-z0-9_-]*)/g)) if (cat.has(m[1])) restyled.push('<style> ' + s);
@@ -105,7 +105,7 @@ function inPage([CATALOGUE, COMPONENTS, TOKENS]) {
     const st = getComputedStyle(el);
     if (st.visibility === 'hidden' || st.display === 'none' || !el.getClientRects().length) continue;
     const bg = ground(el), fg = over(rgba(st.color), bg);
-    const size = parseFloat(st.fontSize), large = size >= 24 || (size >= 18.66 && +st.fontWeight >= 700);
+    const size = Number.parseFloat(st.fontSize), large = size >= 24 || (size >= 18.66 && +st.fontWeight >= 700);
     const r = ratio(fg, bg);
     if (r < (large ? 3 : 4.5)) low.push(`"${el.textContent.trim().slice(0, 20)}" ${r.toFixed(2)}:1`);
   }
@@ -113,7 +113,7 @@ function inPage([CATALOGUE, COMPONENTS, TOKENS]) {
 
   // BADGE-01 status colour only through badge or banner (no coloured text)
   const tone = ['--positive', '--warning', '--critical', '--info'].map(t => getComputedStyle(document.documentElement).getPropertyValue(t).trim());
-  const toRgb = h => { const n = parseInt(h.slice(1), 16); return `rgb(${n >> 16}, ${(n >> 8) & 255}, ${n & 255})`; };
+  const toRgb = h => { const n = Number.parseInt(h.slice(1), 16); return `rgb(${n >> 16}, ${(n >> 8) & 255}, ${n & 255})`; };
   const tones = new Set(tone.map(toRgb));
   const tinted = all.filter(el => el.closest('body') && !el.closest('.badge, .banner, .field__error, .btn, svg, [data-new]') && [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && tones.has(getComputedStyle(el).color));
   set('BADGE-01', true, tinted.length === 0, tinted.slice(0, 3).map(el => `"${el.textContent.trim().slice(0, 24)}"`).join(' '));
@@ -151,7 +151,7 @@ function inPage([CATALOGUE, COMPONENTS, TOKENS]) {
   set('TABS-01', tabs.length > 0, tabs.length <= 1, `${tabs.length} tab rows`);
 
   // NUM-01 counts are numerals, not badges
-  const countBadges = [...document.querySelectorAll('.badge')].filter(b => b.closest('.nav-rail, h1, h2, h3, .tabs__item, .section__title') && /^\s*\d+\s*$/.test(b.textContent));
+  const countBadges = [...document.querySelectorAll('.badge')].filter(b => b.closest('.nav-rail, h1, h2, h3, .tabs__item, .section__title') && /^\d+$/.test(b.textContent.trim()));
   set('NUM-01', document.querySelector('.nav-rail, .badge') !== null, countBadges.length === 0, `${countBadges.length} count badges`);
 
   // Inventory
