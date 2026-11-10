@@ -1,13 +1,14 @@
 {
   "name": "ai-ready-design-system",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "typecheck:screens": "node scripts/typecheck.mjs",
     "render": "node scripts/render.mjs",
     "preview": "node scripts/preview.mjs",
-    "score": "node harness/score.mjs test/components-only test/framework",
+    "score": "node harness/score.mjs screens",
     "eval:setup": "node scripts/make-eval.mjs",
     "map": "python3 build-map.py",
     "system": "node harness/system.mjs",

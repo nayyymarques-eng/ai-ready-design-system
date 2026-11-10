@@ -1,6 +1,6 @@
 # Briefs: the new feature
 
-The eval builds only the feature the system doesn't cover, because that is where the two conditions differ (see `test/` for the first run, which also built six screens the system covers).
+The eval builds only the feature the system doesn't cover, because that is where the two conditions differ.
 
 Tolvane adds proof of delivery: when drivers hand over a parcel, they take a photo and collect a signature, and the operations team reviews the proof when a customer disputes a delivery. Three screens.
 
