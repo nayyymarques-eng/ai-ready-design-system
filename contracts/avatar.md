@@ -29,4 +29,4 @@ Table cells, list items.
 --radius-pill, --surface-sunken
 
 ## Checked by
-Review only.
+No check yet.

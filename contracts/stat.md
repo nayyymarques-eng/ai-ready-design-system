@@ -32,4 +32,4 @@ Cards, grids.
 --type-numeral, --type-small
 
 ## Checked by
-Review only.
+No check yet.

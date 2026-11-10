@@ -34,4 +34,4 @@ The page, sections, cards.
 --surface, --border, --s3, --s4
 
 ## Checked by
-Review only.
+No check yet.

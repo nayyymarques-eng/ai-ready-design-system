@@ -37,4 +37,4 @@ Cards.
 --line, --accent, --type-small
 
 ## Checked by
-Review only.
+No check yet.
