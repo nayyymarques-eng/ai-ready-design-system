@@ -24,8 +24,8 @@ None. States: is-current on one item.
 - Moving between the main places of the product
 
 ## Never
-- A logo image or a custom brand block
-- A badge for a count (use a numeral)
+- A logo image or a custom brand block (no check yet)
+- A badge for a count (use a numeral; checked by NUM-01)
 
 ## Lives in
 The app shell only.

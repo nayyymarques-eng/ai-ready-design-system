@@ -23,8 +23,8 @@ None. --value is 0 to 100, set with style="--value:60" (the only allowed style a
 - How far a task or setup is towards done
 
 ## Never
-- A hand-built bar
-- A percentage in a badge
+- A hand-built bar (no check yet)
+- A percentage in a badge (no check yet)
 
 ## Lives in
 Cards, onboarding.

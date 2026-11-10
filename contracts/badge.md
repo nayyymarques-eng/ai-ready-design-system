@@ -22,8 +22,8 @@ One word per tone, everywhere: `tone="positive"` in React, `badge--positive` in 
 - A status
 
 ## Never
-- Coloured text to show a status
-- A count (use a numeral)
+- Coloured text to show a status (checked by BADGE-01)
+- A count (use a numeral; checked by NUM-01)
 
 ## Lives in
 Table cells, list items, next to a title.

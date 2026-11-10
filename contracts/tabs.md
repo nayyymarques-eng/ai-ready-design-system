@@ -23,8 +23,8 @@ None. States: is-current on one tab.
 - Switch between views of one object
 
 ## Never
-- A second tab row on the same screen
-- Tabs to filter a list (use a toggle group)
+- A second tab row on the same screen (checked by TABS-01)
+- Tabs to filter a list (use a toggle group; no check yet)
 
 ## Lives in
 Under the page header, once per screen.

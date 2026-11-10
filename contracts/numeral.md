@@ -20,7 +20,7 @@ None.
 - A count in the nav or next to a title
 
 ## Never
-- A badge for a count
+- A badge for a count (checked by NUM-01)
 
 ## Lives in
 Nav items, section titles, tabs, toggle items.

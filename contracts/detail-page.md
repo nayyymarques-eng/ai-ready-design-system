@@ -31,9 +31,9 @@ None. Below 960px wide the side column moves under the main one.
 - A screen about one item: what it is, its facts, its history and what to do with it
 
 ## Never
-- The item's main actions anywhere but the page header
-- A third column
-- History or facts in the main column when the side column is free
+- The item's main actions anywhere but the page header (no check yet)
+- A third column (no check yet)
+- History or facts in the main column when the side column is free (no check yet)
 
 ## Lives in
 The whole page, inside the app shell.

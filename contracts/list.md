@@ -25,7 +25,7 @@ None.
 - Read-only details (label left, value right)
 
 ## Never
-- A list of items compared on many attributes (use a table)
+- A list of items compared on many attributes (use a table; no check yet)
 
 ## Lives in
 The page, sections, cards.

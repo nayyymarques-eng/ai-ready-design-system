@@ -29,8 +29,8 @@ None.
 - A short decision that blocks the page
 
 ## Never
-- A browser confirm()
-- A long form
+- A browser confirm() (no check yet)
+- A long form (no check yet)
 
 ## Lives in
 Over the page, one at a time.

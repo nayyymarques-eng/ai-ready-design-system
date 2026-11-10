@@ -20,7 +20,7 @@ None.
 - A setting that applies at once
 
 ## Never
-- A choice that waits for a Save button (use a checkbox)
+- A choice that waits for a Save button (use a checkbox; no check yet)
 
 ## Lives in
 Settings lists and cards.

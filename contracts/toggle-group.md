@@ -23,7 +23,7 @@ None. States: is-selected on one item.
 - Filter one list
 
 ## Never
-- Tabs to filter a list
+- Tabs to filter a list (no check yet)
 
 ## Lives in
 Above the list or table it filters.

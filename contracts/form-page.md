@@ -27,9 +27,9 @@ None.
 - A screen where people change settings or fill in details, saved together
 
 ## Never
-- A Save button inside each card
-- Fields directly on the page, outside a card
-- The danger zone anywhere but last
+- A Save button inside each card (no check yet)
+- Fields directly on the page, outside a card (no check yet)
+- The danger zone anywhere but last (no check yet)
 
 ## Lives in
 The whole page, inside the app shell.

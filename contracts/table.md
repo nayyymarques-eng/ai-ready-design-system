@@ -25,9 +25,9 @@ is-number on a th or td right-aligns amounts and counts.
 - Many items compared on the same attributes
 
 ## Never
-- Amounts that are not right-aligned
-- A table with no rows (use an empty state)
-- A table outside table-scroll
+- Amounts that are not right-aligned (checked by TABLE-01)
+- A table with no rows (use an empty state; no check yet)
+- A table outside table-scroll (checked by LAY-01)
 
 ## Lives in
 The page or a section, never inside a card.

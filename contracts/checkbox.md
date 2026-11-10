@@ -20,7 +20,7 @@ None.
 - A yes or no choice saved with a form
 
 ## Never
-- A setting that applies at once (use a switch)
+- A setting that applies at once (use a switch; no check yet)
 
 ## Lives in
 Forms.
