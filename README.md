@@ -92,7 +92,7 @@ Three conditions on the same tokens and React components, for a delivery operati
 - **Framework, before templates** (`eval/framework-v1/`): the same tokens and components, plus `AGENTS.md`, the rules, the decision map and the contracts.
 - **Framework** (`eval/framework/`): all of that, plus the three templates and the rules for them.
 
-Each condition built a new feature, proof of delivery, three times. The feature has three screens (`eval/briefs.md`) and needs parts the system doesn't have, such as a photo, a signature and a file upload. That is where a design system is tested: on the screens it covers, both conditions do well (see the first run below). One AI agent built each screen from a fresh start and never saw the harness, the other conditions or the other runs; `eval/prompt.md` has the prompt. The scores are the first build, before any fix.
+Each condition built a new feature, proof of delivery, three times. The feature has three screens (`eval/briefs.md`) and needs parts the system doesn't have, such as a photo, a signature and a file upload. That is where a design system is tested: on the screens it covers, both conditions do well (see the first run below). One AI agent built each screen from a fresh start and never saw the harness, the other conditions or the other runs; `eval/prompt.md` has the prompt. The scores are the first build, before any fix. The eval screens are kept as they were built, so their buttons still use `ghost`, the old name of the `tertiary` variant.
 
 | Condition | Checks passed | Per run | Production-ready screens | Unlabelled parts outside the system | Labelled new parts |
 |---|---|---|---|---|---|
