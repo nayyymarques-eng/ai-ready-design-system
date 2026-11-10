@@ -1,6 +1,6 @@
 # AI-ready design system
 
-A design system that AI coding tools can read, follow and be checked against, in React and TypeScript. It has seven parts: tokens, components, templates, contracts, rules, checks and triage.
+A framework that makes any design system readable by AI coding tools, and checks every screen against it, in React and TypeScript. The framework is the structure: contracts, rules, a decision map, the harness and triage. The tokens, components and rules in this repo are an example system, the one used in the eval. A team brings its own.
 
 Anyone who ships a screen goes through it: a PM building straight in code, a designer shipping a change, a developer. The design system gives an AI tool one agent workflow to follow, and the harness is the guardrail that decides when a screen is production-ready.
 
