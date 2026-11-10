@@ -3,7 +3,6 @@
 //   eval/framework/        tokens, components, AGENTS.md, rules, decision map and contracts.
 // Both hold the same React components in src/. Builders write to <folder>/run-<n>/.
 // Usage: node scripts/make-eval.mjs [components-only|framework]
-// eval/framework-v1/ keeps the framework as it was before templates, with its three runs.
 import { cpSync, mkdirSync, readFileSync, writeFileSync, rmSync, readdirSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -6,7 +6,7 @@ Anyone who ships a screen goes through it: a PM building straight in code, a des
 
 This is the kit behind the [Design system case](https://nayaramarques.com/design-system) on my portfolio: the system, the harness that runs the checks, and an eval that compares building with components only against building with the framework.
 
-**Results in short** (the new feature, three runs per condition, first build): components only passed 85% of the checks, with 0 of 9 screens production-ready and 176 class names outside the system, none labelled. The framework passed 99%, with 8 of 9 screens production-ready, 1 class name outside the system and 16 new parts labelled for triage. Before it had templates, the framework passed 98%, with 6 of 9 production-ready, 8 unlabelled class names and 28 labelled parts. [The eval](#the-eval) has the details.
+**Results in short** (the new feature, three runs per condition, first build): components only passed 85% of the checks, with 0 of 9 screens production-ready and 176 class names outside the system, none labelled. The framework passed 99%, with 8 of 9 screens production-ready, 1 class name outside the system and 16 new parts labelled for triage. [The eval](#the-eval) has the details.
 
 ## The parts
 
@@ -90,30 +90,28 @@ They were added after the eval. Run on the eval's 27 screens with the tokens as 
 
 ## The eval
 
-Three conditions on the same tokens and React components, for a delivery operations product called Tolvane:
+Two conditions on the same tokens and React components, for a delivery operations product called Tolvane:
 
 - **Components only**: `tokens.css`, `components.css`, the components in `src/` and a catalogue of them (`eval/catalogue.md`). No rules, no contracts, no templates, no `NewPart`.
-- **Framework, before templates** (`eval/framework-v1/`): the same tokens and components, plus `AGENTS.md`, the rules, the decision map and the contracts.
-- **Framework** (`eval/framework/`): all of that, plus the three templates and the rules for them.
+- **Framework** (`eval/framework/`): the same tokens and components, plus the templates, `AGENTS.md`, the rules, the decision map and the contracts.
 
 Each condition built a new feature, proof of delivery, three times. The feature has three screens (`eval/briefs.md`) and needs parts the system doesn't have, such as a photo, a signature and a file upload. That is where a design system is tested. One AI agent built each screen from a fresh start and never saw the harness, the other conditions or the other runs; `eval/prompt.md` has the prompt. The scores are the first build, before any fix. The eval screens are kept as they were built, so their buttons still use `ghost`, the old name of the `tertiary` variant.
 
 | Condition | Checks passed | Per run | Production-ready screens | Unlabelled parts outside the system | Labelled new parts |
 |---|---|---|---|---|---|
 | Components only | 123 of 144 (85%) | 83%, 90%, 83% | 0 of 9 | 176 | 0 |
-| Framework, before templates | 144 of 147 (98%) | 98%, 100%, 96% | 6 of 9 | 8 | 28 |
 | Framework | 146 of 147 (99%) | 100%, 100%, 98% | 8 of 9 | 1 | 16 |
 
-Every screen in all conditions compiled. The types stop a restyle through props, but not a `<style>` block aimed at a component's class: components only did that on 8 of 9 screens (CMP-04), and the harness caught each one. Before templates, the framework's three errors were two parts built outside `NewPart` (CMP-01) and one `data-base` that named a layout class instead of a component (CMP-03). With templates, one class name was left outside `NewPart` (CMP-01). The harness names the rule and the file for each, so the builder fixes them in the same pull request; nothing unlabelled ships.
+Every screen in both conditions compiled. The types stop a restyle through props, but not a `<style>` block aimed at a component's class: components only did that on 8 of 9 screens (CMP-04), and the harness caught each one. In the framework, one class name was left outside `NewPart` (CMP-01). The harness names the rule and the file for each, so the builder fixes them in the same pull request; nothing unlabelled ships.
 
-With templates, the builders started 8 of 9 screens from one: every queue from the list page, every proof from the detail page, and two of three rules screens from the form page. The labelled new parts fell from 28 to 16, mostly because layout workarounds went away: the scrolling filter row, person cells, badge groups, checkbox groups and most two-line table cells. What was left is mostly what the system really lacks: the photo, the signature, a thumbnail, a file upload and a multi-line message. The third rules screen used no template and said why at the top, as TPL-02 asks: it lists senders and edits one sender's rules on the same screen, which no template does. That screen goes to triage as a candidate template.
+The builders started 8 of 9 screens from a template: every queue from the list page, every proof from the detail page, and two of three rules screens from the form page. The 16 labelled new parts are mostly what the system really lacks: the photo, the signature, a thumbnail, a file upload and a multi-line message. The third rules screen used no template and said why at the top, as TPL-02 asks: it lists senders and edits one sender's rules on the same screen, which no template does. That screen goes to triage as a candidate template.
 
 Unlabelled parts are class names outside the system that no labelled part holds, counted per screen. Labelled new parts are the distinct `data-new` names, counted per screen.
 
 Run it again:
 
 ```
-npm run eval:setup                      # writes eval/components-only/ and eval/framework/ from the system (eval/framework-v1/ stays as it was)
+npm run eval:setup                      # writes eval/components-only/ and eval/framework/ from the system
 # build eval/<condition>/run-<n>/<screen>.tsx with the prompt in eval/prompt.md
 npm run typecheck:screens -- eval/*/run-*
 npm run render -- eval/*/run-*
@@ -142,8 +140,7 @@ eval/
   prompt.md          the prompt each builder got
   catalogue.md       what components only got besides the components
   components-only/   the system that condition got, and run-1 to run-3
-  framework-v1/      the framework before templates, and its run-1 to run-3
-  framework/         the framework with templates, and run-1 to run-3
+  framework/         the framework, and run-1 to run-3
   results.json       every check on every screen
   summary.mjs        sums the results by condition
 ```
