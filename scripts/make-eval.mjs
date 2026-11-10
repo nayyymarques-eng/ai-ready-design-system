@@ -14,7 +14,7 @@ function system(name, files, { stripContracts }) {
   const dir = at('eval', name);
   for (const f of ['src', ...files]) rmSync(join(dir, f), { recursive: true, force: true });
   mkdirSync(dir, { recursive: true });
-  for (const f of files) cpSync(f.startsWith('eval/') ? at(f) : at(f), join(dir, f.replace(/^eval\//, '')), { recursive: true });
+  for (const f of files) cpSync(at(f), join(dir, f.replace(/^eval\//, '')), { recursive: true });
   cpSync(at('src'), join(dir, 'src'), { recursive: true });
   if (stripContracts) {
     rmSync(join(dir, 'src/components/NewPart.tsx'));

@@ -15,8 +15,8 @@ const fails = [];
 const fail = (id, detail, where) => fails.push(`${id} ${detail}  ← ${where}`);
 
 // Tokens: name → value, with var() references resolved.
-const TOKENS = Object.fromEntries([...tokensCss.matchAll(/(--[a-z0-9-]+)\s*:\s*([^;]+);/g)].map(m => [m[1], m[2].trim()]));
-const resolve = v => { for (let i = 0; i < 9 && /var\(/.test(v); i++) v = v.replace(/var\((--[a-z0-9-]+)[^)]*\)/g, (_, n) => TOKENS[n] ?? 'missing'); return v; };
+const TOKENS = Object.fromEntries([...tokensCss.matchAll(/(--[a-z0-9-]+):([^;]+);/g)].map(m => [m[1], m[2].trim()]));
+const resolve = v => { for (let i = 0; i < 9 && /var\(/.test(v); i++) v = v.replace(/var\((--[a-z0-9-]+)(?:,[^)]*)?\)/g, (_, n) => TOKENS[n] ?? 'missing'); return v; };
 
 // TOK-01
 const allowed = new Set([...Object.keys(TOKENS), '--value']);
@@ -25,15 +25,16 @@ if (missing.length) fail('TOK-01', `components.css uses tokens that don't exist:
 
 // COL-03: the text colour of each rule on its background. A rule without one takes it from its base class
 // (.btn--primary from .btn); a rule with neither sits on the page grounds: --surface and --surface-sunken.
-const rules = [...css.matchAll(/([^{}]+)\{([^}]*)\}/g)].flatMap(m => m[1].split(',').map(sel => {
-  const decl = m[2];
+// Each rule: the text before its { and the declarations up to }. Inside @media, the selector is the part after the media's {.
+const rules = css.split('}').map(c => c.split('{')).filter(p => p.length >= 2).flatMap(p => p.at(-2).split(',').map(sel => {
+  const decl = p.at(-1);
   const get = p => (decl.match(new RegExp(`(?:^|;)\\s*${p}\\s*:\\s*([^;]+)`)) || [])[1]?.trim();
   return { sel: sel.trim(), color: get('color'), bg: get('background-color') || get('background'), font: get('font') };
 }));
 const bySel = Object.fromEntries(rules.map(r => [r.sel, r]));
 const baseOf = sel => sel.replace(/--[a-z0-9-]+/, '').replace(/\.is-[a-z-]+/, '');
 const hex = v => { const m = resolve(v || '').match(/#([0-9a-f]{6})\b/i); return m ? '#' + m[1].toLowerCase() : null; };
-const lum = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(v => v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
+const lum = h => [1, 3, 5].map(i => Number.parseInt(h.slice(i, i + 2), 16) / 255).map(v => v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
 const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
 const grounds = [hex('var(--surface)'), hex('var(--surface-sunken)')];
 for (const r of rules) {
@@ -53,9 +54,17 @@ for (const r of rules) {
 // has its CSS class, and the contract names the same values.
 for (const f of fs.readdirSync(path.join(root, 'src/components')).filter(f => f.endsWith('.tsx'))) {
   const src = read('src/components/' + f);
-  for (const m of src.matchAll(/([a-z-]+)--\$\{(\w+)\}/g)) {
-    const [, cls, prop] = m;
-    const union = src.match(new RegExp(`\\b${prop}\\??\\s*:\\s*((?:\\s*\\|?\\s*'[a-z-]+')+)`));
+  // Each `block--${prop}` in a className: the class before "--${" and the prop inside the braces.
+  const pairs = [];
+  for (let at = src.indexOf('--${'); at !== -1; at = src.indexOf('--${', at + 3)) {
+    let start = at;
+    while (start > 0 && /[a-z-]/.test(src[start - 1])) start--;
+    const end = src.indexOf('}', at);
+    pairs.push([src.slice(start, at), src.slice(at + 4, end)]);
+  }
+  for (const [cls, prop] of pairs) {
+    if (!/^[a-z]+(-[a-z]+)*$/.test(cls) || !/^\w+$/.test(prop)) continue;
+    const union = src.match(new RegExp(`\\b${prop}\\??: *('[a-z-]+'(?: *\\| *'[a-z-]+')*)`));
     if (!union) continue;
     const values = [...union[1].matchAll(/'([a-z-]+)'/g)].map(v => v[1]);
     const contractFile = (src.match(/contracts\/([a-z-]+\.md)/) || [])[1];

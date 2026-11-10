@@ -19,7 +19,7 @@ const norm = hex => {
 
 // Colour value → the tokens that hold it.
 const byValue = {};
-for (const m of tokensCss.matchAll(/(--[a-z0-9-]+)\s*:\s*(#[0-9a-fA-F]{3}|#[0-9a-fA-F]{6})\s*;/g)) (byValue[norm(m[2])] ||= []).push(m[1]);
+for (const m of tokensCss.matchAll(/(--[a-z0-9-]+): *(#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?);/g)) (byValue[norm(m[2])] ||= []).push(m[1]);
 
 const files = process.argv.slice(2).flatMap(p => fs.statSync(p).isDirectory()
   ? fs.readdirSync(p).map(f => path.join(p, f))
