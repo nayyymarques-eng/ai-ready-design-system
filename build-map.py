@@ -10,10 +10,13 @@ for p in sorted((root / 'contracts').glob('*.md')):
     # Each "never" line ends with "(checked by ID)" or "(no check yet)": the map shows the check for each line
     nevers, checks = [], []
     for line in sec('Never'):
-        m = re.match(r'(.+?)\s*\((?:(.+); )?(checked by ([A-Z0-9-]+)|no check yet)\)$', line)
-        assert m, f'{p.name}: "{line}" must end with (checked by ID) or (no check yet)'
-        nevers.append(f'{m[1]} ({m[2]})' if m[2] else m[1])
-        checks.append(m[4] or 'No check yet')
+        text, _, note = line.rpartition('(')
+        note = note.rstrip(')')
+        hint, _, tag = note.rpartition('; ')
+        if tag != 'no check yet' and not tag.startswith('checked by '):
+            raise SystemExit(f'{p.name}: "{line}" must end with (checked by ID) or (no check yet)')
+        nevers.append(f'{text.strip()} ({hint})' if hint else text.strip())
+        checks.append(tag.removeprefix('checked by ') if tag != 'no check yet' else 'No check yet')
     for job in sec('Use for'):
         rows.append((job, f'[{name}](contracts/{p.name})', '; '.join(nevers), '; '.join(checks)))
 rows.sort(key=lambda r: r[0].lower())
