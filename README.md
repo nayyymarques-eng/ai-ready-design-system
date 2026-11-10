@@ -23,6 +23,21 @@ This is the kit behind the [Design system case](https://nayaramarques.com/design
 
 An AI tool starts at `AGENTS.md`, which says what to read, in order.
 
+## What the AI reads
+
+The AI reads only what the screen needs: `AGENTS.md`, the rules, the decision map and the contract of each component the screen uses. The files are small, so a screen costs few tokens.
+
+| File | Size | Tokens, about |
+|---|---|---|
+| `AGENTS.md` | 1.4 KB | 350 |
+| `rules.md` | 5.0 KB | 1,250 |
+| `decision-map.md` | 5.4 KB | 1,350 |
+| `contracts/`, 26 files | 21.8 KB, 0.45 to 1.6 KB each | 5,450 |
+| All of it | 33.6 KB | 8,400 |
+| One screen of the eval's new feature, with 6 to 13 contracts | 18 to 22 KB | 4,400 to 5,500 |
+
+Tokens are counted as one for every four characters, so they are close, not exact. The page loads `tokens.css` and `components.css` itself, and this README is not on the AI's path. The decision map is the one file that grows with the system, by about 200 bytes per component.
+
 ## What you can change
 
 The names are each organisation's choice: "critical" or "error", one layer of tokens or several. The framework doesn't pick the names. It makes sure the AI uses the ones the system has. A team brings its own tokens, components, contracts and rules. What stays the same is how they work together.
