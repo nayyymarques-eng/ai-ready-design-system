@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { writeFileSync, rmSync, existsSync } from 'node:fs';
 import { join, resolve, dirname, relative, basename, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { render } from './render.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // Only a .tsx file inside this repository: the path goes to tsc and render.mjs.
@@ -20,4 +21,4 @@ try { execFileSync(join(root, 'node_modules/.bin/tsc'), ['-p', cfg], { cwd: dir,
 catch (e) { out = `${e.stdout || ''}${e.stderr || ''}`; }
 rmSync(cfg, { force: true });
 console.log(out.trim() ? `TypeScript errors:\n${out.trim()}` : 'Compiles.');
-try { execFileSync(process.execPath, [join(root, 'scripts/render.mjs'), file], { stdio: 'inherit' }); } catch { process.exitCode = 1; }
+if (await render([file])) process.exitCode = 1;

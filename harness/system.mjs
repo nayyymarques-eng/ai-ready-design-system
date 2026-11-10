@@ -56,7 +56,7 @@ for (const f of fs.readdirSync(path.join(root, 'src/components')).filter(f => f.
   const src = read('src/components/' + f);
   for (const m of src.matchAll(/([a-z]+(?:-[a-z]+)*)--\$\{(\w+)\}/g)) {
     const [, cls, prop] = m;
-    const union = src.match(new RegExp(`\\b${prop}\\??\\s*:\\s*((?:\\s*\\|?\\s*'[a-z-]+')+)`));
+    const union = src.match(new RegExp(`\\b${prop}\\??: *('[a-z-]+'(?: *\\| *'[a-z-]+')*)`));
     if (!union) continue;
     const values = [...union[1].matchAll(/'([a-z-]+)'/g)].map(v => v[1]);
     const contractFile = (src.match(/contracts\/([a-z-]+\.md)/) || [])[1];

@@ -10,9 +10,9 @@ import { tmpdir } from 'node:os';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const folders = process.argv.slice(2);
-if (!folders.length) { console.error('Usage: node scripts/render.mjs <folder> [...]'); process.exit(1); }
 
+// Renders every target (a folder or a .tsx file) and returns how many screens failed.
+export async function render(folders) {
 const out = mkdtempSync(join(tmpdir(), 'render-'));
 let failed = 0;
 for (const target of folders) {
@@ -39,4 +39,11 @@ for (const target of folders) {
   }
 }
 rmSync(out, { recursive: true, force: true });
-process.exit(failed ? 1 : 0);
+return failed;
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const folders = process.argv.slice(2);
+  if (!folders.length) { console.error('Usage: node scripts/render.mjs <folder> [...]'); process.exit(1); }
+  process.exit((await render(folders)) ? 1 : 0);
+}
