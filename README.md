@@ -1,8 +1,8 @@
 # AI-ready design system
 
-A design system that AI coding tools can read, follow and be checked against, in React and TypeScript. It has seven parts: tokens, components, templates, contracts, rules, checks and triage.
+A framework that makes any design system readable by AI coding tools, and checks every screen against it, in React and TypeScript. The framework is the structure: contracts, rules, a decision map, the harness and triage. The tokens, components and rules in this repo are an example system, the one used in the eval. A team brings its own.
 
-Anyone who ships a screen goes through it: a PM building straight in code, a designer shipping a change, a developer. The design system gives an AI tool one agent workflow to follow, and the harness is the guardrail that decides when a screen is production-ready.
+Anyone who ships a screen goes through it: a PM building straight in code, a designer shipping a change, a developer. The framework gives an AI tool one agent workflow to follow, and the harness is the guardrail that decides when a screen is production-ready.
 
 This is the kit behind the [Design system case](https://nayaramarques.com/design-system) on my portfolio: the system, the harness that runs the checks, and an eval that compares building with components only against building with the framework.
 
@@ -29,12 +29,12 @@ The AI reads only what the screen needs: `AGENTS.md`, the rules, the decision ma
 
 | File | Size | Tokens, about |
 |---|---|---|
-| `AGENTS.md` | 1.4 KB | 350 |
+| `AGENTS.md` | 1.5 KB | 370 |
 | `rules.md` | 5.0 KB | 1,250 |
-| `decision-map.md` | 5.4 KB | 1,350 |
-| `contracts/`, 26 files | 21.8 KB, 0.45 to 1.6 KB each | 5,450 |
-| All of it | 33.6 KB | 8,400 |
-| One screen of the eval's new feature, with 6 to 13 contracts | 18 to 22 KB | 4,400 to 5,500 |
+| `decision-map.md` | 5.7 KB | 1,420 |
+| `contracts/`, 26 files | 22.8 KB, 0.47 to 1.6 KB each | 5,710 |
+| All of it | 35.0 KB | 8,760 |
+| One screen of the eval's new feature, with 6 to 13 contracts | 18 to 23 KB | 4,600 to 5,800 |
 
 Tokens are counted as one for every four characters, so they are close, not exact. The page loads `tokens.css` and `components.css` itself, and this README is not on the AI's path. The decision map is the one file that grows with the system, by about 200 bytes per component.
 
@@ -58,7 +58,7 @@ The system is for AI tools to build in code. A designer can also refine a screen
 Once: `npm install` and `npx playwright install chromium`.
 
 1. Point your AI coding tool at this folder and ask for a screen. It reads `AGENTS.md` first. A screen is one `.tsx` file in `screens/` that default-exports the screen and imports components from `../src`.
-2. Fix what has one right answer: `npm run fix -- screens`. Then check it: `npm run preview -- screens/<name>.tsx` says whether it compiles and renders it to HTML. Then `npm run typecheck:screens -- screens` and `node harness/score.mjs screens`. Each failed check names the rule, what broke and where the rule lives:
+2. Fix what has one right answer: `npm run fix -- screens`. Then check it: `npm run preview -- screens/<name>.tsx` says whether it compiles and renders it to HTML. Then `npm run typecheck:screens -- screens` and `npm run score`. Each failed check names the rule, what broke and where the rule lives:
 
    ```
    MENU-01 (3 cells with 3+ buttons)  ← contracts/menu-button.md
@@ -153,5 +153,6 @@ eval/
 - Depth. The eval is small: it shows how the framework works.
 - A large team. The builds were AI tools working alone, and I did the triage.
 - Many people using the same design system. How triage works when many people add new parts at the same time is untested.
+- Keyboard behaviour inside composite components. The components give the markup, the ARIA roles and the events (`onSelect`, `onToggle`), and the screen keeps the state. Arrow keys between tabs or menu items, and keeping focus inside an open dialog, are left to the product.
 
 By [Nayara Marques](https://nayaramarques.com). MIT License.

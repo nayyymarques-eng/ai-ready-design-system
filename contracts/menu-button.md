@@ -11,7 +11,7 @@ One "⋯" button that opens a list of actions.
 ```
 
 ## In React
-`import { MenuButton } from '../src'`, from `src/components/MenuButton.tsx`. It renders the markup above.
+`import { MenuButton } from '../src'`, from `src/components/MenuButton.tsx`. It renders the markup above. `onToggle` opens and closes it, and `onSelect` gets the chosen action's index; the screen keeps whether it is open.
 ```tsx
 <MenuButton label="More actions" items={[{ label: 'Edit' }, { label: 'Send reminder' }, { label: 'Deactivate' }]} />
 ```

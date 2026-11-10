@@ -2,7 +2,7 @@
 export type Bar = { label: string; display: string; value: number; current?: boolean };
 
 export function BarChart({ label, bars }: { label: string; bars: Bar[] }) {
-  const max = Math.max(...bars.map(b => b.value));
+  const max = Math.max(1, ...bars.map(b => b.value));
   return (
     <div className="bar-chart" role="img" aria-label={label}>
       {bars.map(b => (
