@@ -5,7 +5,7 @@ One "⋯" button that opens a list of actions.
 ## Markup
 ```html
 <div class="menu-button">
-  <button class="btn btn--ghost" aria-label="More actions">⋯</button>
+  <button class="btn btn--tertiary" aria-label="More actions">⋯</button>
   <div class="menu"><button class="menu__item">Edit</button></div>
 </div>
 ```
