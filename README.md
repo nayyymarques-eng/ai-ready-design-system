@@ -34,9 +34,9 @@ The names are each organisation's choice: "critical" or "error", one layer of to
 | Checks | Which rules get a check first | A failed check names the rule, and is fixed in the same pull request |
 | Triage | The tracker and who decides | Only new parts reach triage, each with a label |
 
-## Figma, when a team uses it
+## Refining in Figma
 
-The system is for AI tools to build in code. Figma is optional, depending on how a company works. When a designer wants to refine a screen or a component, they do it in Figma, with the same tokens, components and names, and the Figma MCP server brings the change back to the code. It reaches the code in a pull request like any other change, so the harness checks it the same way, and a refined component goes to triage.
+The system is for AI tools to build in code. A designer can also refine a screen or a component in Figma, with the same tokens, components and names, and the Figma MCP server brings the refinement back to the code. It reaches the code in a pull request like any other change, so the harness checks it the same way, and a refined component goes to triage, where the design system owner decides.
 
 ## Use it
 
