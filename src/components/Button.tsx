@@ -2,7 +2,7 @@ import type { ReactNode, MouseEventHandler } from 'react';
 
 /** Starts one action. The variant says how important the action is. Contract: contracts/button.md */
 export type ButtonProps = {
-  variant: 'primary' | 'secondary' | 'ghost' | 'danger';
+  variant: 'primary' | 'secondary' | 'tertiary' | 'danger';
   children: ReactNode;
   type?: 'button' | 'submit';
   disabled?: boolean;
