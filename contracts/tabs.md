@@ -11,7 +11,7 @@ Switches between views of one object.
 ```
 
 ## In React
-`import { Tabs } from '../src'`, from `src/components/Tabs.tsx`. It renders the markup above.
+`import { Tabs } from '../src'`, from `src/components/Tabs.tsx`. It renders the markup above. `onSelect` gets the chosen tab's index; the screen keeps which tab is current.
 ```tsx
 <Tabs label="Invoice" items={[{ label: 'Overview', current: true }, { label: 'History' }]} />
 ```

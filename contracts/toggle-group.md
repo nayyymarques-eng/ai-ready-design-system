@@ -11,7 +11,7 @@ Filters one list. One item is selected.
 ```
 
 ## In React
-`import { ToggleGroup } from '../src'`, from `src/components/ToggleGroup.tsx`. It renders the markup above.
+`import { ToggleGroup } from '../src'`, from `src/components/ToggleGroup.tsx`. It renders the markup above. `onSelect` gets the chosen item's index; the screen keeps which item is selected.
 ```tsx
 <ToggleGroup label="Filter drivers" items={[{ label: 'All', count: 24, selected: true }, { label: 'On duty', count: 18 }]} />
 ```

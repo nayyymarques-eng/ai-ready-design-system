@@ -2,5 +2,5 @@
 export type AvatarProps = { initials: string; label?: string };
 
 export function Avatar({ initials, label }: AvatarProps) {
-  return <span className="avatar" aria-label={label}>{initials}</span>;
+  return <span className="avatar" role={label ? 'img' : undefined} aria-label={label}>{initials}</span>;
 }
