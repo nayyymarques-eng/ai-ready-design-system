@@ -49,6 +49,10 @@ The names are each organisation's choice: "critical" or "error", one layer of to
 | Checks | Which rules get a check first | A failed check names the rule, and is fixed in the same pull request |
 | Triage | The tracker and who decides | Only new parts reach triage, each with a label |
 
+## Refining in Figma
+
+The system is for AI tools to build in code. A designer can also refine a screen or a component in Figma, with the same tokens, components and names, and the Figma MCP server brings the refinement back to the code. It reaches the code in a pull request like any other change, so the harness checks it the same way, and a refined component goes to triage, where the design system owner decides.
+
 ## Use it
 
 Once: `npm install` and `npx playwright install chromium`.
@@ -147,7 +151,6 @@ eval/
 ## What it doesn't cover
 
 - Depth. The eval is small: it shows how the framework works.
-- Fidelity to a design file. The harness checks that a screen follows the system, not that it matches a Figma frame; when a designer changes a frame, the Figma MCP server carries it to code.
 - A large team. The builds were AI tools working alone, and I did the triage.
 - Many people using the same design system. How triage works when many people add new parts at the same time is untested.
 
