@@ -1,0 +1,1469 @@
+[
+  {
+    "group": "eval/framework-selfcheck/run-1",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 65,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the recipient's signature as drawn on the driver's phone",
+        "why": "The system has no image or signature component",
+        "base": ""
+      },
+      {
+        "name": "message-field",
+        "job": "A multi-line message to the driver, sent with Send back to driver",
+        "why": "Textarea is listed as not built in the rules",
+        "base": "field"
+      }
+    ]
+  },
+  {
+    "group": "eval/framework-selfcheck/run-1",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 17,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 54,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-two-line",
+        "job": "A name with a quieter second line under it, in a table cell",
+        "why": "The table has no secondary-text style for a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the delivery photo, or a placeholder when it is missing",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-two-line",
+        "job": "A name with a quieter second line under it, in a table cell",
+        "why": "The table has no secondary-text style for a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the delivery photo, or a placeholder when it is missing",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-two-line",
+        "job": "A name with a quieter second line under it, in a table cell",
+        "why": "The table has no secondary-text style for a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the delivery photo, or a placeholder when it is missing",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-two-line",
+        "job": "A name with a quieter second line under it, in a table cell",
+        "why": "The table has no secondary-text style for a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the delivery photo, or a placeholder when it is missing",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-two-line",
+        "job": "A name with a quieter second line under it, in a table cell",
+        "why": "The table has no secondary-text style for a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the delivery photo, or a placeholder when it is missing",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-two-line",
+        "job": "A name with a quieter second line under it, in a table cell",
+        "why": "The table has no secondary-text style for a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the delivery photo, or a placeholder when it is missing",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-two-line",
+        "job": "A name with a quieter second line under it, in a table cell",
+        "why": "The table has no secondary-text style for a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the delivery photo, or a placeholder when it is missing",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-two-line",
+        "job": "A name with a quieter second line under it, in a table cell",
+        "why": "The table has no secondary-text style for a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the delivery photo, or a placeholder when it is missing",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-two-line",
+        "job": "A name with a quieter second line under it, in a table cell",
+        "why": "The table has no secondary-text style for a cell",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "cell-inline",
+        "job": "Keeps a short table value on one line, with its avatar or badges beside it",
+        "why": "The table has no cell layout that keeps an ID, date or avatar and name together",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the delivery photo, or a placeholder when it is missing",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework-selfcheck/run-1",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 20,
+    "applied": 20,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 61,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Show the uploaded example photo and let the team replace or remove it",
+        "why": "The system has no file upload component (rules.md, not built)",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework-selfcheck/run-2",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 80,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Shows the photo the driver took at the door",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Shows the signature the recipient drew on the driver's phone",
+        "why": "The system has no image or signature component",
+        "base": ""
+      },
+      {
+        "name": "pod-distance",
+        "job": "Shows the driver's distance from the address against the 50 m limit",
+        "why": "Progress is for how far a task is towards done, not a distance against a limit",
+        "base": ""
+      },
+      {
+        "name": "textarea",
+        "job": "A message of several lines to the driver",
+        "why": "Textarea is not built in the system yet (rules, section 13)",
+        "base": "field"
+      }
+    ]
+  },
+  {
+    "group": "eval/framework-selfcheck/run-2",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 17,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 55,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-person",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "The row helper wraps on a phone and squeezes the name; the table should scroll instead",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-person",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "The row helper wraps on a phone and squeezes the name; the table should scroll instead",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-person",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "The row helper wraps on a phone and squeezes the name; the table should scroll instead",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-person",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "The row helper wraps on a phone and squeezes the name; the table should scroll instead",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-person",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "The row helper wraps on a phone and squeezes the name; the table should scroll instead",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-person",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "The row helper wraps on a phone and squeezes the name; the table should scroll instead",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-person",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "The row helper wraps on a phone and squeezes the name; the table should scroll instead",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-person",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "The row helper wraps on a phone and squeezes the name; the table should scroll instead",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-thumb",
+        "job": "A small preview of the proof-of-delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      },
+      {
+        "name": "pod-person",
+        "job": "A driver's initials and name on one line in a table cell",
+        "why": "The row helper wraps on a phone and squeezes the name; the table should scroll instead",
+        "base": ""
+      },
+      {
+        "name": "pod-cell",
+        "job": "A table cell with a main value and a quieter second line",
+        "why": "The table has no two-line cell",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework-selfcheck/run-2",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 20,
+    "applied": 20,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 99,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Upload one example photo and show it, so drivers see what a good proof photo looks like",
+        "why": "File upload is not built yet (rules.md, section 13)",
+        "base": ""
+      },
+      {
+        "name": "photo-preview",
+        "job": "Show the uploaded example photo",
+        "why": "No image component, and the screen may not load image files",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework-selfcheck/run-3",
+    "screen": "pod-detail.html",
+    "score": 94.4,
+    "passed": 17,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "x-note"
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 69,
+    "handBuilt": 1,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door when handing over the parcel",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the signature the recipient drew on the driver's phone",
+        "why": "The system has no image or signature component",
+        "base": ""
+      },
+      {
+        "name": "message-field",
+        "job": "Write what is missing from the proof before sending it back to the driver",
+        "why": "Field has only an input or a select, and a textarea is not built yet",
+        "base": "field"
+      }
+    ]
+  },
+  {
+    "group": "eval/framework-selfcheck/run-3",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 17,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 70,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      },
+      {
+        "name": "proof-photo",
+        "job": "A small preview of the delivery photo, or its absence",
+        "why": "The system has no image thumbnail, and screens may not load image files",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/framework-selfcheck/run-3",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 20,
+    "applied": 20,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 74,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Upload one example photo and show the file that is attached",
+        "why": "The system has no file upload yet (rules.md, Not built)",
+        "base": ""
+      }
+    ]
+  }
+]

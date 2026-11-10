@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proof to review · Tolvane</title>
+<link rel="stylesheet" href="../../../tokens.css">
+<link rel="stylesheet" href="../../../components.css">
+<style>
+
+.x-proof-photo {
+  position: relative;
+  width: var(--s7);
+  height: var(--s7);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(to bottom, var(--line) 0 62%, var(--muted) 62% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.x-proof-photo__parcel {
+  position: absolute;
+  left: var(--s3);
+  bottom: var(--s2);
+  width: var(--s5);
+  height: var(--s4);
+  background: var(--tint-warning);
+  border: 1px solid var(--warning);
+  border-radius: var(--radius);
+}
+.x-proof-photo--none {
+  background: var(--surface-sunken);
+  border: 1px dashed var(--muted);
+  font: var(--type-small);
+  color: var(--muted);
+  text-align: center;
+  padding: var(--s1);
+}
+
+</style>
+</head>
+<body>
+<div class="app"><nav class="nav-rail" aria-label="Main"><span class="nav-rail__brand">Tolvane</span><a class="nav-rail__item" href="#">Today</a><a class="nav-rail__item" href="#">Routes</a><a class="nav-rail__item" href="#">Drivers</a><a class="nav-rail__item is-current" href="#" aria-current="page">Proof to review <span class="numeral">10</span></a><a class="nav-rail__item" href="#">Customers</a><a class="nav-rail__item" href="#">Settings</a></nav><main class="page"><div class="template" data-template="list-page"><header class="page-header"><h1 class="page-header__title">Proof to review</h1><div class="page-header__actions"><button class="btn btn--secondary" type="button">Export list</button></div></header><div class="template__filters"><div class="toggle-group" role="group" aria-label="Filter deliveries"><button class="toggle-group__item is-selected" type="button" aria-pressed="true">All <span class="numeral">10</span></button><button class="toggle-group__item" type="button" aria-pressed="false">Disputed <span class="numeral">5</span></button><button class="toggle-group__item" type="button" aria-pressed="false">Missing photo <span class="numeral">4</span></button><button class="toggle-group__item" type="button" aria-pressed="false">Missing signature <span class="numeral">5</span></button></div></div><div class="table-scroll"><table class="table"><thead><tr><th scope="col">Parcel</th><th scope="col">Recipient</th><th scope="col">Driver</th><th scope="col">Marked delivered</th><th scope="col">Photo</th><th scope="col">Missing proof</th><th scope="col">Dispute</th></tr></thead><tbody><tr><td><a href="#review-TLV-48213" aria-label="Review parcel TLV-48213">TLV‑48213</a></td><td>Hannah Ruiz, Leeds LS6</td><td><div class="row"><span class="avatar">AM</span>Ana Moreira</div></td><td>Today, 14:32</td><td><div class="x-proof-photo" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files" role="img" aria-label="Delivery photo: Parcel on a doorstep"><span class="x-proof-photo__parcel"></span></div></td><td><div class="row"><span class="badge badge--warning">Signature</span></div></td><td><span class="badge badge--critical">Not received</span></td></tr><tr><td><a href="#review-TLV-48197" aria-label="Review parcel TLV-48197">TLV‑48197</a></td><td>Oliver Grant, Leeds LS8</td><td><div class="row"><span class="avatar">KM</span>Kofi Mensah</div></td><td>Today, 13:05</td><td><div class="x-proof-photo x-proof-photo--none" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files">No photo</div></td><td><div class="row"><span class="badge badge--warning">Photo</span><span class="badge badge--warning">Signature</span></div></td><td><span class="badge badge--critical">Not received</span></td></tr><tr><td><a href="#review-TLV-48176" aria-label="Review parcel TLV-48176">TLV‑48176</a></td><td>Priya Nair, Bradford BD9</td><td><div class="row"><span class="avatar">KM</span>Kofi Mensah</div></td><td>Today, 11:48</td><td><div class="x-proof-photo x-proof-photo--none" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files">No photo</div></td><td><div class="row"><span class="badge badge--warning">Photo</span></div></td><td>None</td></tr><tr><td><a href="#review-TLV-48150" aria-label="Review parcel TLV-48150">TLV‑48150</a></td><td>Daniel Okafor, Leeds LS11</td><td><div class="row"><span class="avatar">EN</span>Ewa Nowak</div></td><td>Today, 10:21</td><td><div class="x-proof-photo" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files" role="img" aria-label="Delivery photo: Parcel handed over at a shop counter"><span class="x-proof-photo__parcel"></span></div></td><td><div class="row"><span class="badge badge--warning">Signature</span></div></td><td>None</td></tr><tr><td><a href="#review-TLV-48102" aria-label="Review parcel TLV-48102">TLV‑48102</a></td><td>Sophie Laurent, Wakefield WF1</td><td><div class="row"><span class="avatar">AM</span>Ana Moreira</div></td><td>Yesterday, 17:56</td><td><div class="x-proof-photo" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files" role="img" aria-label="Delivery photo: Parcel by a front door"><span class="x-proof-photo__parcel"></span></div></td><td>Nothing missing</td><td><span class="badge badge--critical">Not received</span></td></tr><tr><td><a href="#review-TLV-48077" aria-label="Review parcel TLV-48077">TLV‑48077</a></td><td>Marcus Webb, Leeds LS2</td><td><div class="row"><span class="avatar">TH</span>Tom Hale</div></td><td>Yesterday, 16:10</td><td><div class="x-proof-photo x-proof-photo--none" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files">No photo</div></td><td><div class="row"><span class="badge badge--warning">Photo</span></div></td><td>None</td></tr><tr><td><a href="#review-TLV-48041" aria-label="Review parcel TLV-48041">TLV‑48041</a></td><td>Aisha Rahman, Huddersfield HD1</td><td><div class="row"><span class="avatar">EN</span>Ewa Nowak</div></td><td>Yesterday, 12:37</td><td><div class="x-proof-photo x-proof-photo--none" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files">No photo</div></td><td><div class="row"><span class="badge badge--warning">Photo</span></div></td><td><span class="badge badge--critical">Not received</span></td></tr><tr><td><a href="#review-TLV-47998" aria-label="Review parcel TLV-47998">TLV‑47998</a></td><td>Liam Carter, Leeds LS7</td><td><div class="row"><span class="avatar">TH</span>Tom Hale</div></td><td>Yesterday, 09:14</td><td><div class="x-proof-photo" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files" role="img" aria-label="Delivery photo: Parcel in a porch"><span class="x-proof-photo__parcel"></span></div></td><td><div class="row"><span class="badge badge--warning">Signature</span></div></td><td>None</td></tr><tr><td><a href="#review-TLV-47965" aria-label="Review parcel TLV-47965">TLV‑47965</a></td><td>Grace Thompson, Halifax HX1</td><td><div class="row"><span class="avatar">JI</span>Jamal Idris</div></td><td>8 Nov, 18:42</td><td><div class="x-proof-photo" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files" role="img" aria-label="Delivery photo: Parcel behind a side gate"><span class="x-proof-photo__parcel"></span></div></td><td>Nothing missing</td><td><span class="badge badge--critical">Not received</span></td></tr><tr><td><a href="#review-TLV-47930" aria-label="Review parcel TLV-47930">TLV‑47930</a></td><td>Noah Fischer, Leeds LS4</td><td><div class="row"><span class="avatar">JI</span>Jamal Idris</div></td><td>8 Nov, 15:03</td><td><div class="x-proof-photo" data-new="proof-photo" data-job="A small preview of the delivery photo, or its absence" data-why="The system has no image thumbnail, and screens may not load image files" role="img" aria-label="Delivery photo: Parcel on a doormat"><span class="x-proof-photo__parcel"></span></div></td><td><div class="row"><span class="badge badge--warning">Signature</span></div></td><td>None</td></tr></tbody></table></div></div></main></div>
+</body>
+</html>
