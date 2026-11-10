@@ -20,7 +20,7 @@ None.
 - A person in a row or list
 
 ## Never
-- A product logo
+- A product logo (no check yet)
 
 ## Lives in
 Table cells, list items.

@@ -25,8 +25,8 @@ Input or select. A field__error replaces the hint when the value is wrong.
 - Any value a person types or picks
 
 ## Never
-- An input with no label
-- A placeholder used as the label
+- An input with no label (checked by FIELD-01)
+- A placeholder used as the label (checked by FIELD-01)
 
 ## Lives in
 Cards, dialogs.

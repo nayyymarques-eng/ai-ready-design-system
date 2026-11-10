@@ -23,8 +23,8 @@ None. States: is-open shows the menu.
 - Several actions on one row or object
 
 ## Never
-- A row of three or more buttons in a table cell
-- A button with a chevron that pretends to be a menu
+- A row of three or more buttons in a table cell (checked by MENU-01)
+- A button with a chevron that pretends to be a menu (no check yet)
 
 ## Lives in
 Table cells, card headers, page header actions.

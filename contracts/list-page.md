@@ -29,9 +29,9 @@ None. With nothing to list, the child is an empty state instead of the table.
 - A screen that lists many items of one kind, to find one and open it
 
 ## Never
-- Two tables or two filter rows on one list page
-- A filter row that makes the page scroll sideways on a phone (the template scrolls it on its own)
-- Cards instead of table rows for items people compare
+- Two tables or two filter rows on one list page (no check yet)
+- A filter row that makes the page scroll sideways on a phone (the template scrolls it on its own; no check yet)
+- Cards instead of table rows for items people compare (no check yet)
 
 ## Lives in
 The whole page, inside the app shell.

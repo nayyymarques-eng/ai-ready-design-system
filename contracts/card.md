@@ -20,8 +20,8 @@ None.
 - Grouping one piece of content on the page
 
 ## Never
-- A card inside a card
-- A card with a coloured border to show a message (use a banner)
+- A card inside a card (checked by CARD-01)
+- A card with a coloured border to show a message (use a banner; no check yet)
 
 ## Lives in
 The page, a grid or a section.

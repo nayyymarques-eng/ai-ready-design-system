@@ -27,8 +27,8 @@ None.
 - Columns of cards or stats (grid)
 
 ## Never
-- Custom two-column layouts with their own CSS
-- Spacing set by hand on a wrapper
+- Custom two-column layouts with their own CSS (no check yet)
+- Spacing set by hand on a wrapper (no check yet)
 
 ## Lives in
 Inside the page, cards and dialogs.

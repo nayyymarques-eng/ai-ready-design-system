@@ -24,7 +24,7 @@ None.
 - A list or table with nothing to show yet
 
 ## Never
-- An empty table
+- An empty table (no check yet)
 
 ## Lives in
 Where the list or table will be.

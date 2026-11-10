@@ -23,7 +23,7 @@ None.
 - A headline number on a dashboard or summary
 
 ## Never
-- Read-only details such as a name or tax ID (use a list)
+- Read-only details such as a name or tax ID (use a list; no check yet)
 
 ## Lives in
 Cards, grids.

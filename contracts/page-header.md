@@ -23,8 +23,8 @@ None.
 - The title of a screen and its main actions
 
 ## Never
-- An h1 anywhere else
-- More than one primary button in the actions
+- An h1 anywhere else (checked by TTL-01)
+- More than one primary button in the actions (checked by BTN-01)
 
 ## Lives in
 The top of the page, once.

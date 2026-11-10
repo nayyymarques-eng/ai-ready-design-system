@@ -59,7 +59,7 @@ On any conflict between this file and an existing screen, this file wins.
 - **LAY-01** Nothing scrolls sideways at 375px wide. Wide tables scroll inside `.table-scroll`. *(checked)*
 
 ## 13. Not decided, not built
-Ask before shipping a lookalike of anything here.
+These are not in the system yet.
 - Not decided: breakpoints beyond 720, table density, date formats.
 - Not built: line or pie charts, date picker, file upload, toast, pagination, stepper, search field with suggestions, textarea.
 If a screen needs one of these, build it under CMP-03 and label it.

@@ -27,8 +27,8 @@ is-current on the bar that matters most. --value is 0 to 100 against the tallest
 - A trend of one amount over up to 12 periods
 
 ## Never
-- A hand-built chart in SVG or CSS
-- More than one colour besides is-current
+- A hand-built chart in SVG or CSS (no check yet)
+- More than one colour besides is-current (no check yet)
 
 ## Lives in
 Cards.

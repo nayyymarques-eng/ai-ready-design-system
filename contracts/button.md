@@ -23,9 +23,9 @@ One word per variant, everywhere: `variant="primary"` in React, `btn--primary` i
 - Any single action
 
 ## Never
-- Two primary buttons in the same header, card or dialog
-- A button with no visible text and no aria-label
-- A link styled as a button to go somewhere
+- Two primary buttons in the same header, card or dialog (checked by BTN-01)
+- A button with no visible text and no aria-label (checked by BTN-02)
+- A link styled as a button to go somewhere (no check yet)
 
 ## Lives in
 Page header, cards, dialogs, empty states.

@@ -22,8 +22,8 @@ One word per tone, everywhere: `tone="warning"` in React, `banner--warning` in C
 - A message about the whole page
 
 ## Never
-- A card with a coloured border
-- A message about one field (use field__error)
+- A card with a coloured border (no check yet)
+- A message about one field (use field__error; no check yet)
 
 ## Lives in
 Under the page header.

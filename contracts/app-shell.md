@@ -26,7 +26,7 @@ None.
 - The frame of every screen
 
 ## Never
-- A second sidebar or a custom frame
+- A second sidebar or a custom frame (no check yet)
 
 ## Lives in
 The body, once.
