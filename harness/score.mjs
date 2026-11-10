@@ -15,10 +15,13 @@ const CATALOGUE = [...new Set([...css.matchAll(/\.([a-z][a-z0-9_-]*)/g)].map(m =
 // Every custom property tokens.css defines, plus --value (the one a screen may set, on progress and bar chart).
 const TOKENS = [...new Set([...fs.readFileSync(path.join(here, '../tokens.css'), 'utf8').matchAll(/(--[a-z0-9-]+):/g)].map(m => m[1]))].concat('--value');
 
+const root = path.resolve(here, '..');
+// A path from the command line must stay inside this repository.
+const inRepo = p => { const r = path.resolve(root, p); if (r !== root && !r.startsWith(root + path.sep)) { console.error(`${p} is outside this repository`); process.exit(1); } return r; };
 const args = process.argv.slice(2);
 const jsonAt = args.indexOf('--json');
-const jsonOut = jsonAt >= 0 ? args.splice(jsonAt, 2)[1] : null;
-const dirs = args;
+const jsonOut = jsonAt >= 0 ? inRepo(args.splice(jsonAt, 2)[1]) : null;
+const dirs = args.map(inRepo);
 
 function inPage([CATALOGUE, COMPONENTS, TOKENS]) {
   const cat = new Set(CATALOGUE);

@@ -3,12 +3,14 @@
 // Usage: node scripts/typecheck.mjs <folder or .tsx file> [...]
 import { execFileSync } from 'node:child_process';
 import { readdirSync, writeFileSync, rmSync, readFileSync, existsSync, statSync } from 'node:fs';
-import { join, resolve, dirname, relative } from 'node:path';
+import { join, resolve, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const tsc = join(root, 'node_modules/.bin/tsc');
-for (const target of process.argv.slice(2)) {
+// A path from the command line must stay inside this repository.
+const inRepo = p => { const r = resolve(root, p); if (r !== root && !r.startsWith(root + sep)) { console.error(`${p} is outside this repository`); process.exit(1); } return r; };
+for (const target of process.argv.slice(2).map(inRepo)) {
   const isFile = statSync(target).isFile();
   const dir = isFile ? dirname(resolve(target)) : resolve(target);
   const files = isFile ? [resolve(target).slice(dir.length + 1)] : readdirSync(dir).filter(f => f.endsWith('.tsx')).sort();

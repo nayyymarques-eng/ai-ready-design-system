@@ -10,10 +10,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
 
+const root = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), '..');
+// A path from the command line must stay inside this repository.
+const inRepo = p => { const r = path.resolve(root, p); if (r !== root && !r.startsWith(root + path.sep)) { console.error(`${p} is outside this repository`); process.exit(1); } return r; };
 const args = process.argv.slice(2);
 const outAt = args.indexOf('--out');
-const out = outAt >= 0 ? args.splice(outAt, 2)[1] : 'triage-out';
-const dir = args[0] || 'screens';
+const out = inRepo(outAt >= 0 ? args.splice(outAt, 2)[1] : 'triage-out');
+const dir = inRepo(args[0] || 'screens');
 fs.mkdirSync(out, { recursive: true });
 
 const items = new Map();

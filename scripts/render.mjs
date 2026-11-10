@@ -5,7 +5,7 @@
 // Writes <folder>/<name>.html next to it, linking tokens.css then components.css.
 import { build } from 'esbuild';
 import { readdirSync, writeFileSync, mkdtempSync, rmSync, statSync } from 'node:fs';
-import { join, resolve, relative, dirname } from 'node:path';
+import { join, resolve, relative, dirname, sep } from 'node:path';
 import { tmpdir } from 'node:os';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 
@@ -43,7 +43,9 @@ return failed;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const folders = process.argv.slice(2);
+  // A path from the command line must stay inside this repository.
+  const inRepo = p => { const r = resolve(root, p); if (r !== root && !r.startsWith(root + sep)) { console.error(`${p} is outside this repository`); process.exit(1); } return r; };
+  const folders = process.argv.slice(2).map(inRepo);
   if (!folders.length) { console.error('Usage: node scripts/render.mjs <folder> [...]'); process.exit(1); }
   process.exit((await render(folders)) ? 1 : 0);
 }
