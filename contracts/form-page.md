@@ -38,4 +38,4 @@ The whole page, inside the app shell.
 --s5
 
 ## Checked by
-Review only.
+No check yet.

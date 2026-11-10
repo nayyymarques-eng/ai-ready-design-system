@@ -33,4 +33,4 @@ Cards, onboarding.
 --accent, --surface-sunken, --radius-pill
 
 ## Checked by
-Review only.
+No check yet.
