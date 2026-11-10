@@ -54,8 +54,16 @@ for (const r of rules) {
 // has its CSS class, and the contract names the same values.
 for (const f of fs.readdirSync(path.join(root, 'src/components')).filter(f => f.endsWith('.tsx'))) {
   const src = read('src/components/' + f);
-  for (const m of src.matchAll(/([a-z]+(?:-[a-z]+)*)--\$\{(\w+)\}/g)) {
-    const [, cls, prop] = m;
+  // Each `block--${prop}` in a className: the class before "--${" and the prop inside the braces.
+  const pairs = [];
+  for (let at = src.indexOf('--${'); at !== -1; at = src.indexOf('--${', at + 3)) {
+    let start = at;
+    while (start > 0 && /[a-z-]/.test(src[start - 1])) start--;
+    const end = src.indexOf('}', at);
+    pairs.push([src.slice(start, at), src.slice(at + 4, end)]);
+  }
+  for (const [cls, prop] of pairs) {
+    if (!/^[a-z]+(-[a-z]+)*$/.test(cls) || !/^\w+$/.test(prop)) continue;
     const union = src.match(new RegExp(`\\b${prop}\\??: *('[a-z-]+'(?: *\\| *'[a-z-]+')*)`));
     if (!union) continue;
     const values = [...union[1].matchAll(/'([a-z-]+)'/g)].map(v => v[1]);
