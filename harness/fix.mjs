@@ -9,6 +9,8 @@ import url from 'node:url';
 
 const root = path.join(path.dirname(url.fileURLToPath(import.meta.url)), '..');
 const tokensCss = fs.readFileSync(path.join(root, 'tokens.css'), 'utf8');
+// A path from the command line must stay inside this repository.
+const inRepo = p => { const r = path.resolve(root, p); if (r !== root && !r.startsWith(root + path.sep)) { console.error(`${p} is outside this repository`); process.exit(1); } return r; };
 const SYSTEM = new Set(['tokens.css', 'components.css'].map(f => path.join(root, f)));
 
 // #abc and #aabbcc, lower case, six digits.
@@ -21,7 +23,7 @@ const norm = hex => {
 const byValue = {};
 for (const m of tokensCss.matchAll(/(--[a-z0-9-]+): *(#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?);/g)) (byValue[norm(m[2])] ||= []).push(m[1]);
 
-const files = process.argv.slice(2).flatMap(p => fs.statSync(p).isDirectory()
+const files = process.argv.slice(2).map(inRepo).flatMap(p => fs.statSync(p).isDirectory()
   ? fs.readdirSync(p).map(f => path.join(p, f))
   : [p]).filter(f => /\.(tsx|html|css)$/.test(f) && !SYSTEM.has(path.resolve(f)));
 if (!files.length) { console.log('Usage: node harness/fix.mjs <screen files or folders>'); process.exit(1); }
