@@ -2,7 +2,7 @@
 
 A framework that makes any design system readable by AI coding tools, and checks every screen against it, in React and TypeScript. The framework is the structure: contracts, rules, a decision map, the harness and triage. The tokens, components and rules in this repo are an example system, the one used in the eval. A team brings its own.
 
-Anyone who ships a screen goes through it: a PM building straight in code, a designer shipping a change, a developer. The design system gives an AI tool one agent workflow to follow, and the harness is the guardrail that decides when a screen is production-ready.
+Anyone who ships a screen goes through it: a PM building straight in code, a designer shipping a change, a developer. The framework gives an AI tool one agent workflow to follow, and the harness is the guardrail that decides when a screen is production-ready.
 
 This is the kit behind the [Design system case](https://nayaramarques.com/design-system) on my portfolio: the system, the harness that runs the checks, and an eval that compares building with components only against building with the framework.
 
