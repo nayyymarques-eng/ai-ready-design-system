@@ -1,7 +1,8 @@
 // Sums eval/results.json by condition: checks passed, screens at 100, unlabelled and labelled parts.
-// Usage: node eval/summary.mjs   (after: node harness/score.mjs eval/*/run-* --json eval/results.json)
+// Usage: node eval/summary.mjs [results file, default eval/results.json]
+//   (after: node harness/score.mjs eval/*/run-* --json eval/results.json)
 import fs from 'node:fs';
-const rows = JSON.parse(fs.readFileSync(new URL('./results.json', import.meta.url)));
+const rows = JSON.parse(fs.readFileSync(process.argv[2] || new URL('./results.json', import.meta.url)));
 const by = {};
 for (const r of rows) {
   const [, cond, run] = r.group.split('/');

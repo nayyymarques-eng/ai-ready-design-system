@@ -17,7 +17,8 @@ This is the kit behind the [Design system case](https://nayaramarques.com/design
 | Templates | `src/templates/` | Whole screens built from components: list page, detail page and form page. A screen starts from the one that fits its job. Each has a contract like a component. |
 | Contracts | `contracts/` | One file per component and per template: what it is, markup, variants, use for, never, where it lives, and the checks that enforce it. |
 | Rules | `rules.md` | How components sit together on a screen, which template to start from (TPL), and the one way in for a new part (CMP-03). |
-| Decision map | `decision-map.md` | The contracts' "use for" and "never" lines, sorted by job. `build-map.py` writes it from the contracts; nobody edits it by hand. |
+| Decision map | `decision-map.md` | The contracts' "use for" lines, sorted by job, and the component to use instead for a nearby job. `build-map.py` writes it from the contracts; nobody edits it by hand. |
+| Check coverage | `check-coverage.md` | Every "never" line of every contract, and the check that catches it, for the people who keep the system. `build-map.py` writes it too. The AI doesn't read it. |
 | Checks | `harness/score.mjs`, `harness/system.mjs` | The guardrails. `score.mjs` opens each screen in a headless browser at 1280px and 375px and runs 21 checks: 12 from the screen rules (one is TSC-01, the screen compiles) and 9 from contracts. `system.mjs` checks the system itself: every token it uses exists, every text colour is readable on its background, and every variant has one name. |
 | Triage | [GitHub Issues, label `triage`](https://github.com/nayyymarques-eng/ai-ready-design-system/issues?q=label%3Atriage) | Every new part the AI labelled on a pull request, one issue each: what reaches triage. |
 
@@ -31,12 +32,12 @@ The AI reads only what the screen needs: `AGENTS.md`, the rules, the decision ma
 |---|---|---|
 | `AGENTS.md` | 1.5 KB | 370 |
 | `rules.md` | 5.0 KB | 1,250 |
-| `decision-map.md` | 5.7 KB | 1,420 |
-| `contracts/`, 26 files | 22.8 KB, 0.47 to 1.6 KB each | 5,710 |
-| All of it | 35.0 KB | 8,760 |
-| One screen of the eval's new feature, with 6 to 13 contracts | 18 to 23 KB | 4,600 to 5,800 |
+| `decision-map.md` | 3.4 KB | 840 |
+| `contracts/`, 26 files | 22.9 KB, 0.47 to 1.6 KB each | 5,710 |
+| All of it | 32.7 KB | 8,180 |
+| One screen of the eval's new feature, with 6 to 12 contracts | 15 to 19 KB | 3,800 to 4,900 |
 
-Tokens are counted as one for every four characters, so they are close, not exact. The page loads `tokens.css` and `components.css` itself, and this README is not on the AI's path. The decision map is the one file that grows with the system, by about 200 bytes per component.
+Tokens are counted as one for every four characters, so they are close, not exact. The page loads `tokens.css` and `components.css` itself, and this README is not on the AI's path. The decision map is the one file that grows with the system, by about 100 bytes per component.
 
 ## What you can change
 
@@ -64,7 +65,7 @@ Once: `npm install` and `npx playwright install chromium`.
    MENU-01 (3 cells with 3+ buttons)  ← contracts/menu-button.md
    ```
 
-3. When a token, a component or a contract changes, run `npm run system` (the system checks) and `python3 build-map.py` to rebuild the decision map.
+3. When a token, a component or a contract changes, run `npm run system` (the system checks) and `python3 build-map.py` to rebuild the decision map and the check coverage.
 4. Triage: on every pull request, `.github/workflows/triage.yml` runs the harness and sends each new part the AI labelled to the triage list, here GitHub Issues with the label `triage`. Each part gets one issue: a picture, its job, why the AI made it, its code, every screen and pull request where it appears, who made it, and the decision for the design system owner to tick. A part that appears again updates its issue. Locally, `node harness/triage.mjs screens` lists the parts. `harness/triage-to-issues.mjs` is the sender; another tracker needs only another sender.
 
 A failed check is an error: a value that isn't a token, a restyled component, or a part built outside the system with no label. The harness names the rule and the file, the builder fixes it in the same pull request, and the harness runs again. `npm run fix -- screens` fixes, with no AI, only the errors that have one right answer: a literal colour that is exactly the value of one token becomes that token. Anything that needs a choice, such as a colour two tokens share, is left for the builder and listed. The screen is production-ready only when every check passes, so errors never reach triage. Run on every change, the same checks are the regression safeguards: an error that was fixed can't come back unnoticed.
@@ -119,6 +120,36 @@ node harness/score.mjs eval/*/run-* --json eval/results.json
 node eval/summary.mjs
 ```
 
+## Refinement eval: the decision map (v1.1)
+
+A change to the framework is tested the same way as the framework: the same three briefs, the same prompt, three runs per condition, one AI agent per screen from a fresh start. Only the change differs between the two conditions.
+
+The change: in v1.0 the decision map copied every "never" line of every contract, with its check (Job | Use | Never | Checked by). The AI read each "never" twice, once in the map and once in the contract, and the "Checked by" column was for people, not for the AI. In v1.1 the map has three columns, Job | Use | Instead: "Instead" names the component for a nearby job, such as "A count: use a numeral" on the badge row. The "never" lines stay in the contracts, and the checks move to `check-coverage.md`.
+
+- **Map, v1.0** (`eval/map-never/`): the framework as it is in v1.0.0.
+- **Map, v1.1** (`eval/map-instead/`): the same framework, with the new map.
+
+Both conditions were built with today's contracts, so they are compared with each other and not with the first eval. Their `AGENTS.md` leaves out the step that runs the harness, so the scores are the first build, as in the first eval.
+
+| Condition | Map | One screen reads | Checks passed | Production-ready screens | Unlabelled parts outside the system | Labelled new parts |
+|---|---|---|---|---|---|---|
+| Map, v1.0 | 5.7 KB | 18.5 to 21.7 KB, 20.0 on average | 164 of 165 (99%) | 8 of 9 | 6 | 18 |
+| Map, v1.1 | 3.4 KB | 15.1 to 19.4 KB, 17.1 on average | 163 of 165 (99%) | 7 of 9 | 3 | 17 |
+
+The new map is 41% smaller, and a screen reads about 3 KB less, some 700 tokens. The screens came out the same: one check apart, inside the difference between runs of the same condition. In v1.0 one screen left 6 class names outside the system (CMP-01); in v1.1 one screen left 3 (CMP-01), and one labelled a new part as a refinement of another new part instead of a component (CMP-03). The harness named each one, so each would be fixed in the same pull request. The tokens a whole build used, about 140,000 per agent with the tools, the reading and the screen, didn't move in a way the map can explain: the files are a small part of a session.
+
+So the map reads less with no loss, and v1.1 keeps it. `eval/results-refinement.json` has every check on every screen.
+
+```
+npm run eval:setup -- map-instead                     # writes eval/map-instead/ from the system
+node harness/score.mjs eval/map-*/run-* --json eval/results-refinement.json
+node eval/summary.mjs eval/results-refinement.json
+```
+
+## Versions
+
+The kit uses version numbers: a change to how the framework works is a new minor version, with its own eval when it can change what the AI builds. `CHANGELOG.md` lists each version, and each one has a git tag, so the files of any eval can be checked out as they were.
+
 ## Files
 
 ```
@@ -130,8 +161,10 @@ src/components/      one React component per contract; src/index.ts exports them
 src/templates/       list page, detail page and form page
 contracts/           one contract per component
 rules.md             screen rules
-decision-map.md      built from the contracts
-build-map.py         builds the decision map
+decision-map.md      built from the contracts: job, component, and what to use instead
+check-coverage.md    built from the contracts: every "never" line and its check, for people
+CHANGELOG.md         what changed in each version
+build-map.py         builds the decision map and the check coverage
 harness/score.mjs    the checks on each screen
 harness/system.mjs   the checks on the system: tokens, contrast, names
 scripts/             preview, typecheck, render, make-eval
@@ -142,6 +175,9 @@ eval/
   components-only/   the system that condition got, and run-1 to run-3
   framework/         the framework, and run-1 to run-3
   results.json       every check on every screen
+  map-never/         refinement eval: the framework with the v1.0 map, and run-1 to run-3
+  map-instead/       refinement eval: the framework with the v1.1 map, and run-1 to run-3
+  results-refinement.json  every check on every screen of the refinement eval
   summary.mjs        sums the results by condition
 ```
 

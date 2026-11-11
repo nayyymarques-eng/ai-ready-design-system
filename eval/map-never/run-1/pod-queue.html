@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proof to review — Tolvane</title>
+<link rel="stylesheet" href="../../../tokens.css">
+<link rel="stylesheet" href="../../../components.css">
+<style>
+
+.x-pod-thumb {
+  width: var(--s7);
+  height: var(--s7);
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  border: var(--border);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: var(--s2);
+  overflow: hidden;
+}
+.x-pod-thumb__parcel {
+  width: var(--s5);
+  height: var(--s4);
+  border-radius: var(--radius);
+  background: var(--line);
+  border: 1px solid var(--muted);
+}
+.x-pod-nophoto {
+  width: var(--s7);
+  height: var(--s7);
+  border-radius: var(--radius);
+  border: 1px dashed var(--muted);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: var(--type-small);
+  color: var(--muted);
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+<div class="app"><nav class="nav-rail" aria-label="Main"><span class="nav-rail__brand">Tolvane</span><a class="nav-rail__item" href="#">Today</a><a class="nav-rail__item" href="#">Routes</a><a class="nav-rail__item" href="#">Drivers</a><a class="nav-rail__item is-current" href="#" aria-current="page">Proof to review <span class="numeral">8</span></a><a class="nav-rail__item" href="#">Customers</a></nav><main class="page"><div class="template" data-template="list-page"><header class="page-header"><h1 class="page-header__title">Proof to review</h1><div class="page-header__actions"><button class="btn btn--secondary" type="button">Export list</button></div></header><div class="template__filters"><div class="toggle-group" role="group" aria-label="Filter deliveries"><button class="toggle-group__item is-selected" type="button" aria-pressed="true">All <span class="numeral">8</span></button><button class="toggle-group__item" type="button" aria-pressed="false">Disputed <span class="numeral">4</span></button><button class="toggle-group__item" type="button" aria-pressed="false">Missing photo <span class="numeral">3</span></button><button class="toggle-group__item" type="button" aria-pressed="false">Missing signature <span class="numeral">5</span></button></div></div><div class="table-scroll"><table class="table"><thead><tr><th scope="col">Parcel</th><th scope="col">Recipient</th><th scope="col">Driver</th><th scope="col">Marked delivered</th><th scope="col">Photo</th><th scope="col">Needs review</th><th scope="col">Open</th></tr></thead><tbody><tr><td><strong>TV‑48213907</strong></td><td><div>Helen Okafor</div><div>14 Marlow Road, Leeds</div></td><td><div class="row"><span class="avatar">AM</span><span>Ana Moreira</span></div></td><td><div>Today</div><div>09:42</div></td><td><div class="x-pod-thumb" data-new="proof-thumb" data-job="A small preview of the driver&#x27;s proof photo in a table row" data-why="The system has no image or thumbnail component" role="img" aria-label="Proof photo for TV-48213907: parcel at the door"><span class="x-pod-thumb__parcel"></span></div></td><td><div class="row"><span class="badge badge--critical">Disputed</span><span class="badge badge--warning">No signature</span></div></td><td><button class="btn btn--tertiary" type="button" aria-label="Review delivery TV-48213907">Review</button></td></tr><tr><td><strong>TV‑48213552</strong></td><td><div>Daniel Price</div><div>3B Kingsway Court, Leeds</div></td><td><div class="row"><span class="avatar">TN</span><span>Tomasz Nowak</span></div></td><td><div>Today</div><div>08:15</div></td><td><div class="x-pod-nophoto" data-new="proof-thumb" data-job="Shows that a delivery has no proof photo, in the photo column" data-why="No contract shows an image or its absence" role="img" aria-label="No photo for TV-48213552">None</div></td><td><div class="row"><span class="badge badge--critical">Disputed</span><span class="badge badge--warning">No photo</span></div></td><td><button class="btn btn--tertiary" type="button" aria-label="Review delivery TV-48213552">Review</button></td></tr><tr><td><strong>TV‑48209871</strong></td><td><div>Priya Raman</div><div>72 Otley Lane, Bradford</div></td><td><div class="row"><span class="avatar">AM</span><span>Ana Moreira</span></div></td><td><div>Yesterday</div><div>17:58</div></td><td><div class="x-pod-nophoto" data-new="proof-thumb" data-job="Shows that a delivery has no proof photo, in the photo column" data-why="No contract shows an image or its absence" role="img" aria-label="No photo for TV-48209871">None</div></td><td><div class="row"><span class="badge badge--warning">No photo</span></div></td><td><button class="btn btn--tertiary" type="button" aria-label="Review delivery TV-48209871">Review</button></td></tr><tr><td><strong>TV‑48209414</strong></td><td><div>Sam Whitfield</div><div>9 Canal Wharf, Leeds</div></td><td><div class="row"><span class="avatar">KA</span><span>Kwame Asante</span></div></td><td><div>Yesterday</div><div>15:20</div></td><td><div class="x-pod-thumb" data-new="proof-thumb" data-job="A small preview of the driver&#x27;s proof photo in a table row" data-why="The system has no image or thumbnail component" role="img" aria-label="Proof photo for TV-48209414: parcel at the door"><span class="x-pod-thumb__parcel"></span></div></td><td><div class="row"><span class="badge badge--critical">Disputed</span><span class="badge">Proof complete</span></div></td><td><button class="btn btn--tertiary" type="button" aria-label="Review delivery TV-48209414">Review</button></td></tr><tr><td><strong>TV‑48208730</strong></td><td><div>Lucia Ferreira</div><div>41 Harrow Street, Wakefield</div></td><td><div class="row"><span class="avatar">RB</span><span>Ruth Bell</span></div></td><td><div>Yesterday</div><div>11:06</div></td><td><div class="x-pod-thumb" data-new="proof-thumb" data-job="A small preview of the driver&#x27;s proof photo in a table row" data-why="The system has no image or thumbnail component" role="img" aria-label="Proof photo for TV-48208730: parcel at the door"><span class="x-pod-thumb__parcel"></span></div></td><td><div class="row"><span class="badge badge--warning">No signature</span></div></td><td><button class="btn btn--tertiary" type="button" aria-label="Review delivery TV-48208730">Review</button></td></tr><tr><td><strong>TV‑48205166</strong></td><td><div>Marcus Hale</div><div>200 Albion Street, Leeds</div></td><td><div class="row"><span class="avatar">TN</span><span>Tomasz Nowak</span></div></td><td><div>9 Nov</div><div>16:47</div></td><td><div class="x-pod-nophoto" data-new="proof-thumb" data-job="Shows that a delivery has no proof photo, in the photo column" data-why="No contract shows an image or its absence" role="img" aria-label="No photo for TV-48205166">None</div></td><td><div class="row"><span class="badge badge--warning">No photo</span><span class="badge badge--warning">No signature</span></div></td><td><button class="btn btn--tertiary" type="button" aria-label="Review delivery TV-48205166">Review</button></td></tr><tr><td><strong>TV‑48204029</strong></td><td><div>Grace Lindqvist</div><div>5 Rosemount Avenue, Harrogate</div></td><td><div class="row"><span class="avatar">KA</span><span>Kwame Asante</span></div></td><td><div>9 Nov</div><div>10:31</div></td><td><div class="x-pod-thumb" data-new="proof-thumb" data-job="A small preview of the driver&#x27;s proof photo in a table row" data-why="The system has no image or thumbnail component" role="img" aria-label="Proof photo for TV-48204029: parcel at the door"><span class="x-pod-thumb__parcel"></span></div></td><td><div class="row"><span class="badge badge--critical">Disputed</span><span class="badge badge--warning">No signature</span></div></td><td><button class="btn btn--tertiary" type="button" aria-label="Review delivery TV-48204029">Review</button></td></tr><tr><td><strong>TV‑48201788</strong></td><td><div>Owen Gallagher</div><div>18 Mill Lane, Bradford</div></td><td><div class="row"><span class="avatar">RB</span><span>Ruth Bell</span></div></td><td><div>8 Nov</div><div>14:12</div></td><td><div class="x-pod-thumb" data-new="proof-thumb" data-job="A small preview of the driver&#x27;s proof photo in a table row" data-why="The system has no image or thumbnail component" role="img" aria-label="Proof photo for TV-48201788: parcel at the door"><span class="x-pod-thumb__parcel"></span></div></td><td><div class="row"><span class="badge badge--warning">No signature</span></div></td><td><button class="btn btn--tertiary" type="button" aria-label="Review delivery TV-48201788">Review</button></td></tr></tbody></table></div></div></main></div>
+</body>
+</html>
