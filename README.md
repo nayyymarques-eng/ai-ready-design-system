@@ -148,7 +148,7 @@ node eval/summary.mjs eval/results-refinement.json
 
 ## Versions
 
-The kit uses version numbers: a change to how the framework works is a new minor version, with its own eval when it can change what the AI builds. `CHANGELOG.md` lists each version, and each one has a git tag, so the files of any eval can be checked out as they were.
+The kit uses version numbers: a change to how the framework works is a new minor version, with its own eval when it can change what the AI builds. `CHANGELOG.md` lists each version, and each one is a GitHub release with its git tag (`v1.0.0`, `v1.1.0`), so the files of any eval can be checked out as they were.
 
 ## Files
 

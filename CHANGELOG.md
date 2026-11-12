@@ -1,6 +1,6 @@
 # Changelog
 
-Each version has a git tag (`v1.0.0`, `v1.1.0`). A change to how the framework works gets a new minor version, and its own eval when it can change what the AI builds.
+Each version is a GitHub release with its git tag (`v1.0.0`, `v1.1.0`). A change to how the framework works gets a new minor version, and its own eval when it can change what the AI builds.
 
 ## 1.1.0, 2026-11-11
 
