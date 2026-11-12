@@ -2,7 +2,9 @@
 //   eval/components-only/  tokens, components and the catalogue. No rules, no contracts, no NewPart.
 //   eval/framework/        tokens, components, AGENTS.md, rules, decision map and contracts.
 // Both hold the same React components in src/. Builders write to <folder>/run-<n>/.
-// Usage: node scripts/make-eval.mjs [components-only|framework]
+//   eval/map-instead/      the framework with the decision map of v1.1 (Job | Use | Instead), for the refinement eval.
+//   eval/map-never/ is kept as recorded: the same system with the map of v1.0 (Job | Use | Never | Checked by).
+// Usage: node scripts/make-eval.mjs [components-only|framework|map-instead]
 import { cpSync, mkdirSync, readFileSync, writeFileSync, rmSync, readdirSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -32,4 +34,6 @@ function system(name, files, { stripContracts }) {
 // Pass a condition name to write only that folder: node scripts/make-eval.mjs framework
 const only = process.argv[2];
 if (!only || only === 'components-only') system('components-only', ['tokens.css', 'components.css', 'eval/catalogue.md'], { stripContracts: true });
-if (!only || only === 'framework') system('framework', ['tokens.css', 'components.css', 'AGENTS.md', 'rules.md', 'decision-map.md', 'contracts'], { stripContracts: false });
+const framework = ['tokens.css', 'components.css', 'AGENTS.md', 'rules.md', 'decision-map.md', 'contracts'];
+if (!only || only === 'framework') system('framework', framework, { stripContracts: false });
+if (only === 'map-instead') system('map-instead', framework, { stripContracts: false });

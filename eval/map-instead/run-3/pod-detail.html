@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proof of delivery TLV-48213 · Tolvane</title>
+<link rel="stylesheet" href="../../../tokens.css">
+<link rel="stylesheet" href="../../../components.css">
+<style>
+
+.x-proof-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  background: var(--surface-sunken);
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.x-proof-photo__step {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 14%;
+  background: var(--line);
+}
+.x-proof-photo__door {
+  position: absolute;
+  left: 30%; width: 34%;
+  top: 10%; bottom: 14%;
+  background: var(--surface);
+  border: var(--border);
+  border-bottom: 0;
+}
+.x-proof-photo__number {
+  position: absolute;
+  left: 50%; top: 10%;
+  transform: translateX(-50%);
+  font: var(--type-body-strong);
+  color: var(--ink);
+}
+.x-proof-photo__handle {
+  position: absolute;
+  right: 10%; top: 52%;
+  width: 6%; height: 4%;
+  background: var(--muted);
+  border-radius: var(--radius-pill);
+}
+.x-proof-photo__parcel {
+  position: absolute;
+  left: 66%; width: 18%;
+  bottom: 14%; height: 18%;
+  background: var(--tint-warning);
+  border: 1px solid var(--warning);
+  border-radius: var(--radius);
+}
+.x-proof-photo__parcel::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 45%;
+  height: 10%;
+  background: var(--warning);
+}
+.x-signature {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  color: var(--ink);
+}
+.x-signature svg { width: 80%; height: auto; }
+.x-signature__line { color: var(--muted); }
+
+</style>
+</head>
+<body>
+<div class="app"><nav class="nav-rail" aria-label="Main"><span class="nav-rail__brand">Tolvane</span><a class="nav-rail__item" href="#">Today</a><a class="nav-rail__item" href="#">Deliveries <span class="numeral">1284</span></a><a class="nav-rail__item is-current" href="#" aria-current="page">Disputes <span class="numeral">7</span></a><a class="nav-rail__item" href="#">Drivers <span class="numeral">46</span></a><a class="nav-rail__item" href="#">Routes</a></nav><main class="page"><div class="template" data-template="detail-page"><header class="page-header"><div class="row"><h1 class="page-header__title">Proof of delivery TLV-48213</h1><span class="badge badge--warning">Disputed</span></div><div class="page-header__actions"><button class="btn btn--secondary" type="button">Send back to driver</button><button class="btn btn--primary" type="button">Accept proof</button></div></header><div class="template__columns"><div class="template__main"><div class="banner banner--warning" role="status"><p>Hannah Okafor says the parcel never arrived. She opened the dispute on 11 Nov at 09:12. The driver marked it delivered 180 m from the address, outside the 50 m limit.</p></div><section class="section" aria-labelledby="proof"><h2 class="section__title" id="proof">Proof from the door</h2><div class="grid"><div class="card"><div class="stack"><div class="x-proof-photo" data-new="proof-photo" data-job="Shows the photo the driver took at the door" data-why="The system has no image or media component" role="img" aria-label="Photo at the door: a parcel on the step beside a front door marked 14"><span class="x-proof-photo__step"></span><span class="x-proof-photo__door"><span class="x-proof-photo__number">14</span><span class="x-proof-photo__handle"></span></span><span class="x-proof-photo__parcel"></span></div><div class="list"><div class="list__item"><span>Photo</span><strong>Taken 10 Nov, 14:37</strong></div><div class="list__item"><span>Shows</span><strong>Parcel on the step of no. 14</strong></div></div></div></div><div class="card"><div class="stack"><div class="x-signature" data-new="signature" data-job="Shows the recipient&#x27;s signature as collected in the driver app" data-why="The system has no image or media component" role="img" aria-label="Recipient&#x27;s signature, J. Okafor"><svg viewBox="0 0 240 120" aria-hidden="true"><path d="M20 78 C 34 30, 52 30, 48 70 C 46 92, 30 96, 34 76 C 40 52, 70 48, 74 70 C 76 82, 84 82, 92 66 C 100 50, 108 56, 106 72 C 104 86, 118 84, 128 62 C 136 46, 142 60, 146 72 C 150 82, 160 78, 170 58 C 178 44, 186 62, 196 70 C 204 76, 214 70, 222 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><line class="x-signature__line" x1="16" y1="100" x2="224" y2="100" stroke="currentColor" stroke-width="1"></line></svg></div><div class="list"><div class="list__item"><span>Signed by</span><strong>J. Okafor</strong></div><div class="list__item"><span>Signed</span><strong>10 Nov, 14:37</strong></div></div></div></div></div></section><section class="section" aria-labelledby="location"><h2 class="section__title" id="location">Where the driver was</h2><div class="card"><div class="list"><div class="list__item"><span>Distance from the address</span><strong>180 m</strong></div><div class="list__item"><span>Allowed distance</span><strong>50 m</strong></div><div class="list__item"><span>Check</span><span class="badge badge--critical">Outside limit</span></div><div class="list__item"><span>GPS accuracy</span><strong>± 12 m</strong></div><div class="list__item"><span>Position when marked delivered</span><strong>On Calder Road, near the junction with Ash Grove</strong></div></div></div></section><section class="section" aria-labelledby="message"><h2 class="section__title" id="message">Message to the driver</h2><div class="card"><div class="stack"><div class="field"><label class="field__label" for="missing">What is missing</label><select class="field__input" id="missing"><option>Photo does not show the house number</option><option>Signature does not match the recipient</option><option selected="">Marked delivered too far from the address</option><option>Something else</option></select></div><div class="field"><label class="field__label" for="note">Message</label><input class="field__input" id="note" type="text" aria-describedby="note-note" value="You marked this 180 m from 14 Ash Grove. Tell us where you left the parcel and who signed for it."/><p class="field__hint" id="note-note">Marek Nowak gets this in the driver app when you choose Send back to driver.</p></div></div></div></section></div><div class="template__aside"><section class="section" aria-labelledby="delivery"><h2 class="section__title" id="delivery">Delivery</h2><div class="card"><div class="list"><div class="list__item"><span>Parcel</span><strong>TLV-48213</strong></div><div class="list__item"><span>Customer</span><strong>Hannah Okafor</strong></div><div class="list__item"><span>Address</span><strong>14 Ash Grove, Leeds LS6 2HT</strong></div><div class="list__item"><span>Driver</span><strong>Marek Nowak</strong></div><div class="list__item"><span>Route</span><strong>LS-North 3</strong></div><div class="list__item"><span>Vehicle</span><strong>Van YK72 FTD</strong></div></div></div></section><section class="section" aria-labelledby="steps"><h2 class="section__title" id="steps">Steps</h2><div class="card"><div class="list"><div class="list__item"><span>Picked up at Leeds depot</span><strong>10 Nov, 07:52</strong></div><div class="list__item"><span>Out for delivery</span><strong>08:31</strong></div><div class="list__item"><span>Arrived near the address</span><strong>14:34</strong></div><div class="list__item"><span>Photo taken</span><strong>14:37</strong></div><div class="list__item"><span>Signature collected</span><strong>14:37</strong></div><div class="list__item"><span>Marked delivered</span><strong>14:38</strong></div><div class="list__item"><span>Dispute opened</span><strong>11 Nov, 09:12</strong></div></div></div></section></div></div></div></main></div>
+</body>
+</html>

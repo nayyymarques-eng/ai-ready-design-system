@@ -1,0 +1,2582 @@
+[
+  {
+    "group": "eval/map-never/run-1",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 74,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door, with when and where it was taken",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "pod-photo-frame",
+        "job": "Hold the delivery photo at a fixed 4:3 ratio",
+        "why": "No image component; this screen is static, so the photo is drawn",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the signature the recipient drew on the driver's phone",
+        "why": "The system has no image or signature component",
+        "base": ""
+      },
+      {
+        "name": "pod-signature-pad",
+        "job": "Hold the signature drawing at a fixed 3:1 ratio",
+        "why": "No image component; this screen is static, so the signature is drawn",
+        "base": ""
+      },
+      {
+        "name": "message-field",
+        "job": "A message of several lines telling the driver what is missing from the proof",
+        "why": "The system has no textarea (rules, section 13), and Field only has input and select",
+        "base": "field"
+      }
+    ]
+  },
+  {
+    "group": "eval/map-never/run-1",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 17,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 72,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows that a delivery has no proof photo, in the photo column",
+        "why": "No contract shows an image or its absence",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows that a delivery has no proof photo, in the photo column",
+        "why": "No contract shows an image or its absence",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "Shows that a delivery has no proof photo, in the photo column",
+        "why": "No contract shows an image or its absence",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the driver's proof photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-never/run-1",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 20,
+    "applied": 20,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 80,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Upload one example photo and show the current one, with its name, size and actions",
+        "why": "File upload is listed as not built in rules.md section 13, and no contract shows a file or an image",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-never/run-2",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 87,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door, with its time stamp",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the recipient's signature as it was drawn on the driver's phone",
+        "why": "The system has no image or media component",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-never/run-2",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 17,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 74,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "row-link",
+        "job": "Opens one delivery for review from its row",
+        "why": "The system has no link style for opening a row",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "row-link",
+        "job": "Opens one delivery for review from its row",
+        "why": "The system has no link style for opening a row",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "row-link",
+        "job": "Opens one delivery for review from its row",
+        "why": "The system has no link style for opening a row",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "row-link",
+        "job": "Opens one delivery for review from its row",
+        "why": "The system has no link style for opening a row",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "row-link",
+        "job": "Opens one delivery for review from its row",
+        "why": "The system has no link style for opening a row",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "row-link",
+        "job": "Opens one delivery for review from its row",
+        "why": "The system has no link style for opening a row",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "row-link",
+        "job": "Opens one delivery for review from its row",
+        "why": "The system has no link style for opening a row",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "row-link",
+        "job": "Opens one delivery for review from its row",
+        "why": "The system has no link style for opening a row",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "row-link",
+        "job": "Opens one delivery for review from its row",
+        "why": "The system has no link style for opening a row",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "two-line-cell",
+        "job": "A name with a quiet second line under it in a table cell",
+        "why": "Table has no cell with a secondary line",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-never/run-2",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 20,
+    "applied": 20,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 111,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "photo-upload",
+        "job": "Upload the example photo that shows drivers what a good proof photo looks like",
+        "why": "File upload is not built in the system yet (rules, section 13)",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-never/run-3",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 77,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "proof-photo",
+        "job": "Show the photo the driver took at the door, with when and where it was taken",
+        "why": "The system has no image or media component, and the screen may not load image files, so the photo is drawn as a still",
+        "base": ""
+      },
+      {
+        "name": "proof-signature",
+        "job": "Show the signature the recipient drew on the driver's phone, with the name they gave",
+        "why": "The system has no image or signature component",
+        "base": ""
+      },
+      {
+        "name": "message-field",
+        "job": "Write a message of several lines to the driver, saying what is missing from the proof",
+        "why": "Textarea is listed as not built; field only has a one-line input or a select",
+        "base": "field"
+      }
+    ]
+  },
+  {
+    "group": "eval/map-never/run-3",
+    "screen": "pod-queue.html",
+    "score": 94.1,
+    "passed": 16,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "x-parcel x-cell x-primary x-secondary x-person x-nowrap"
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 77,
+    "handBuilt": 6,
+    "newParts": [
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-never/run-3",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 20,
+    "applied": 20,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 82,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Upload one example photo and show the one in use",
+        "why": "File upload is not built yet (rules, section 13), and no component holds a file and its preview",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-instead/run-1",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 80,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door, with when and where it was taken",
+        "why": "The system has no image or media component, and the screen may not load image files, so the photo is a drawn stand-in",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the recipient's signature as it was drawn on the driver's phone",
+        "why": "The system has no component for a captured signature, and the screen may not load image files",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-instead/run-1",
+    "screen": "pod-queue.html",
+    "score": 94.1,
+    "passed": 16,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": false,
+        "detail": "proof-thumb-empty (data-base=\"proof-thumb\" is not a component) proof-thumb-empty (data-base=\"proof-thumb\" is not a component) proof-thumb-empty (data-base=\"proof-thumb\" is not a component) proof-thumb-empty (data-base=\"proof-thumb\" is not a component) proof-thumb-empty (data-base=\"proof-thumb\" is not a component)"
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 74,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the photo a driver took at handover",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb-empty",
+        "job": "Shows that a delivery has no proof photo, in the photo column",
+        "why": "No contract shows a missing image; an empty state is for a whole list",
+        "base": "proof-thumb"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the photo a driver took at handover",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the photo a driver took at handover",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb-empty",
+        "job": "Shows that a delivery has no proof photo, in the photo column",
+        "why": "No contract shows a missing image; an empty state is for a whole list",
+        "base": "proof-thumb"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the photo a driver took at handover",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb-empty",
+        "job": "Shows that a delivery has no proof photo, in the photo column",
+        "why": "No contract shows a missing image; an empty state is for a whole list",
+        "base": "proof-thumb"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the photo a driver took at handover",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the photo a driver took at handover",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      },
+      {
+        "name": "proof-thumb-empty",
+        "job": "Shows that a delivery has no proof photo, in the photo column",
+        "why": "No contract shows a missing image; an empty state is for a whole list",
+        "base": "proof-thumb"
+      },
+      {
+        "name": "proof-thumb-empty",
+        "job": "Shows that a delivery has no proof photo, in the photo column",
+        "why": "No contract shows a missing image; an empty state is for a whole list",
+        "base": "proof-thumb"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the photo a driver took at handover",
+        "why": "The system has no image or thumbnail component",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-instead/run-1",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 20,
+    "applied": 20,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 81,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "photo-upload",
+        "job": "Upload the example photo that shows drivers what a good proof photo looks like, and show the current one",
+        "why": "File upload is not built in the system yet (rules, section 13)",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-instead/run-2",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 75,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "pod-photo",
+        "job": "Show the photo the driver took at the door, with the time and place stamped on it",
+        "why": "The system has no image or photo component; the screen is static so the photo is a drawn stand-in",
+        "base": ""
+      },
+      {
+        "name": "pod-signature",
+        "job": "Show the recipient's signature as it was drawn on the driver's phone",
+        "why": "The system has no image or signature component",
+        "base": ""
+      },
+      {
+        "name": "textarea",
+        "job": "Write the message the driver gets when the proof is sent back",
+        "why": "Textarea is listed as not built (rules.md, section 13); a field only has an input or a select",
+        "base": "field"
+      },
+      {
+        "name": "pod-distance",
+        "job": "Show where the driver was against the delivery address and the allowed range when they marked it delivered",
+        "why": "No map or location component exists; this is a schematic, not a real map",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-instead/run-2",
+    "screen": "pod-queue.html",
+    "score": 94.1,
+    "passed": 16,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": false,
+        "detail": "x-nowrap x-sub x-person"
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 61,
+    "handBuilt": 3,
+    "newParts": [
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a row, or its absence",
+        "why": "No contract shows an image thumbnail; avatar shows initials only",
+        "base": "avatar"
+      }
+    ]
+  },
+  {
+    "group": "eval/map-instead/run-2",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 20,
+    "applied": 20,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 62,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Upload one example proof photo and show the uploaded file",
+        "why": "File upload is not built yet (rules.md, section 13)",
+        "base": ""
+      },
+      {
+        "name": "photo-preview",
+        "job": "Show a preview of the uploaded example photo",
+        "why": "The system has no image component, and the screen may not load image files",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-instead/run-3",
+    "screen": "pod-detail.html",
+    "score": 100,
+    "passed": 18,
+    "applied": 18,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 79,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "proof-photo",
+        "job": "Shows the photo the driver took at the door",
+        "why": "The system has no image or media component",
+        "base": ""
+      },
+      {
+        "name": "signature",
+        "job": "Shows the recipient's signature as collected in the driver app",
+        "why": "The system has no image or media component",
+        "base": ""
+      }
+    ]
+  },
+  {
+    "group": "eval/map-instead/run-3",
+    "screen": "pod-queue.html",
+    "score": 100,
+    "passed": 17,
+    "applied": 17,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 51,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      },
+      {
+        "name": "proof-thumb",
+        "job": "A small preview of the delivery photo in a table row",
+        "why": "The system has no image or thumbnail component, and image upload is not built",
+        "base": ""
+      },
+      {
+        "name": "one-line",
+        "job": "Keep a short table value, such as a parcel number, a driver with their avatar, a date or a set of badges, on one line",
+        "why": "The table lets cells wrap, which breaks parcel numbers and badges across lines on a phone",
+        "base": "table"
+      }
+    ]
+  },
+  {
+    "group": "eval/map-instead/run-3",
+    "screen": "pod-rules.html",
+    "score": 100,
+    "passed": 20,
+    "applied": 20,
+    "res": {
+      "CMP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "CMP-04": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TTL-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "TYP-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "SPC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TOK-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "COL-03": {
+        "pass": true,
+        "detail": ""
+      },
+      "BADGE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "CARD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TABLE-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "FIELD-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-02": {
+        "pass": true,
+        "detail": ""
+      },
+      "MENU-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "BTN-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "NUM-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "TSC-01": {
+        "pass": true,
+        "detail": ""
+      },
+      "LAY-01": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "catEls": 79,
+    "handBuilt": 0,
+    "newParts": [
+      {
+        "name": "file-upload",
+        "job": "Upload one example photo and show it, with its name, size and actions to replace or remove it",
+        "why": "The system has no file upload (rules, not built)",
+        "base": ""
+      }
+    ]
+  }
+]
