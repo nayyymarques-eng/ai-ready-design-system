@@ -2,6 +2,10 @@
 
 Each version is a GitHub release with its git tag (`v1.0.0`, `v1.1.0`). A change to how the framework works gets a new minor version, and its own eval when it can change what the AI builds.
 
+## 1.1.1, 2026-11-15
+
+- A closed Dialog no longer shows. `.dialog-backdrop` set `display: flex`, which overrode the `hidden` attribute that `Dialog` sets when `open` is false, so every dialog on a screen showed, open or closed. The example in `contracts/dialog.md` now passes `open`, which it needs to show.
+
 ## 1.1.0, 2026-11-11
 
 - The decision map has three columns: Job | Use | Instead. "Instead" names the component for a nearby job, taken from the contracts' "never" lines that say what to use. The full "never" lines stay only in the contracts, so the AI no longer reads them twice. The map goes from 5.7 KB to 3.4 KB, and a screen reads about 3 KB less.
