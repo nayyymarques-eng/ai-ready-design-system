@@ -107,6 +107,7 @@ h1, h2, h3, p { margin: 0; }
 
 /* Dialog */
 .dialog-backdrop { position: fixed; inset: 0; background: rgba(17, 17, 17, .4); display: flex; align-items: center; justify-content: center; padding: var(--s4); }
+.dialog-backdrop[hidden] { display: none; }
 .dialog { width: 100%; max-width: 440px; background: var(--surface); border-radius: var(--radius); box-shadow: var(--raise-2); padding: var(--s5); display: flex; flex-direction: column; gap: var(--s4); }
 .dialog__title { font: var(--type-heading); color: var(--ink); }
 .dialog__actions { display: flex; justify-content: flex-end; gap: var(--s2); }
